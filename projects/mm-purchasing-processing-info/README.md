@@ -19,7 +19,7 @@
 3. [Program Structure](#-program-structure)
 4. [Selection Screen](#-1-selection-screen)
 5. [ALV1 — PO 기준 목록](#-2-alv1--po-기준-목록-go_alv_po)
-6. [입고 처리 / 취소 (BAPI)](#-3-입고-처리--취소-bapi)
+6. [입고 처리 / 취소 (BAPI)](#%EF%B8%8F-3-입고-처리--취소-bapi)
 7. [Doc Flow 팝업](#-4-doc-flow-팝업-screen-0200)
 8. [ALV2 — Vendor / Material 요약](#-5-alv2--vendor--material-요약-split-alv)
 9. [Troubleshooting](#-troubleshooting)
@@ -49,7 +49,7 @@
 ## 🔀 Program Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Selection Screen<br/>(SEL)"] -->|START-OF-SELECTION| B["GET_DATA<br/>EKKO·EKPO·LFA1·MAKT<br/>+ EKBE 집계"]
     B -->|CALL SCREEN 100| C
 
