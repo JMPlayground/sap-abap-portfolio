@@ -19,7 +19,7 @@ SAP ECC 환경에서 작성한 ABAP 코드 모음입니다. 실무형 MM 프로�
 ```
 sap-abap-portfolio/
 ├── projects/
-│   └── mm-project/     # 실무형 MM 프로젝트
+│   └── mm-purchasing-processing-info/  # [MM] 구매·입고·문서흐름 리포트
 ├── practice/
 │   ├── taw10/          # ABAP 기초 (Part 1·2)
 │   ├── bc405/          # Report 프로그래밍 · ALV
