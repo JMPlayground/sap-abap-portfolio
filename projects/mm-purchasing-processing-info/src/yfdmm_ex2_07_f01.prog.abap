@@ -443,8 +443,7 @@ FORM set_fcat_po_properties .
 
     CASE gs_fcat_po-fieldname.
       WHEN 'EBELN'
-        OR 'MATNR'
-        OR 'BANFN'.
+        OR 'MATNR'.
         gs_fcat_po-hotspot = 'X'.
     ENDCASE.
 
