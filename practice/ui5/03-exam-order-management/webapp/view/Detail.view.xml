@@ -1,119 +1,107 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" 
- xmlns             ="sap.m"
- xmlns:core        ="sap.ui.core" 
- controllerName    ="ncode.zncl0402ljm.controller.Detail">
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    controllerName="ncode.zncl0402ljm.controller.Detail">
     <!--
     ================================================================
-     Detail.view.xml 
+     Detail.view.xml : 생산 오더 상세 · 상태 관리 · 품목 추가/삭제
     ================================================================
-    --><Page id="pageDetail" title="생산 오더 상세"
-        showNavButton   ="true"
-        navButtonPress  =".onNavBack"
-    >
-
+    -->
+    <Page id="pageDetail"
+        title="생산 오더 상세 - {OrderID}"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
         <content>
-     <!-- ===================== 생산상태관리 ===================== -->
-        <Toolbar design ="Transparent">
-            <Title text ="생산 상태 관리" />
-            <ToolbarSpacer />
-            <Button
-                text    ="생산 시작"
-                type    ="Emphasized"
-                enabled ="{= ${Status} === '01' }"
-                press   =".onStart"
-            />
-            <Button
-                text    ="생산 완료"
-                type    ="Success"
-                enabled ="{= ${Status} === '02' }"
-                press   =".onComplete"
-            />
-        </Toolbar>
 
-                <HBox alignItems="End" 
-                        class="sapUiSmallMarginBottom">
-                
-                <!-- 상단 : 공통 폼 Fragment (OrderForm.fragment.xml) -->
-                <core:Fragment
-                    fragmentName    ="ncode.zncl0402ljm.view.OrderForm"
-                    type            ="XML"
-                />
-    
-                </HBox>   
-
-        <Table
-        id              ="idItemTable"
-        items           ="{_Items}"
-        mode            ="MultiSelect"
-        noDataText      ="품목이 없습니다."
-        class           ="sapUiSmallMarginTop"
-    >
-        <headerToolbar>
-            <OverflowToolbar>
-                <Title
-                    text    ="주문 하위 품목 리스트"
-                    level   ="H2"
-                />
-                <ToolbarSpacer />
-                <!-- 기능 7 : 품목 추가 / 선택 삭제 -->
-                <Button
-                    text    ="품목 추가"
-                    icon    ="sap-icon://add"
-                    type    ="Emphasized"
-                    press   =".onAddItem"
-                />
-                <Button
-                    text    ="선택 삭제"
-                    icon    ="sap-icon://delete"
-                    type    ="Reject"
-                    press   =".onDeleteItems"
-                />
+            <!-- ===================== 생산 상태 관리 ===================== -->
+            <!-- 01 계획 → 02 진행 중 → 03 완료 / 01·02 ↔ 09 보류 -->
+            <OverflowToolbar design="Transparent">
+                <Title text="생산 상태 관리"/>
+                <ToolbarSpacer/>
+                <Button text="생산 시작"
+                    type="Emphasized"
+                    icon="sap-icon://media-play"
+                    enabled="{= ${Status} === '01' }"
+                    press=".onStart"/>
+                <Button text="생산 완료"
+                    type="Success"
+                    icon="sap-icon://complete"
+                    enabled="{= ${Status} === '02' }"
+                    press=".onComplete"/>
+                <Button text="보류"
+                    type="Reject"
+                    icon="sap-icon://media-pause"
+                    enabled="{= ${Status} === '01' || ${Status} === '02' }"
+                    press=".onHold"/>
+                <Button text="재개"
+                    icon="sap-icon://restart"
+                    enabled="{= ${Status} === '09' }"
+                    press=".onResume"/>
             </OverflowToolbar>
-        </headerToolbar>
 
-        <columns>
-            <Column><Text text="자재 번호" /></Column>
-            <Column><Text text="자재명" /></Column>
-            <Column><Text text="카테고리" /></Column>
-            <Column hAlign="End"><Text text="계획 수량" /></Column>
-            <Column hAlign="End"><Text text="필요 수량" /></Column>
-            <Column hAlign="End"><Text text="가용 재고" /></Column>
-            <Column><Text text="생산 일정 (시작 / 납기)" /></Column>
-            <Column><Text text="설명" /></Column>
-        </columns>
+            <!-- 상단 : 공통 폼 Fragment -->
+            <core:Fragment fragmentName="ncode.zncl0402ljm.view.OrderForm" type="XML"/>
 
-        <items>
-            <ColumnListItem>
-                <cells>
-                    <Text text ="{Material}" />
-                    <Text text ="{MaterialName}" />
-                    <Text text ="{Category}" />
+            <!-- ===================== 하위 품목 ===================== -->
+            <Table id="idItemTable"
+                items="{_Items}"
+                mode="MultiSelect"
+                noDataText="품목이 없습니다."
+                class="sapUiSmallMarginTop">
 
-                    <!-- 수량 : 굵은 숫자(콤마) + 단위 -->
-                    <ObjectNumber
-                        number  ="{ path : 'PlannedQty', formatter : '.formatNumber' }"
-                        unit    ="{Unit}"
-                    />
-                    <ObjectNumber
-                        number  ="{ path : 'RequiredQty', formatter : '.formatNumber' }"
-                        unit    ="{Unit}"
-                    />
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="주문 하위 품목 리스트" level="H2"/>
+                        <ToolbarSpacer/>
+                        <!-- 완료된 오더는 품목 변경 불가 -->
+                        <Button text="품목 추가"
+                            icon="sap-icon://add"
+                            type="Emphasized"
+                            enabled="{= ${Status} !== '03' }"
+                            press=".onAddItem"/>
+                        <Button text="선택 삭제"
+                            icon="sap-icon://delete"
+                            type="Reject"
+                            enabled="{= ${Status} !== '03' }"
+                            press=".onDeleteItems"/>
+                    </OverflowToolbar>
+                </headerToolbar>
 
-                    <!-- 예외 : 가용재고 ≥ 필요수량 → 초록 / 부족 → 빨강 -->
-                    <ObjectNumber
-                        number  ="{ path : 'AvailableStock', formatter : '.formatNumber' }"
-                        unit    ="{Unit}"
-                        state   ="{= ${AvailableStock} >= ${RequiredQty} ? 'Success' : 'Error' }"
-                    />
+                <columns>
+                    <Column><Text text="자재 번호"/></Column>
+                    <Column><Text text="자재명"/></Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true"><Text text="카테고리"/></Column>
+                    <Column hAlign="End"><Text text="계획 수량"/></Column>
+                    <Column hAlign="End"><Text text="필요 수량"/></Column>
+                    <Column hAlign="End"><Text text="가용 재고"/></Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true"><Text text="생산 일정"/></Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true"><Text text="설명"/></Column>
+                </columns>
 
-                    <!-- 생산 일정 : 납기 - 시작일 → "6일 소요" -->
-                    <Text text ="{ parts : [ { path : 'StartDate' }, { path : 'DueDate' } ], formatter : '.formatPeriod' }" />
-
-                    <Text text ="{Description}" />
-                </cells>
-            </ColumnListItem>
-            </items>
-        </Table>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{Material}"/>
+                            <Text text="{MaterialName}"/>
+                            <Text text="{Category}"/>
+                            <ObjectNumber
+                                number="{ path : 'PlannedQty', formatter : '.formatter.number' }"
+                                unit="{Unit}"/>
+                            <ObjectNumber
+                                number="{ path : 'RequiredQty', formatter : '.formatter.number' }"
+                                unit="{Unit}"/>
+                            <!-- 가용재고 ≥ 필요수량 → 초록 / 부족 → 빨강 -->
+                            <ObjectNumber
+                                number="{ path : 'AvailableStock', formatter : '.formatter.number' }"
+                                unit="{Unit}"
+                                state="{ parts : [ 'AvailableStock', 'RequiredQty' ], formatter : '.formatter.stockState' }"/>
+                            <!-- 납기 - 시작일 → "6일 소요" -->
+                            <Text text="{ parts : [ 'StartDate', 'DueDate' ], formatter : '.formatter.period' }"/>
+                            <Text text="{Description}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 </mvc:View>

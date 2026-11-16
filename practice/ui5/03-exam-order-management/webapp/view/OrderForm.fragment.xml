@@ -1,36 +1,36 @@
 <core:FragmentDefinition
-    xmlns       ="sap.m"
-    xmlns:core  ="sap.ui.core"
-    xmlns:form  ="sap.ui.layout.form"
->
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
     <!-- 공통 폼 : 상대경로 → Detail 의 bindElement(/Orders/n) 를 그대로 사용 -->
     <form:SimpleForm
-        title       ="생산 오더 상세 정보"
-        editable    ="false"
-        layout      ="ResponsiveGridLayout"
-        labelSpanL  ="3"
-        labelSpanM  ="3"
-        labelSpanS  ="12"
-    >
+        title="생산 오더 상세 정보"
+        editable="false"
+        layout="ResponsiveGridLayout"
+        labelSpanL="3"
+        labelSpanM="3"
+        labelSpanS="12">
         <form:content>
-            <Label text ="생산 오더 번호" />
-            <Text  text ="{OrderID}" />
+            <Label text="생산 오더 번호"/>
+            <Text text="{OrderID}"/>
 
-            <Label text ="판매 오더 번호" />
-            <Text  text ="{SalesOrder}" />
+            <Label text="판매 오더 번호"/>
+            <Text text="{SalesOrder}"/>
 
-            <Label text ="고객명" />
-            <Text  text ="{Customer}" />
+            <Label text="고객명"/>
+            <Text text="{Customer}"/>
 
-            <Label text ="플랜트" />
-            <Text  text ="{Plant}" />
+            <Label text="플랜트"/>
+            <Text text="{Plant}"/>
 
-            <!-- 상태 : 코드 → 한글 + 색상 (setProperty 하면 즉시 바뀜) -->
-            <Label text ="생산 상태" />
+            <!-- 상태 : setProperty 하면 즉시 바뀜 -->
+            <Label text="생산 상태"/>
             <ObjectStatus
-                text    ="{= ${Status} === '01' ? '계획' : ( ${Status} === '02' ? '진행 중' : ( ${Status} === '03' ? '완료' : ( ${Status} === '09' ? '보류' : ${Status} ) ) ) }"
-                state   ="{= ${Status} === '03' ? 'Success' : ( ${Status} === '02' ? 'Information' : ( ${Status} === '09' ? 'Error' : 'None' ) ) }"
-            />
+                text="{ path : 'Status', formatter : '.formatter.statusText' }"
+                state="{ path : 'Status', formatter : '.formatter.statusState' }"/>
+
+            <Label text="품목 수"/>
+            <Text text="{= ${_Items} ? ${_Items}.length + '건' : '' }"/>
         </form:content>
     </form:SimpleForm>
 </core:FragmentDefinition>

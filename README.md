@@ -43,7 +43,7 @@ SAP ECC 환경에서 작성한 ABAP 코드와 SAPUI5 앱 모음입니다. 실무
 | Environment | SAP ECC · SAP GUI (SE38 / SE51 / SE41 / SE80) |
 | Module | MM (Materials Management) |
 | Topics | ALV Grid · Split Container · Dialog Programming · Tabstrip · BAPI · LUW |
-| Frontend | SAPUI5 (XML View · JSON Model · Fragment · Routing) · SAP BAS |
+| Frontend | SAPUI5 (XML View · JSON / OData V2 Model · Fragment · Routing) · SAP BAS |
 
 ## 📁 Repository Structure
 ```
@@ -60,7 +60,8 @@ sap-abap-portfolio/
 │   ├── taw10/                           # ABAP 기초 (Part 1·2)
 │   ├── bc405/                           # Report 프로그래밍 · ALV
 │   ├── bc414/                           # DB Update · LUW · Lock
-│   └── taw12/                           # 고급 ABAP · OO
+│   ├── taw12/                           # 고급 ABAP · OO
+│   └── ui5/                             # SAPUI5 실습 4종 (기초 · 라우팅 · 시험 · OData)
 └── docs/
 ```
 

@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <!-- 품목 추가 팝업 : 입력값은 별도 모델 "newItem" 에 담았다가 저장 시 _Items 에 추가 -->
+    <Dialog id="itemDialog" title="품목 추가" contentWidth="32rem">
+        <content>
+            <form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4">
+                <form:content>
+                    <Label text="자재 번호" required="true"/>
+                    <Input value="{newItem>/Material}" placeholder="예) MAT-200"/>
+
+                    <Label text="자재명" required="true"/>
+                    <Input value="{newItem>/MaterialName}"/>
+
+                    <Label text="카테고리"/>
+                    <Input value="{newItem>/Category}"/>
+
+                    <Label text="단위" required="true"/>
+                    <Input value="{newItem>/Unit}" width="6rem"/>
+
+                    <Label text="계획 / 필요 수량" required="true"/>
+                    <Input value="{newItem>/PlannedQty}" type="Number"/>
+                    <Input value="{newItem>/RequiredQty}" type="Number"/>
+
+                    <Label text="가용 재고"/>
+                    <Input value="{newItem>/AvailableStock}" type="Number"/>
+
+                    <Label text="시작일 / 납기일" required="true"/>
+                    <DatePicker value="{newItem>/StartDate}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+                    <DatePicker value="{newItem>/DueDate}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"/>
+
+                    <Label text="설명"/>
+                    <TextArea value="{newItem>/Description}" rows="2"/>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button text="저장" type="Emphasized" press=".onSaveItem"/>
+        </beginButton>
+        <endButton>
+            <Button text="취소" press=".onCancelItem"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
