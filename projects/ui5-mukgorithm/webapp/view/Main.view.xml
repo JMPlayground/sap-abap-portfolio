@@ -1,0 +1,71 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="zcl4mukgorithm.zcl4mukgorithm.controller.Main">
+
+<m:Page id="idMainPage" enableScrolling="true" class="mkStorePage">
+		<m:Panel expanded="true" expandable="false" width="auto" stickyHeader="true">
+			<!-- Panel 상단 header -->
+			<m:headerToolbar>
+	<m:Toolbar class="mkStoreToolbar">
+		<m:content>
+
+			<m:Button id="idBack" icon="sap-icon://navigation-left-arrow" type="Transparent" press=".onNaviBack" class="mkSortBtn"/>
+
+			<m:Title id="idCategoryTitle" text="식당 목록" class="mkStoreToolbarTitle"/>
+			<m:ToolbarSpacer/>
+
+			<!-- 카테고리 선택 -->
+			<m:Select id="idCategoryChange" width="8rem" forceSelection="false" change=".onCategoryChange" class="mkCategorySelect">
+				<core:Item key="KOR" text="한식"/>
+				<core:Item key="CHN" text="중식"/>
+				<core:Item key="WST" text="양식"/>
+				<core:Item key="ETC" text="기타"/>
+			</m:Select>
+
+			<!-- 정렬 -->
+			<m:Button id="idSortBtn" icon="sap-icon://sort-descending" text="기본순" type="Transparent" press=".onSortPress" class="mkSortBtn"/>
+		</m:content>
+	</m:Toolbar>
+</m:headerToolbar>
+	
+	<m:content>
+		
+				<m:List id="idStoreList" showSeparators="None" items="{/Restaurants}" class="customFeedList">
+					<m:CustomListItem class="customFeedItem" type="Active" press=".onRepReviewPress">
+						<m:HBox alignItems="Start" class="customFeedContent">
+
+							<!-- 프로필 이미지 -->
+							<m:Image src="{path:'ImageUrl', formatter:'.formatter.imageUrl'}" width="60px" height="60px" class="customFeedIcon sapUiSmallMarginEnd"/>
+
+							<m:VBox width="100%">
+								<m:HBox>
+									<m:Text text="{StoreName}" class="sapUiSmallMarginEnd feedSender"/>						
+									<m:RatingIndicator id="avgStar" displayOnly="true" editable="false" iconSize="0.8rem" value="{AvgRating}"  class="customRating sapUiTinyMarginTop"/>
+								</m:HBox>
+								
+								<m:HBox wrap="Wrap" class="sapUiTinyMarginTop">
+									<m:Text text="{Tag}" class="feedTag sapUiSmallMarginEnd"/>
+								
+									<core:Icon src="sap-icon://call" class="feedDate sapUiTinyMarginEnd"/>
+									<m:Text text="{Phone}" class="feedDate sapUiSmallMarginEnd"/>
+
+									<m:Text text="{= ${Category} === 'KOR' ? '한식' : ${Category} === 'CHN' ? '중식' : ${Category} === 'WST' ? '양식' : '기타' }" class="feedDate sapUiSmallMarginEnd"/>
+								</m:HBox>
+
+								<!-- 대표 리뷰 출력 -->
+								<m:VBox>		
+									<m:HBox class="sapUiSmallMarginTop">
+										<m:Text text="{Reviews/0/VisitDate}" class="feedDate sapUiSmallMarginEnd"/>					
+										<m:RatingIndicator displayOnly="true" editable="false" iconSize="0.7rem" value="{RepRating}" class="customRating sapUiTinyMarginTop"/>
+									</m:HBox>
+
+									<m:Text text="{RepReview}" wrapping="true" maxLines="2"/>
+
+								</m:VBox>
+							</m:VBox>
+						</m:HBox>
+					</m:CustomListItem>
+				</m:List>
+				
+	</m:content>
+	</m:Panel>
+</m:Page>
+</mvc:View>

@@ -1,0 +1,3044 @@
+{
+  "Restaurants": [
+    {
+      "StoreCode": "S001",
+      "StoreName": "여수식당",
+      "Category": "KOR",
+      "Tag": "백반",
+      "Phone": "02-0786-1190",
+      "ImageUrl": "img/food/bibimbap.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S001",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-25",
+          "MenuName": "백반",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 주문하고 10분 정도 기다렸어요. 백반은 무난하게 먹을 만했어요. 다만 점심엔 웨이팅이 좀 있어요. 재방문은 고민해볼게요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S001",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-17",
+          "MenuName": "보쌈",
+          "Rating": 3,
+          "Price": 15000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 보쌈은 맛은 평범한 편이에요. 다만 점심엔 웨이팅이 좀 있어요. 다음엔 다른 곳도 가볼래요. 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S001",
+          "MenuCode": "M03",
+          "VisitDate": "2026-01-27",
+          "MenuName": "고등어구이",
+          "Rating": 3,
+          "Price": 11000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 고등어구이는 가격 생각하면 그럭저럭이에요. 자리가 좁은 편이에요. 근처면 한 번쯤 더 올지도? 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S002",
+      "StoreName": "명백집 구로디지털점",
+      "Category": "KOR",
+      "Tag": "국밥",
+      "Phone": "02-0447-1041",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S002",
+          "MenuCode": "M01",
+          "VisitDate": "2026-06-10",
+          "MenuName": "냉면",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 냉면은 육수가 살얼음처럼 시원해서 더운 날 딱이에요. 간이 살짝 센 편이에요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S002",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-25",
+          "MenuName": "국밥",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "동생이랑 주말에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 국밥은 뜨끈한 국물이 생각날 때 딱이에요. 가격이 조금 오른 게 아쉬워요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S002",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-06",
+          "MenuName": "국밥",
+          "Rating": 3,
+          "Price": 10000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 국밥은 가격 생각하면 그럭저럭이에요. 양이 조금 아쉬웠어요. 재방문 의사 있어요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S003",
+      "StoreName": "5.13낙곱새 구로디지털직영점",
+      "Category": "KOR",
+      "Tag": "낙곱새",
+      "Phone": "02-0658-8061",
+      "ImageUrl": "img/food/tteokbokki.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S003",
+          "MenuCode": "M01",
+          "VisitDate": "2026-03-12",
+          "MenuName": "낙곱새",
+          "Rating": 5,
+          "Price": 14000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 낙곱새는 매콤해서 스트레스가 확 풀려요. 사장님이 친절하세요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S003",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-23",
+          "MenuName": "낙곱새",
+          "Rating": 5,
+          "Price": 14000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 낙곱새는 맵기가 딱 적당하고 자꾸 손이 가요. 반찬도 깔끔하게 나와요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S003",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-10",
+          "MenuName": "낙곱새",
+          "Rating": 5,
+          "Price": 14000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 낙곱새는 매콤해서 스트레스가 확 풀려요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S004",
+      "StoreName": "금성관나주곰탕 구로직영점",
+      "Category": "KOR",
+      "Tag": "곰탕",
+      "Phone": "02-0545-4426",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S004",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-12",
+          "MenuName": "곰탕",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 곰탕은 국물이 진하고 깊어서 속이 든든해요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 메뉴도 먹어볼래요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S004",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-01",
+          "MenuName": "곰탕",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "부모님 모시고 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 곰탕은 국물이 진하고 깊어서 속이 든든해요. 혼밥하기도 편해요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S004",
+          "MenuCode": "M03",
+          "VisitDate": "2026-01-23",
+          "MenuName": "곰탕",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 곰탕은 국물이 진하고 깊어서 속이 든든해요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S005",
+      "StoreName": "김가네 구로디지털점",
+      "Category": "KOR",
+      "Tag": "분식",
+      "Phone": "02-0778-3296",
+      "ImageUrl": "img/food/tteokbokki.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S005",
+          "MenuCode": "M01",
+          "VisitDate": "2026-08-07",
+          "MenuName": "새우롤",
+          "Rating": 5,
+          "Price": 6500,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 새우롤은 한입 베어 물면 육즙이 터져요. 반찬도 깔끔하게 나와요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S005",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-10",
+          "MenuName": "쫄면",
+          "Rating": 2,
+          "Price": 7000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 쫄면은 간이 너무 세서 아쉬웠어요. 재방문 의사 있어요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S005",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-24",
+          "MenuName": "치킨마요덮밥",
+          "Rating": 4,
+          "Price": 7500,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 치킨마요덮밥은 튀김옷이 바삭하고 속살이 촉촉해요. 양이 많아서 배불러요. 다음에 또 올 거예요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S006",
+      "StoreName": "송가직화제육",
+      "Category": "KOR",
+      "Tag": "제육",
+      "Phone": "02-0144-2353",
+      "ImageUrl": "img/food/samgyeopsal.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S006",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-15",
+          "MenuName": "제육",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 제육은 매콤해서 스트레스가 확 풀려요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S006",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-30",
+          "MenuName": "제육",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 제육은 매콤해서 스트레스가 확 풀려요. 직원분들이 친절해요. 단골 될 것 같아요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S006",
+          "MenuCode": "M03",
+          "VisitDate": "2026-02-19",
+          "MenuName": "제육",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 제육은 매콤해서 스트레스가 확 풀려요. 사장님이 친절하세요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S007",
+      "StoreName": "월화식당 구로디지털단지점",
+      "Category": "KOR",
+      "Tag": "찌개",
+      "Phone": "02-0850-6643",
+      "ImageUrl": "img/food/jjigae.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S007",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-07",
+          "MenuName": "김치찌개",
+          "Rating": 5,
+          "Price": 9000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 주문하고 10분 정도 기다렸어요. 김치찌개는 간이 딱 맞고 건더기가 푸짐해요. 반찬도 깔끔하게 나와요. 다음에 또 올 거예요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S007",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-22",
+          "MenuName": "김치찌개",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 김치찌개는 보글보글 끓여 먹으니 밥이 절로 넘어가요. 자리가 좁은 편이에요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S007",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-03",
+          "MenuName": "제육",
+          "Rating": 4,
+          "Price": 9500,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 제육은 매콤해서 스트레스가 확 풀려요. 양이 많아서 배불러요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S008",
+      "StoreName": "콩두머리",
+      "Category": "KOR",
+      "Tag": "두부",
+      "Phone": "02-0985-8795",
+      "ImageUrl": "img/food/jjigae.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S008",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-02",
+          "MenuName": "두부전골",
+          "Rating": 5,
+          "Price": 24000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 두부전골은 보글보글 끓여 먹으니 밥이 절로 넘어가요. 혼밥하기도 편해요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S008",
+          "MenuCode": "M02",
+          "VisitDate": "2026-05-15",
+          "MenuName": "콩국수",
+          "Rating": 5,
+          "Price": 11000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 콩국수는 시원하고 깔끔해서 한 그릇 금방 비웠어요. 직원분들이 친절해요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S008",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-15",
+          "MenuName": "순두부찌개",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 순두부찌개는 간이 딱 맞고 건더기가 푸짐해요. 혼밥하기도 편해요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S009",
+      "StoreName": "용산옥 구로디지털본점",
+      "Category": "KOR",
+      "Tag": "부대찌개",
+      "Phone": "02-0133-6959",
+      "ImageUrl": "img/food/jjigae.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S009",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-09",
+          "MenuName": "부대찌개",
+          "Rating": 5,
+          "Price": 11000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 부대찌개는 간이 딱 맞고 건더기가 푸짐해요. 직원분들이 친절해요. 다음엔 다른 메뉴도 먹어볼래요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S009",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-03",
+          "MenuName": "치즈닭갈비",
+          "Rating": 4,
+          "Price": 15000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 치즈닭갈비는 맵기가 딱 적당하고 자꾸 손이 가요. 간이 살짝 센 편이에요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S009",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-11",
+          "MenuName": "닭갈비",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 닭갈비는 매콤해서 스트레스가 확 풀려요. 사장님이 친절하세요. 다음에 또 올 거예요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S010",
+      "StoreName": "백화돈 구로본점",
+      "Category": "KOR",
+      "Tag": "고기",
+      "Phone": "02-0695-4331",
+      "ImageUrl": "img/food/samgyeopsal.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S010",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-14",
+          "MenuName": "된장찌개",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 된장찌개는 기대보단 조금 아쉬웠어요. 양이 조금 아쉬웠어요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S010",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-06",
+          "MenuName": "된장찌개",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 된장찌개는 기대보단 조금 아쉬웠어요. 자리가 좁은 편이에요. 근처면 한 번쯤 더 올지도? 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S010",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-22",
+          "MenuName": "삼겹살",
+          "Rating": 2,
+          "Price": 16000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 삼겹살은 양이 적고 가격이 비싼 편이에요. 다시 갈 일은 없을 것 같아요. 같이 간 친구도 표정이 별로였어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S011",
+      "StoreName": "망부석 구로디지털단지점",
+      "Category": "KOR",
+      "Tag": "전골",
+      "Phone": "02-0328-4735",
+      "ImageUrl": "img/food/jjigae.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S011",
+          "MenuCode": "M01",
+          "VisitDate": "2026-05-21",
+          "MenuName": "수육",
+          "Rating": 5,
+          "Price": 25000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 수육은 불향이 제대로 배어 있고 고기 질이 좋아요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S011",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-16",
+          "MenuName": "모츠나베",
+          "Rating": 4,
+          "Price": 25000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 모츠나베는 국물이 진하고 깊어서 속이 든든해요. 사장님이 친절하세요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S011",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-20",
+          "MenuName": "모츠나베",
+          "Rating": 4,
+          "Price": 25000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 모츠나베는 뜨끈한 국물이 생각날 때 딱이에요. 간이 살짝 센 편이에요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S012",
+      "StoreName": "조마루감자탕 구로디지털2호점",
+      "Category": "KOR",
+      "Tag": "감자탕",
+      "Phone": "02-0574-5902",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S012",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-26",
+          "MenuName": "뼈해장국",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 뼈해장국은 뜨끈한 국물이 생각날 때 딱이에요. 직원분들이 친절해요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S012",
+          "MenuCode": "M02",
+          "VisitDate": "2026-09-17",
+          "MenuName": "감자탕",
+          "Rating": 5,
+          "Price": 32000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 감자탕은 국물이 진하고 깊어서 속이 든든해요. 사장님이 친절하세요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S012",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-07",
+          "MenuName": "묵은지감자탕",
+          "Rating": 4,
+          "Price": 35000,
+          "ReviewText": "부모님 모시고 갔어요. 주문하고 10분 정도 기다렸어요. 묵은지감자탕은 국물이 진하고 깊어서 속이 든든해요. 사장님이 친절하세요. 단골 될 것 같아요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S013",
+      "StoreName": "평안도찹쌀순대 구로디지털점",
+      "Category": "KOR",
+      "Tag": "국밥",
+      "Phone": "02-0584-3257",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S013",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-05",
+          "MenuName": "순대국밥",
+          "Rating": 2,
+          "Price": 10000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 주문하고 10분 정도 기다렸어요. 순대국밥은 식은 상태로 나와서 실망했어요. 다음엔 다른 곳도 가볼래요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S013",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-09",
+          "MenuName": "모둠순대",
+          "Rating": 2,
+          "Price": 15000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 모둠순대는 식은 상태로 나와서 실망했어요. 재방문은 안 할 듯해요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S013",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-14",
+          "MenuName": "머리고기",
+          "Rating": 2,
+          "Price": 18000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 머리고기는 간이 너무 세서 아쉬웠어요. 재방문은 안 할 듯해요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S014",
+      "StoreName": "양은이네 구로디지털단지역점",
+      "Category": "KOR",
+      "Tag": "탕",
+      "Phone": "02-0870-6506",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S014",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-30",
+          "MenuName": "곤이탕",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 곤이탕은 뜨끈한 국물이 생각날 때 딱이에요. 양이 많아서 배불러요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S014",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-13",
+          "MenuName": "알탕",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 알탕은 뜨끈한 국물이 생각날 때 딱이에요. 반찬도 깔끔하게 나와요. 단골 될 것 같아요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S014",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-04",
+          "MenuName": "동태탕",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 동태탕은 뜨끈한 국물이 생각날 때 딱이에요. 양이 많아서 배불러요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S015",
+      "StoreName": "민촌",
+      "Category": "KOR",
+      "Tag": "보양식",
+      "Phone": "02-0253-4083",
+      "ImageUrl": "img/food/gukbap.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S015",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-31",
+          "MenuName": "닭무침",
+          "Rating": 3,
+          "Price": 18000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 닭무침은 가격 생각하면 그럭저럭이에요. 가격이 조금 오른 게 아쉬워요. 근처면 한 번쯤 더 올지도? 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S015",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-05",
+          "MenuName": "닭곰탕",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 닭곰탕은 뜨끈한 국물이 생각날 때 딱이에요. 매장이 깨끗해요. 다음에 또 올 거예요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S015",
+          "MenuCode": "M03",
+          "VisitDate": "2026-03-10",
+          "MenuName": "닭개장",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "동생이랑 주말에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 닭개장은 뜨끈한 국물이 생각날 때 딱이에요. 반찬도 깔끔하게 나와요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S016",
+      "StoreName": "오복솥뚜껑 구로디지털점",
+      "Category": "KOR",
+      "Tag": "고기",
+      "Phone": "02-0326-8345",
+      "ImageUrl": "img/food/samgyeopsal.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S016",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-11",
+          "MenuName": "삼겹살",
+          "Rating": 3,
+          "Price": 16000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 삼겹살은 맛은 평범한 편이에요. 간이 살짝 센 편이에요. 다음엔 다른 곳도 가볼래요. 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S016",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-05",
+          "MenuName": "된장찌개",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 된장찌개는 무난하게 먹을 만했어요. 가격이 조금 오른 게 아쉬워요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S016",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-06",
+          "MenuName": "목살",
+          "Rating": 2,
+          "Price": 16000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 목살은 간이 너무 세서 아쉬웠어요. 재방문은 안 할 듯해요. 리뷰 보고 갔는데 기대가 너무 컸나 봐요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S017",
+      "StoreName": "참토우 구로디지털단지",
+      "Category": "KOR",
+      "Tag": "한우",
+      "Phone": "02-0220-4735",
+      "ImageUrl": "img/food/samgyeopsal.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S017",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-19",
+          "MenuName": "김치찌개",
+          "Rating": 1,
+          "Price": 9000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 김치찌개는 양이 적고 가격이 비싼 편이에요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S017",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-16",
+          "MenuName": "육회비빔밥",
+          "Rating": 2,
+          "Price": 12000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 육회비빔밥은 웨이팅에 비해 맛이 별로였어요. 재방문은 안 할 듯해요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S017",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-10",
+          "MenuName": "물냉면",
+          "Rating": 1,
+          "Price": 11000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 물냉면은 식은 상태로 나와서 실망했어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S018",
+      "StoreName": "옛날황소곱창",
+      "Category": "KOR",
+      "Tag": "곱창",
+      "Phone": "02-0411-7377",
+      "ImageUrl": "img/food/samgyeopsal.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S018",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-21",
+          "MenuName": "소곱창",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 소곱창은 고기가 부드럽고 잡내 없이 맛있어요. 양이 많아서 배불러요. 단골 될 것 같아요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S018",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-05",
+          "MenuName": "곱창볶음밥",
+          "Rating": 5,
+          "Price": 4000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 곱창볶음밥은 불향이 제대로 배어 있고 고기 질이 좋아요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S018",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-07",
+          "MenuName": "대창",
+          "Rating": 5,
+          "Price": 24000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 대창은 불향이 제대로 배어 있고 고기 질이 좋아요. 반찬도 깔끔하게 나와요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S019",
+      "StoreName": "김갑순닭한마리",
+      "Category": "KOR",
+      "Tag": "닭한마리",
+      "Phone": "02-0575-2727",
+      "ImageUrl": "img/food/jjigae.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S019",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-16",
+          "MenuName": "칼국수",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "부모님 모시고 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 칼국수는 면이 쫄깃하고 소스가 잘 배어 있어요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S019",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-10",
+          "MenuName": "간장게장",
+          "Rating": 5,
+          "Price": 32000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 간장게장은 해산물이 신선하고 양도 넉넉해요. 혼밥하기도 편해요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S019",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-14",
+          "MenuName": "닭한마리",
+          "Rating": 5,
+          "Price": 28000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 닭한마리는 뜨끈한 국물이 생각날 때 딱이에요. 혼밥하기도 편해요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S020",
+      "StoreName": "변동춘명동칼국수",
+      "Category": "KOR",
+      "Tag": "칼국수",
+      "Phone": "02-0929-7815",
+      "ImageUrl": "img/food/kalguksu.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S020",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-29",
+          "MenuName": "만둣국",
+          "Rating": 3,
+          "Price": 10000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 만둣국은 무난하게 먹을 만했어요. 자리가 좁은 편이에요. 근처면 한 번쯤 더 올지도? 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        },
+        {
+          "StoreCode": "S020",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-09",
+          "MenuName": "칼국수",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 칼국수는 특별한 건 없지만 나쁘지 않아요. 양이 조금 아쉬웠어요. 재방문은 고민해볼게요. 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        },
+        {
+          "StoreCode": "S020",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-25",
+          "MenuName": "비빔국수",
+          "Rating": 2,
+          "Price": 9000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 비빔국수는 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S021",
+      "StoreName": "리옌 본점",
+      "Category": "CHN",
+      "Tag": "짜장·짬뽕",
+      "Phone": "02-0464-9306",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S021",
+          "MenuCode": "M01",
+          "VisitDate": "2026-01-08",
+          "MenuName": "짜장면",
+          "Rating": 5,
+          "Price": 7500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 짜장면은 면발이 탱탱하고 양도 넉넉해요. 가성비가 좋아요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S021",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-27",
+          "MenuName": "중식 모음",
+          "Rating": 5,
+          "Price": 30000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 중식 모음은 재료가 신선하고 맛의 균형이 좋아요. 가성비가 좋아요. 다음에 또 올 거예요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S021",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-26",
+          "MenuName": "짬뽕",
+          "Rating": 5,
+          "Price": 10000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 짬뽕은 맵기가 딱 적당하고 자꾸 손이 가요. 양이 많아서 배불러요. 다음에 또 올 거예요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S022",
+      "StoreName": "홍매",
+      "Category": "CHN",
+      "Tag": "짜장·짬뽕",
+      "Phone": "02-0872-1546",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S022",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-22",
+          "MenuName": "짜장면",
+          "Rating": 4,
+          "Price": 7500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 짜장면은 면발이 탱탱하고 양도 넉넉해요. 혼밥하기도 편해요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S022",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-15",
+          "MenuName": "짬뽕",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 짬뽕은 매콤해서 스트레스가 확 풀려요. 반찬도 깔끔하게 나와요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S022",
+          "MenuCode": "M03",
+          "VisitDate": "2026-01-01",
+          "MenuName": "탕수육",
+          "Rating": 5,
+          "Price": 20000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 탕수육은 겉은 바삭하고 속은 촉촉해요. 양이 많아서 배불러요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S023",
+      "StoreName": "용용선생",
+      "Category": "CHN",
+      "Tag": "마라",
+      "Phone": "02-0506-2333",
+      "ImageUrl": "img/food/mala.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S023",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-07",
+          "MenuName": "마라찜",
+          "Rating": 2,
+          "Price": 28000,
+          "ReviewText": "동생이랑 주말에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 마라찜은 기대 이하였어요. 재방문은 고민해볼게요. 나와서 편의점에서 다시 뭘 사 먹었어요."
+        },
+        {
+          "StoreCode": "S023",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-18",
+          "MenuName": "마라전골",
+          "Rating": 4,
+          "Price": 30000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 마라전골은 맵기가 딱 적당하고 자꾸 손이 가요. 자리가 좁은 편이에요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S023",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-29",
+          "MenuName": "꿔바로우",
+          "Rating": 4,
+          "Price": 18000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 꿔바로우는 기름지지 않고 바삭하게 잘 튀겼어요. 가성비가 좋아요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S024",
+      "StoreName": "청룡반점 구로점",
+      "Category": "CHN",
+      "Tag": "중화요리",
+      "Phone": "02-0520-2850",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S024",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-14",
+          "MenuName": "간짜장",
+          "Rating": 5,
+          "Price": 8500,
+          "ReviewText": "부모님 모시고 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 간짜장은 면발이 탱탱하고 양도 넉넉해요. 매장이 깨끗해요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S024",
+          "MenuCode": "M02",
+          "VisitDate": "2025-11-26",
+          "MenuName": "탕수육",
+          "Rating": 4,
+          "Price": 20000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 탕수육은 기름지지 않고 바삭하게 잘 튀겼어요. 양이 많아서 배불러요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S024",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-10",
+          "MenuName": "짬뽕밥",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 짬뽕밥은 매콤해서 스트레스가 확 풀려요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S025",
+      "StoreName": "만리성",
+      "Category": "CHN",
+      "Tag": "중화요리",
+      "Phone": "02-0172-3589",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S025",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-14",
+          "MenuName": "볶음밥",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 볶음밥은 재료가 신선하고 맛의 균형이 좋아요. 자리가 좁은 편이에요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S025",
+          "MenuCode": "M02",
+          "VisitDate": "2025-10-16",
+          "MenuName": "짜장면",
+          "Rating": 3,
+          "Price": 7500,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 짜장면은 가격 생각하면 그럭저럭이에요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 곳도 가볼래요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S025",
+          "MenuCode": "M03",
+          "VisitDate": "2026-02-13",
+          "MenuName": "군만두",
+          "Rating": 2,
+          "Price": 7000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 군만두는 기대 이하였어요. 재방문은 안 할 듯해요. 리뷰 보고 갔는데 기대가 너무 컸나 봐요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S026",
+      "StoreName": "홍운각",
+      "Category": "CHN",
+      "Tag": "짬뽕",
+      "Phone": "02-0588-8482",
+      "ImageUrl": "img/food/jjamppong.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S026",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-16",
+          "MenuName": "볶음밥",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 볶음밥은 한 그릇 든든하게 먹기 좋아요. 매장이 깨끗해요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S026",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-21",
+          "MenuName": "삼선짬뽕",
+          "Rating": 5,
+          "Price": 13000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 삼선짬뽕은 맵기가 딱 적당하고 자꾸 손이 가요. 직원분들이 친절해요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S026",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-30",
+          "MenuName": "깐풍기",
+          "Rating": 5,
+          "Price": 24000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 깐풍기는 기름지지 않고 바삭하게 잘 튀겼어요. 가성비가 좋아요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S027",
+      "StoreName": "금룡마라탕 구디점",
+      "Category": "CHN",
+      "Tag": "마라",
+      "Phone": "02-0995-9088",
+      "ImageUrl": "img/food/mala.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S027",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-02",
+          "MenuName": "마라탕",
+          "Rating": 5,
+          "Price": 12000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 마라탕은 매콤해서 스트레스가 확 풀려요. 가성비가 좋아요. 다음에 또 올 거예요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S027",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-25",
+          "MenuName": "마라샹궈",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 마라샹궈는 매콤해서 스트레스가 확 풀려요. 혼밥하기도 편해요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S027",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-28",
+          "MenuName": "꿔바로우",
+          "Rating": 4,
+          "Price": 18000,
+          "ReviewText": "동생이랑 주말에 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 꿔바로우는 기름지지 않고 바삭하게 잘 튀겼어요. 가격이 조금 오른 게 아쉬워요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S028",
+      "StoreName": "하오펑요우",
+      "Category": "CHN",
+      "Tag": "중국 가정식",
+      "Phone": "02-0526-8326",
+      "ImageUrl": "img/food/tangsuyuk.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S028",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-07",
+          "MenuName": "마파두부밥",
+          "Rating": 4,
+          "Price": 9500,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 마파두부밥은 한 그릇 든든하게 먹기 좋아요. 가격이 조금 오른 게 아쉬워요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S028",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-09",
+          "MenuName": "유린기",
+          "Rating": 4,
+          "Price": 22000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 유린기는 기름지지 않고 바삭하게 잘 튀겼어요. 사장님이 친절하세요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S028",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-15",
+          "MenuName": "량피",
+          "Rating": 5,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 량피는 육수가 살얼음처럼 시원해서 더운 날 딱이에요. 사장님이 친절하세요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S029",
+      "StoreName": "북경오리관",
+      "Category": "CHN",
+      "Tag": "북경오리",
+      "Phone": "02-0463-8227",
+      "ImageUrl": "img/food/pekingduck.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S029",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-02",
+          "MenuName": "동파육",
+          "Rating": 5,
+          "Price": 28000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 동파육은 불향이 제대로 배어 있고 고기 질이 좋아요. 사장님이 친절하세요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S029",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-04",
+          "MenuName": "계란볶음밥",
+          "Rating": 3,
+          "Price": 8500,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 계란볶음밥은 특별한 건 없지만 나쁘지 않아요. 자리가 좁은 편이에요. 다음엔 다른 곳도 가볼래요. 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        },
+        {
+          "StoreCode": "S029",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-11",
+          "MenuName": "북경오리",
+          "Rating": 5,
+          "Price": 45000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 북경오리는 불향이 제대로 배어 있고 고기 질이 좋아요. 가성비가 좋아요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S030",
+      "StoreName": "향리원",
+      "Category": "CHN",
+      "Tag": "중화요리",
+      "Phone": "02-0692-4437",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S030",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-10",
+          "MenuName": "탕수육",
+          "Rating": 4,
+          "Price": 20000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 탕수육은 겉은 바삭하고 속은 촉촉해요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S030",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-21",
+          "MenuName": "중국냉면",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 중국냉면은 육수가 살얼음처럼 시원해서 더운 날 딱이에요. 자리가 좁은 편이에요. 다음엔 다른 메뉴도 먹어볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S030",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-08",
+          "MenuName": "잡채밥",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 잡채밥은 한 그릇 든든하게 먹기 좋아요. 점심시간에도 회전이 빨라요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S031",
+      "StoreName": "대가양꼬치",
+      "Category": "CHN",
+      "Tag": "양꼬치",
+      "Phone": "02-0197-2909",
+      "ImageUrl": "img/food/tangsuyuk.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S031",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-01",
+          "MenuName": "양꼬치",
+          "Rating": 4,
+          "Price": 16000,
+          "ReviewText": "부모님 모시고 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 양꼬치는 불향이 제대로 배어 있고 고기 질이 좋아요. 간이 살짝 센 편이에요. 다음에 또 올 거예요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S031",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-21",
+          "MenuName": "꿔바로우",
+          "Rating": 4,
+          "Price": 18000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 꿔바로우는 겉은 바삭하고 속은 촉촉해요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S031",
+          "MenuCode": "M03",
+          "VisitDate": "2026-03-20",
+          "MenuName": "지삼선",
+          "Rating": 4,
+          "Price": 15000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 주문하고 10분 정도 기다렸어요. 지삼선은 재료가 신선하고 맛의 균형이 좋아요. 다만 점심엔 웨이팅이 좀 있어요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S032",
+      "StoreName": "진미짬뽕",
+      "Category": "CHN",
+      "Tag": "짬뽕",
+      "Phone": "02-0600-4891",
+      "ImageUrl": "img/food/jjamppong.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S032",
+          "MenuCode": "M01",
+          "VisitDate": "2026-03-19",
+          "MenuName": "짬뽕밥",
+          "Rating": 5,
+          "Price": 10000,
+          "ReviewText": "부모님 모시고 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 짬뽕밥은 맵기가 딱 적당하고 자꾸 손이 가요. 혼밥하기도 편해요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S032",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-14",
+          "MenuName": "고추짬뽕",
+          "Rating": 2,
+          "Price": 11000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 고추짬뽕은 양이 적고 가격이 비싼 편이에요. 재방문은 안 할 듯해요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S032",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-26",
+          "MenuName": "차돌짬뽕",
+          "Rating": 5,
+          "Price": 12000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 차돌짬뽕은 맵기가 딱 적당하고 자꾸 손이 가요. 매장이 깨끗해요. 단골 될 것 같아요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S033",
+      "StoreName": "복만루",
+      "Category": "CHN",
+      "Tag": "만두",
+      "Phone": "02-0950-5562",
+      "ImageUrl": "img/food/dimsum.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S033",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-11",
+          "MenuName": "군만두",
+          "Rating": 5,
+          "Price": 7000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 군만두는 한입 베어 물면 육즙이 터져요. 매장이 깨끗해요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S033",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-13",
+          "MenuName": "샤오롱바오",
+          "Rating": 5,
+          "Price": 9000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 샤오롱바오는 한입 베어 물면 육즙이 터져요. 양이 많아서 배불러요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S033",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-23",
+          "MenuName": "우육면",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "부모님 모시고 갔어요. 주문하고 10분 정도 기다렸어요. 우육면은 뜨끈한 국물이 생각날 때 딱이에요. 직원분들이 친절해요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S034",
+      "StoreName": "라오장탕수육",
+      "Category": "CHN",
+      "Tag": "탕수육",
+      "Phone": "02-0962-1020",
+      "ImageUrl": "img/food/tangsuyuk.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S034",
+          "MenuCode": "M01",
+          "VisitDate": "2026-06-16",
+          "MenuName": "찹쌀탕수육",
+          "Rating": 4,
+          "Price": 21000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 찹쌀탕수육은 겉은 바삭하고 속은 촉촉해요. 간이 살짝 센 편이에요. 다음에 또 올 거예요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S034",
+          "MenuCode": "M02",
+          "VisitDate": "2026-09-14",
+          "MenuName": "짜장면",
+          "Rating": 5,
+          "Price": 7500,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 짜장면은 면이 쫄깃하고 소스가 잘 배어 있어요. 점심시간에도 회전이 빨라요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S034",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-09",
+          "MenuName": "깐쇼새우",
+          "Rating": 4,
+          "Price": 26000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 깐쇼새우는 겉은 바삭하고 속은 촉촉해요. 양이 조금 아쉬웠어요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S035",
+      "StoreName": "해룡반점",
+      "Category": "CHN",
+      "Tag": "해물짬뽕",
+      "Phone": "02-0820-6550",
+      "ImageUrl": "img/food/jjamppong.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S035",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-01",
+          "MenuName": "깐풍새우",
+          "Rating": 3,
+          "Price": 27000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 깐풍새우는 기대보단 조금 아쉬웠어요. 가격이 조금 오른 게 아쉬워요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S035",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-06",
+          "MenuName": "해물짬뽕",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 해물짬뽕은 매콤해서 스트레스가 확 풀려요. 사장님이 친절하세요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S035",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-06",
+          "MenuName": "유산슬밥",
+          "Rating": 3,
+          "Price": 13000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 유산슬밥은 기대보단 조금 아쉬웠어요. 다만 점심엔 웨이팅이 좀 있어요. 근처면 한 번쯤 더 올지도? 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S036",
+      "StoreName": "쓰촨훠궈하우스",
+      "Category": "CHN",
+      "Tag": "훠궈",
+      "Phone": "02-0894-7088",
+      "ImageUrl": "img/food/mala.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S036",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-15",
+          "MenuName": "탄탄면",
+          "Rating": 1,
+          "Price": 10000,
+          "ReviewText": "동생이랑 주말에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 탄탄면은 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 나와서 편의점에서 다시 뭘 사 먹었어요."
+        },
+        {
+          "StoreCode": "S036",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-29",
+          "MenuName": "훠궈",
+          "Rating": 4,
+          "Price": 25000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 훠궈는 국물이 진하고 깊어서 속이 든든해요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S036",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-15",
+          "MenuName": "마라샹궈",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 마라샹궈는 매콤해서 스트레스가 확 풀려요. 사장님이 친절하세요. 다음에 또 올 거예요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S037",
+      "StoreName": "상하이딤섬",
+      "Category": "CHN",
+      "Tag": "딤섬",
+      "Phone": "02-0620-1521",
+      "ImageUrl": "img/food/dimsum.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S037",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-13",
+          "MenuName": "하가우",
+          "Rating": 1,
+          "Price": 8500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 하가우는 간이 너무 세서 아쉬웠어요. 다시 갈 일은 없을 것 같아요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S037",
+          "MenuCode": "M02",
+          "VisitDate": "2025-11-24",
+          "MenuName": "샤오롱바오",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 샤오롱바오는 가격 생각하면 그럭저럭이에요. 가격이 조금 오른 게 아쉬워요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S037",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-22",
+          "MenuName": "새우볶음밥",
+          "Rating": 5,
+          "Price": 10000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 새우볶음밥은 재료가 신선하고 맛의 균형이 좋아요. 직원분들이 친절해요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S038",
+      "StoreName": "연태각",
+      "Category": "CHN",
+      "Tag": "중화요리",
+      "Phone": "02-0230-4640",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S038",
+          "MenuCode": "M01",
+          "VisitDate": "2026-01-29",
+          "MenuName": "짜장면",
+          "Rating": 3,
+          "Price": 7500,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 짜장면은 가격 생각하면 그럭저럭이에요. 자리가 좁은 편이에요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S038",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-06",
+          "MenuName": "칠리새우",
+          "Rating": 4,
+          "Price": 26000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 칠리새우는 재료가 싱싱하고 비린 맛이 전혀 없어요. 양이 많아서 배불러요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S038",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-03",
+          "MenuName": "중국냉면",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 중국냉면은 육수가 살얼음처럼 시원해서 더운 날 딱이에요. 다만 점심엔 웨이팅이 좀 있어요. 다음엔 다른 메뉴도 먹어볼래요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S039",
+      "StoreName": "마라공방",
+      "Category": "CHN",
+      "Tag": "마라",
+      "Phone": "02-0680-4121",
+      "ImageUrl": "img/food/mala.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S039",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-16",
+          "MenuName": "꿔바로우",
+          "Rating": 3,
+          "Price": 18000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 꿔바로우는 특별한 건 없지만 나쁘지 않아요. 간이 살짝 센 편이에요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S039",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-18",
+          "MenuName": "마라반",
+          "Rating": 5,
+          "Price": 13000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 마라반은 매콤해서 스트레스가 확 풀려요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S039",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-05",
+          "MenuName": "마라탕",
+          "Rating": 5,
+          "Price": 12000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 마라탕은 맵기가 딱 적당하고 자꾸 손이 가요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S040",
+      "StoreName": "오향각",
+      "Category": "CHN",
+      "Tag": "냉채",
+      "Phone": "02-0774-2074",
+      "ImageUrl": "img/food/jajangmyeon.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S040",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-06",
+          "MenuName": "짬뽕",
+          "Rating": 4,
+          "Price": 10000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 짬뽕은 매콤해서 스트레스가 확 풀려요. 다만 점심엔 웨이팅이 좀 있어요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S040",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-10",
+          "MenuName": "짜장면",
+          "Rating": 3,
+          "Price": 7500,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 짜장면은 맛은 평범한 편이에요. 자리가 좁은 편이에요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S040",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-12",
+          "MenuName": "오향장육",
+          "Rating": 3,
+          "Price": 25000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 오향장육은 무난하게 먹을 만했어요. 양이 조금 아쉬웠어요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S041",
+      "StoreName": "헤비스테이크 구로디지털단지점",
+      "Category": "WST",
+      "Tag": "스테이크",
+      "Phone": "02-0833-1717",
+      "ImageUrl": "img/food/steak.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S041",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-31",
+          "MenuName": "스테이크",
+          "Rating": 4,
+          "Price": 29000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 스테이크는 불향이 제대로 배어 있고 고기 질이 좋아요. 가성비가 좋아요. 단골 될 것 같아요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S041",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-06",
+          "MenuName": "스테이크덮밥",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 스테이크덮밥은 불향이 제대로 배어 있고 고기 질이 좋아요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S041",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-05",
+          "MenuName": "감자튀김",
+          "Rating": 4,
+          "Price": 6000,
+          "ReviewText": "부모님 모시고 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 감자튀김은 겉은 바삭하고 속은 촉촉해요. 매장이 깨끗해요. 다음에 또 올 거예요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S042",
+      "StoreName": "매버릭 BBQ타운 구디",
+      "Category": "WST",
+      "Tag": "바비큐",
+      "Phone": "02-0775-5142",
+      "ImageUrl": "img/food/steak.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S042",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-15",
+          "MenuName": "바비큐 플래터",
+          "Rating": 4,
+          "Price": 49000,
+          "ReviewText": "동생이랑 주말에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 바비큐 플래터는 불향이 제대로 배어 있고 고기 질이 좋아요. 직원분들이 친절해요. 다음에 또 올 거예요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S042",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-15",
+          "MenuName": "스테이크",
+          "Rating": 5,
+          "Price": 29000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 스테이크는 고기가 부드럽고 잡내 없이 맛있어요. 반찬도 깔끔하게 나와요. 다음에 또 올 거예요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S042",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-09",
+          "MenuName": "브리스킷",
+          "Rating": 5,
+          "Price": 32000,
+          "ReviewText": "부모님 모시고 갔어요. 주문하고 10분 정도 기다렸어요. 브리스킷은 고기가 부드럽고 잡내 없이 맛있어요. 가성비가 좋아요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S043",
+      "StoreName": "함박정",
+      "Category": "WST",
+      "Tag": "함박",
+      "Phone": "02-0810-6183",
+      "ImageUrl": "img/food/steak.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S043",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-14",
+          "MenuName": "오므라이스",
+          "Rating": 2,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 오므라이스는 양이 적고 가격이 비싼 편이에요. 다시 갈 일은 없을 것 같아요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S043",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-25",
+          "MenuName": "치즈함박스테이크",
+          "Rating": 2,
+          "Price": 14500,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 치즈함박스테이크는 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S043",
+          "MenuCode": "M03",
+          "VisitDate": "2026-01-26",
+          "MenuName": "함박스테이크",
+          "Rating": 2,
+          "Price": 13000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 함박스테이크는 식은 상태로 나와서 실망했어요. 재방문은 고민해볼게요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S044",
+      "StoreName": "탄광맥주 구로디지털단지점",
+      "Category": "WST",
+      "Tag": "펍",
+      "Phone": "02-0240-4524",
+      "ImageUrl": "img/food/chicken.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S044",
+          "MenuCode": "M01",
+          "VisitDate": "2026-01-02",
+          "MenuName": "플래터",
+          "Rating": 3,
+          "Price": 32000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 플래터는 특별한 건 없지만 나쁘지 않아요. 다만 점심엔 웨이팅이 좀 있어요. 근처면 한 번쯤 더 올지도? 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S044",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-19",
+          "MenuName": "피시앤칩스",
+          "Rating": 3,
+          "Price": 18000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 피시앤칩스는 가격 생각하면 그럭저럭이에요. 다만 점심엔 웨이팅이 좀 있어요. 다음엔 다른 곳도 가볼래요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S044",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-09",
+          "MenuName": "플래터",
+          "Rating": 4,
+          "Price": 32000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 플래터는 불향이 제대로 배어 있고 고기 질이 좋아요. 직원분들이 친절해요. 다음엔 다른 곳도 가볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S045",
+      "StoreName": "BHC 구로디지털점",
+      "Category": "WST",
+      "Tag": "치킨",
+      "Phone": "02-0469-7415",
+      "ImageUrl": "img/food/chicken.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S045",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-29",
+          "MenuName": "치킨",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 치킨은 튀김옷이 바삭하고 속살이 촉촉해요. 가성비가 좋아요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S045",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-25",
+          "MenuName": "치킨",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 치킨은 양념이 맛있고 식어도 바삭해요. 사장님이 친절하세요. 다음에 또 올 거예요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S045",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-14",
+          "MenuName": "뿌링클",
+          "Rating": 5,
+          "Price": 23000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 뿌링클은 양념이 맛있고 식어도 바삭해요. 매장이 깨끗해요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S046",
+      "StoreName": "교촌치킨",
+      "Category": "WST",
+      "Tag": "치킨",
+      "Phone": "02-0632-8576",
+      "ImageUrl": "img/food/chicken.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S046",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-25",
+          "MenuName": "허니콤보",
+          "Rating": 5,
+          "Price": 23000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 허니콤보는 튀김옷이 바삭하고 속살이 촉촉해요. 반찬도 깔끔하게 나와요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S046",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-02",
+          "MenuName": "치킨",
+          "Rating": 5,
+          "Price": 22000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 치킨은 튀김옷이 바삭하고 속살이 촉촉해요. 점심시간에도 회전이 빨라요. 단골 될 것 같아요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S046",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-09",
+          "MenuName": "레드콤보",
+          "Rating": 5,
+          "Price": 23000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 레드콤보는 튀김옷이 바삭하고 속살이 촉촉해요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S047",
+      "StoreName": "닭장맥주",
+      "Category": "WST",
+      "Tag": "치킨",
+      "Phone": "02-0734-1410",
+      "ImageUrl": "img/food/chicken.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S047",
+          "MenuCode": "M01",
+          "VisitDate": "2026-03-24",
+          "MenuName": "치킨",
+          "Rating": 4,
+          "Price": 22000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 치킨은 튀김옷이 바삭하고 속살이 촉촉해요. 자리가 좁은 편이에요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S047",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-08",
+          "MenuName": "감자튀김",
+          "Rating": 4,
+          "Price": 6000,
+          "ReviewText": "동생이랑 주말에 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 감자튀김은 기름지지 않고 바삭하게 잘 튀겼어요. 양이 많아서 배불러요. 다음에 또 올 거예요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S047",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-05",
+          "MenuName": "순살치킨",
+          "Rating": 4,
+          "Price": 23000,
+          "ReviewText": "부모님 모시고 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 순살치킨은 튀김옷이 바삭하고 속살이 촉촉해요. 가격이 조금 오른 게 아쉬워요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S048",
+      "StoreName": "파스타공방 구디점",
+      "Category": "WST",
+      "Tag": "파스타",
+      "Phone": "02-0519-5029",
+      "ImageUrl": "img/food/pasta.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S048",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-05",
+          "MenuName": "냉파스타",
+          "Rating": 3,
+          "Price": 15000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 주문하고 10분 정도 기다렸어요. 냉파스타는 무난하게 먹을 만했어요. 가격이 조금 오른 게 아쉬워요. 재방문은 고민해볼게요. 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        },
+        {
+          "StoreCode": "S048",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-16",
+          "MenuName": "알리오올리오",
+          "Rating": 5,
+          "Price": 14000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 알리오올리오는 소스가 진하고 면 익힘이 딱 좋아요. 매장이 깨끗해요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S048",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-09",
+          "MenuName": "토마토파스타",
+          "Rating": 5,
+          "Price": 14500,
+          "ReviewText": "부모님 모시고 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 토마토파스타는 양도 넉넉하고 소스가 면에 잘 배어 있어요. 직원분들이 친절해요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S049",
+      "StoreName": "라 트라토리아",
+      "Category": "WST",
+      "Tag": "이탈리안",
+      "Phone": "02-0830-4085",
+      "ImageUrl": "img/food/pasta.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S049",
+          "MenuCode": "M01",
+          "VisitDate": "2026-05-13",
+          "MenuName": "라자냐",
+          "Rating": 5,
+          "Price": 18000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 라자냐는 양도 넉넉하고 소스가 면에 잘 배어 있어요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S049",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-28",
+          "MenuName": "까르보나라",
+          "Rating": 4,
+          "Price": 16000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 주문하고 10분 정도 기다렸어요. 까르보나라는 소스가 진하고 면 익힘이 딱 좋아요. 양이 많아서 배불러요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S049",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-05",
+          "MenuName": "뇨끼",
+          "Rating": 5,
+          "Price": 17000,
+          "ReviewText": "동생이랑 주말에 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 뇨끼는 양도 넉넉하고 소스가 면에 잘 배어 있어요. 반찬도 깔끔하게 나와요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S050",
+      "StoreName": "버거스탠드",
+      "Category": "WST",
+      "Tag": "버거",
+      "Phone": "02-0315-9939",
+      "ImageUrl": "img/food/burger.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S050",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-24",
+          "MenuName": "감자튀김",
+          "Rating": 4,
+          "Price": 6000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 감자튀김은 기름지지 않고 바삭하게 잘 튀겼어요. 간이 살짝 센 편이에요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S050",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-30",
+          "MenuName": "베이컨버거",
+          "Rating": 3,
+          "Price": 11000,
+          "ReviewText": "부모님 모시고 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 베이컨버거는 가격 생각하면 그럭저럭이에요. 간이 살짝 센 편이에요. 다음엔 다른 곳도 가볼래요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S050",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-21",
+          "MenuName": "치즈버거",
+          "Rating": 3,
+          "Price": 9500,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 치즈버거는 맛은 평범한 편이에요. 양이 조금 아쉬웠어요. 다음엔 다른 곳도 가볼래요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S051",
+      "StoreName": "나폴리 화덕피자",
+      "Category": "WST",
+      "Tag": "피자",
+      "Phone": "02-0616-4843",
+      "ImageUrl": "img/food/pizza.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S051",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-11",
+          "MenuName": "마르게리타 피자",
+          "Rating": 2,
+          "Price": 19000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 마르게리타 피자는 양이 적고 가격이 비싼 편이에요. 재방문은 안 할 듯해요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S051",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-30",
+          "MenuName": "고르곤졸라 피자",
+          "Rating": 4,
+          "Price": 20000,
+          "ReviewText": "동생이랑 주말에 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 고르곤졸라 피자는 도우가 쫄깃하고 치즈가 듬뿍이에요. 양이 많아서 배불러요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S051",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-07",
+          "MenuName": "페퍼로니 피자",
+          "Rating": 1,
+          "Price": 21000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 페퍼로니 피자는 기대 이하였어요. 재방문은 안 할 듯해요. 나와서 편의점에서 다시 뭘 사 먹었어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S052",
+      "StoreName": "더 그릴하우스",
+      "Category": "WST",
+      "Tag": "스테이크",
+      "Phone": "02-0795-8645",
+      "ImageUrl": "img/food/steak.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S052",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-17",
+          "MenuName": "립아이 스테이크",
+          "Rating": 5,
+          "Price": 39000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 립아이 스테이크는 고기가 부드럽고 잡내 없이 맛있어요. 양이 많아서 배불러요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S052",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-27",
+          "MenuName": "시저샐러드",
+          "Rating": 5,
+          "Price": 13000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 시저샐러드는 가볍게 먹기 좋은데 은근 배불러요. 혼밥하기도 편해요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S052",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-07",
+          "MenuName": "바비큐 폭립",
+          "Rating": 3,
+          "Price": 32000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 바비큐 폭립은 기대보단 조금 아쉬웠어요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 곳도 가볼래요. 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S053",
+      "StoreName": "오므라이스 키친",
+      "Category": "WST",
+      "Tag": "경양식",
+      "Phone": "02-0592-3045",
+      "ImageUrl": "img/food/donkatsu.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S053",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-01",
+          "MenuName": "함박오므라이스",
+          "Rating": 4,
+          "Price": 14000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 함박오므라이스는 재료가 신선하고 맛의 균형이 좋아요. 양이 많아서 배불러요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S053",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-07",
+          "MenuName": "오므라이스",
+          "Rating": 5,
+          "Price": 11000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 오므라이스는 재료가 신선하고 맛의 균형이 좋아요. 사장님이 친절하세요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S053",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-19",
+          "MenuName": "크림수프",
+          "Rating": 3,
+          "Price": 5000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 크림수프는 가격 생각하면 그럭저럭이에요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 곳도 가볼래요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S054",
+      "StoreName": "리조또 앤 코",
+      "Category": "WST",
+      "Tag": "리조또",
+      "Phone": "02-0874-8057",
+      "ImageUrl": "img/food/pasta.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S054",
+          "MenuCode": "M01",
+          "VisitDate": "2026-07-09",
+          "MenuName": "감바스",
+          "Rating": 4,
+          "Price": 18000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 감바스는 재료가 싱싱하고 비린 맛이 전혀 없어요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S054",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-24",
+          "MenuName": "버섯리조또",
+          "Rating": 3,
+          "Price": 16000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 버섯리조또는 무난하게 먹을 만했어요. 자리가 좁은 편이에요. 재방문은 고민해볼게요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        },
+        {
+          "StoreCode": "S054",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-02",
+          "MenuName": "크림리조또",
+          "Rating": 4,
+          "Price": 16500,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 크림리조또는 소스가 진하고 면 익힘이 딱 좋아요. 자리가 좁은 편이에요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S055",
+      "StoreName": "몬스터 수제버거",
+      "Category": "WST",
+      "Tag": "버거",
+      "Phone": "02-0740-4598",
+      "ImageUrl": "img/food/burger.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S055",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-25",
+          "MenuName": "더블치즈버거",
+          "Rating": 1,
+          "Price": 13500,
+          "ReviewText": "동생이랑 주말에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 더블치즈버거는 웨이팅에 비해 맛이 별로였어요. 재방문은 안 할 듯해요. 같이 간 친구도 표정이 별로였어요."
+        },
+        {
+          "StoreCode": "S055",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-24",
+          "MenuName": "아보카도버거",
+          "Rating": 2,
+          "Price": 13000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 아보카도버거는 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S055",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-21",
+          "MenuName": "어니언링",
+          "Rating": 5,
+          "Price": 6000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 어니언링은 기름지지 않고 바삭하게 잘 튀겼어요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S056",
+      "StoreName": "빈티지 비스트로",
+      "Category": "WST",
+      "Tag": "비스트로",
+      "Phone": "02-0363-3216",
+      "ImageUrl": "img/food/steak.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S056",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-18",
+          "MenuName": "스테이크 프리트",
+          "Rating": 3,
+          "Price": 28000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 스테이크 프리트는 가격 생각하면 그럭저럭이에요. 양이 조금 아쉬웠어요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S056",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-09",
+          "MenuName": "트러플 감자튀김",
+          "Rating": 2,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 트러플 감자튀김은 식은 상태로 나와서 실망했어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S056",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-23",
+          "MenuName": "연어샐러드",
+          "Rating": 3,
+          "Price": 16000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 연어샐러드는 무난하게 먹을 만했어요. 간이 살짝 센 편이에요. 재방문은 고민해볼게요. 같이 간 친구는 괜찮다고 했는데 저는 그냥 그랬어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S057",
+      "StoreName": "감바스 키친",
+      "Category": "WST",
+      "Tag": "스페인",
+      "Phone": "02-0287-5679",
+      "ImageUrl": "img/food/pasta.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S057",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-20",
+          "MenuName": "빠에야",
+          "Rating": 4,
+          "Price": 26000,
+          "ReviewText": "동생이랑 주말에 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 빠에야는 재료가 싱싱하고 비린 맛이 전혀 없어요. 가성비가 좋아요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S057",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-03",
+          "MenuName": "바게트",
+          "Rating": 4,
+          "Price": 4000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 바게트는 빵결이 살아 있고 버터 향이 진해요. 양이 조금 아쉬웠어요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S057",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-20",
+          "MenuName": "감바스",
+          "Rating": 4,
+          "Price": 18000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 감바스는 해산물이 신선하고 양도 넉넉해요. 간이 살짝 센 편이에요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S058",
+      "StoreName": "옛날 경양식",
+      "Category": "WST",
+      "Tag": "경양식",
+      "Phone": "02-0403-2903",
+      "ImageUrl": "img/food/donkatsu.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S058",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-27",
+          "MenuName": "함박스테이크",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 함박스테이크는 고기가 부드럽고 잡내 없이 맛있어요. 매장이 깨끗해요. 다음엔 다른 메뉴도 먹어볼래요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S058",
+          "MenuCode": "M02",
+          "VisitDate": "2026-09-17",
+          "MenuName": "생선가스",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 생선가스는 겉은 바삭하고 속은 촉촉해요. 가격이 조금 오른 게 아쉬워요. 다음에 또 올 거예요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S058",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-05",
+          "MenuName": "경양식 돈가스",
+          "Rating": 4,
+          "Price": 12000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 경양식 돈가스는 겉은 바삭하고 속은 촉촉해요. 사장님이 친절하세요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S059",
+      "StoreName": "피자 라운지",
+      "Category": "WST",
+      "Tag": "피자",
+      "Phone": "02-0576-7561",
+      "ImageUrl": "img/food/pizza.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S059",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-13",
+          "MenuName": "콤비네이션 피자",
+          "Rating": 3,
+          "Price": 22000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 콤비네이션 피자는 무난하게 먹을 만했어요. 가격이 조금 오른 게 아쉬워요. 근처면 한 번쯤 더 올지도? 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S059",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-06",
+          "MenuName": "하와이안 피자",
+          "Rating": 1,
+          "Price": 21000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 주문하고 10분 정도 기다렸어요. 하와이안 피자는 기대 이하였어요. 재방문은 안 할 듯해요. 리뷰 보고 갔는데 기대가 너무 컸나 봐요."
+        },
+        {
+          "StoreCode": "S059",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-02",
+          "MenuName": "치킨윙",
+          "Rating": 4,
+          "Price": 14000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 치킨윙은 양념이 맛있고 식어도 바삭해요. 사장님이 친절하세요. 다음에 또 올 거예요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S060",
+      "StoreName": "멕시칸 타코하우스",
+      "Category": "WST",
+      "Tag": "멕시칸",
+      "Phone": "02-0405-6680",
+      "ImageUrl": "img/food/taco.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S060",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-20",
+          "MenuName": "나초",
+          "Rating": 3,
+          "Price": 9000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 나초는 맛은 평범한 편이에요. 다만 점심엔 웨이팅이 좀 있어요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S060",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-04",
+          "MenuName": "타코",
+          "Rating": 5,
+          "Price": 12000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 타코는 재료가 신선하고 맛의 균형이 좋아요. 직원분들이 친절해요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S060",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-29",
+          "MenuName": "부리또",
+          "Rating": 4,
+          "Price": 11500,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 부리또는 재료가 신선하고 맛의 균형이 좋아요. 혼밥하기도 편해요. 다음에 또 올 거예요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S061",
+      "StoreName": "타이두 구로디지털단지점",
+      "Category": "ETC",
+      "Tag": "태국",
+      "Phone": "02-0721-7313",
+      "ImageUrl": "img/food/padthai.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S061",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-06",
+          "MenuName": "푸팟퐁커리",
+          "Rating": 1,
+          "Price": 25000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 푸팟퐁커리는 간이 너무 세서 아쉬웠어요. 재방문은 안 할 듯해요. 나와서 편의점에서 다시 뭘 사 먹었어요."
+        },
+        {
+          "StoreCode": "S061",
+          "MenuCode": "M02",
+          "VisitDate": "2025-10-17",
+          "MenuName": "똠얌꿍",
+          "Rating": 1,
+          "Price": 16000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 똠얌꿍은 양이 적고 가격이 비싼 편이에요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S061",
+          "MenuCode": "M03",
+          "VisitDate": "2025-10-21",
+          "MenuName": "팟타이",
+          "Rating": 1,
+          "Price": 13000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 팟타이는 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S062",
+      "StoreName": "드렁킨타이 구로디지털점",
+      "Category": "ETC",
+      "Tag": "태국",
+      "Phone": "02-0255-6834",
+      "ImageUrl": "img/food/padthai.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S062",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-21",
+          "MenuName": "팟타이",
+          "Rating": 3,
+          "Price": 13000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 팟타이는 특별한 건 없지만 나쁘지 않아요. 가격이 조금 오른 게 아쉬워요. 근처면 한 번쯤 더 올지도? 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S062",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-16",
+          "MenuName": "카오팟",
+          "Rating": 3,
+          "Price": 12000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 카오팟은 특별한 건 없지만 나쁘지 않아요. 가격이 조금 오른 게 아쉬워요. 다음엔 다른 곳도 가볼래요. 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S062",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-20",
+          "MenuName": "쏨땀",
+          "Rating": 3,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 쏨땀은 무난하게 먹을 만했어요. 다만 점심엔 웨이팅이 좀 있어요. 근처면 한 번쯤 더 올지도? 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S063",
+      "StoreName": "효자동쌀국수미",
+      "Category": "ETC",
+      "Tag": "베트남",
+      "Phone": "02-0260-4260",
+      "ImageUrl": "img/food/pho.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S063",
+          "MenuCode": "M01",
+          "VisitDate": "2026-01-29",
+          "MenuName": "쌀국수",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 쌀국수는 면이 쫄깃하고 소스가 잘 배어 있어요. 양이 조금 아쉬웠어요. 재방문 의사 있어요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S063",
+          "MenuCode": "M02",
+          "VisitDate": "2026-02-09",
+          "MenuName": "쌀국수",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 쌀국수는 면이 쫄깃하고 소스가 잘 배어 있어요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S063",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-22",
+          "MenuName": "쌀국수",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 쌀국수는 면이 쫄깃하고 소스가 잘 배어 있어요. 간이 살짝 센 편이에요. 재방문 의사 있어요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S064",
+      "StoreName": "메이비카페",
+      "Category": "ETC",
+      "Tag": "카페",
+      "Phone": "02-0877-6237",
+      "ImageUrl": "img/food/cafe.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S064",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-18",
+          "MenuName": "아메리카노",
+          "Rating": 3,
+          "Price": 4500,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 아메리카노는 기대보단 조금 아쉬웠어요. 양이 조금 아쉬웠어요. 재방문은 고민해볼게요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S064",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-16",
+          "MenuName": "프렌치토스트",
+          "Rating": 3,
+          "Price": 13000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 주문하고 10분 정도 기다렸어요. 프렌치토스트는 맛은 평범한 편이에요. 자리가 좁은 편이에요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S064",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-01",
+          "MenuName": "브런치",
+          "Rating": 3,
+          "Price": 18000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 주문하고 10분 정도 기다렸어요. 브런치는 가격 생각하면 그럭저럭이에요. 양이 조금 아쉬웠어요. 다음엔 다른 곳도 가볼래요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S065",
+      "StoreName": "나인디",
+      "Category": "ETC",
+      "Tag": "베이커리 카페",
+      "Phone": "02-0178-6652",
+      "ImageUrl": "img/food/bakery.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S065",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-22",
+          "MenuName": "소금빵",
+          "Rating": 5,
+          "Price": 3500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 소금빵은 갓 나와서 따뜻하고 속이 꽉 차 있어요. 직원분들이 친절해요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S065",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-05",
+          "MenuName": "크루아상",
+          "Rating": 5,
+          "Price": 4800,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 크루아상은 갓 나와서 따뜻하고 속이 꽉 차 있어요. 매장 분위기가 좋아요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S065",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-12",
+          "MenuName": "카페라떼",
+          "Rating": 5,
+          "Price": 5000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 카페라떼는 고소하고 산미가 적당해서 계속 생각나요. 직원분들이 친절해요. 다음에 또 올 거예요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S066",
+      "StoreName": "이자카야 춘 구로디지털단지점",
+      "Category": "ETC",
+      "Tag": "일식",
+      "Phone": "02-0304-3589",
+      "ImageUrl": "img/food/sushi.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S066",
+          "MenuCode": "M01",
+          "VisitDate": "2026-07-30",
+          "MenuName": "테바사끼",
+          "Rating": 5,
+          "Price": 15000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 테바사끼는 양념이 맛있고 식어도 바삭해요. 사장님이 친절하세요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S066",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-14",
+          "MenuName": "스끼야끼",
+          "Rating": 5,
+          "Price": 32000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 스끼야끼는 국물이 진하고 깊어서 속이 든든해요. 점심시간에도 회전이 빨라요. 재방문 의사 있어요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S066",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-01",
+          "MenuName": "라멘",
+          "Rating": 5,
+          "Price": 11000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 라멘은 뜨끈한 국물이 생각날 때 딱이에요. 혼밥하기도 편해요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S067",
+      "StoreName": "이치돈부리 구로디지털점",
+      "Category": "ETC",
+      "Tag": "일식 덮밥",
+      "Phone": "02-0374-6860",
+      "ImageUrl": "img/food/sushi.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S067",
+          "MenuCode": "M01",
+          "VisitDate": "2026-05-12",
+          "MenuName": "규동",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "부모님 모시고 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 규동은 고기가 부드럽고 잡내 없이 맛있어요. 자리가 좁은 편이에요. 다음엔 다른 메뉴도 먹어볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S067",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-29",
+          "MenuName": "사케동",
+          "Rating": 4,
+          "Price": 14000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 사케동은 재료가 싱싱하고 비린 맛이 전혀 없어요. 점심시간에도 회전이 빨라요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S067",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-03",
+          "MenuName": "참치회덮밥",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 참치회덮밥은 해산물이 신선하고 양도 넉넉해요. 간이 살짝 센 편이에요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S068",
+      "StoreName": "흥도식당 구로디지털단지점",
+      "Category": "ETC",
+      "Tag": "돈까스",
+      "Phone": "02-0876-9760",
+      "ImageUrl": "img/food/donkatsu.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S068",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-08",
+          "MenuName": "돈까스",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 돈까스는 겉은 바삭하고 속은 촉촉해요. 간이 살짝 센 편이에요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S068",
+          "MenuCode": "M02",
+          "VisitDate": "2026-05-11",
+          "MenuName": "돈까스",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 돈까스는 기름지지 않고 바삭하게 잘 튀겼어요. 자리가 좁은 편이에요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S068",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-20",
+          "MenuName": "돈까스",
+          "Rating": 4,
+          "Price": 11000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 돈까스는 겉은 바삭하고 속은 촉촉해요. 직원분들이 친절해요. 다음엔 다른 메뉴도 먹어볼래요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S069",
+      "StoreName": "아비꼬 구로디지털역점",
+      "Category": "ETC",
+      "Tag": "카레",
+      "Phone": "02-0979-4982",
+      "ImageUrl": "img/food/curry.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S069",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-31",
+          "MenuName": "새우튀김카레",
+          "Rating": 3,
+          "Price": 12500,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 새우튀김카레는 특별한 건 없지만 나쁘지 않아요. 가격이 조금 오른 게 아쉬워요. 재방문은 고민해볼게요. 나오는 길에 다음엔 어디 갈지 또 고민했어요."
+        },
+        {
+          "StoreCode": "S069",
+          "MenuCode": "M02",
+          "VisitDate": "2025-11-28",
+          "MenuName": "카레",
+          "Rating": 4,
+          "Price": 9500,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 카레는 재료가 신선하고 맛의 균형이 좋아요. 직원분들이 친절해요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S069",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-27",
+          "MenuName": "돈까스카레",
+          "Rating": 5,
+          "Price": 12000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 돈까스카레는 기름지지 않고 바삭하게 잘 튀겼어요. 양이 많아서 배불러요. 재방문 의사 있어요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S070",
+      "StoreName": "니와스시참치",
+      "Category": "ETC",
+      "Tag": "초밥",
+      "Phone": "02-0769-2925",
+      "ImageUrl": "img/food/sushi.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S070",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-18",
+          "MenuName": "튀김우동",
+          "Rating": 1,
+          "Price": 9500,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 튀김우동은 기대 이하였어요. 다시 갈 일은 없을 것 같아요. 나와서 편의점에서 다시 뭘 사 먹었어요."
+        },
+        {
+          "StoreCode": "S070",
+          "MenuCode": "M02",
+          "VisitDate": "2026-08-13",
+          "MenuName": "초밥",
+          "Rating": 1,
+          "Price": 22000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 주문하고 10분 정도 기다렸어요. 초밥은 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S070",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-06",
+          "MenuName": "참치회",
+          "Rating": 1,
+          "Price": 35000,
+          "ReviewText": "동생이랑 주말에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 참치회는 웨이팅에 비해 맛이 별로였어요. 다시 갈 일은 없을 것 같아요. 솔직히 돈이 좀 아까웠어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S071",
+      "StoreName": "우동키노야 구로디지털단지점",
+      "Category": "ETC",
+      "Tag": "우동",
+      "Phone": "02-0358-5233",
+      "ImageUrl": "img/food/udon.jpg",
+      "WeatherCode": "COLD",
+      "Reviews": [
+        {
+          "StoreCode": "S071",
+          "MenuCode": "M01",
+          "VisitDate": "2026-05-27",
+          "MenuName": "붓카케우동",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 붓카케우동은 국물이 진하고 깊어서 속이 든든해요. 혼밥하기도 편해요. 다음엔 다른 메뉴도 먹어볼래요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S071",
+          "MenuCode": "M02",
+          "VisitDate": "2026-07-28",
+          "MenuName": "카레우동",
+          "Rating": 5,
+          "Price": 10000,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 카레우동은 뜨끈한 국물이 생각날 때 딱이에요. 반찬도 깔끔하게 나와요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S071",
+          "MenuCode": "M03",
+          "VisitDate": "2026-10-09",
+          "MenuName": "튀김우동",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 지도 앱 보고 찾아갔는데 입구가 살짝 헷갈렸어요. 튀김우동은 기름지지 않고 바삭하게 잘 튀겼어요. 사장님이 친절하세요. 단골 될 것 같아요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S072",
+      "StoreName": "국수나무 구로디지털점",
+      "Category": "ETC",
+      "Tag": "면",
+      "Phone": "02-0517-3947",
+      "ImageUrl": "img/food/udon.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S072",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-10",
+          "MenuName": "냉모밀",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 냉모밀은 육수가 살얼음처럼 시원해서 더운 날 딱이에요. 양이 많아서 배불러요. 재방문 의사 있어요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S072",
+          "MenuCode": "M02",
+          "VisitDate": "2025-12-22",
+          "MenuName": "냉모밀",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 냉모밀은 시원하고 깔끔해서 한 그릇 금방 비웠어요. 양이 많아서 배불러요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S072",
+          "MenuCode": "M03",
+          "VisitDate": "2025-12-30",
+          "MenuName": "냉모밀",
+          "Rating": 4,
+          "Price": 9000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 주문하고 10분 정도 기다렸어요. 냉모밀은 시원하고 깔끔해서 한 그릇 금방 비웠어요. 양이 조금 아쉬웠어요. 단골 될 것 같아요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S073",
+      "StoreName": "포케올데이 구로점",
+      "Category": "ETC",
+      "Tag": "샐러드",
+      "Phone": "02-0525-6672",
+      "ImageUrl": "img/food/salad.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S073",
+          "MenuCode": "M01",
+          "VisitDate": "2025-12-10",
+          "MenuName": "포케",
+          "Rating": 5,
+          "Price": 12900,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 포케는 가볍게 먹기 좋은데 은근 배불러요. 반찬도 깔끔하게 나와요. 다음엔 다른 메뉴도 먹어볼래요. 사진 찍어서 단톡방에 올렸더니 다들 어디냐고 물어봤어요."
+        },
+        {
+          "StoreCode": "S073",
+          "MenuCode": "M02",
+          "VisitDate": "2026-01-07",
+          "MenuName": "포케",
+          "Rating": 5,
+          "Price": 12900,
+          "ReviewText": "팀 동기들이랑 점심 먹으러 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 포케는 가볍게 먹기 좋은데 은근 배불러요. 혼밥하기도 편해요. 단골 될 것 같아요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S073",
+          "MenuCode": "M03",
+          "VisitDate": "2026-04-13",
+          "MenuName": "포케",
+          "Rating": 5,
+          "Price": 12900,
+          "ReviewText": "동생이랑 주말에 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 포케는 채소가 신선하고 드레싱이 잘 어울려요. 양이 많아서 배불러요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S074",
+      "StoreName": "그린온샐러드 구로디지털단지점",
+      "Category": "ETC",
+      "Tag": "샐러드",
+      "Phone": "02-0247-8234",
+      "ImageUrl": "img/food/salad.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S074",
+          "MenuCode": "M01",
+          "VisitDate": "2026-05-21",
+          "MenuName": "포케",
+          "Rating": 3,
+          "Price": 12900,
+          "ReviewText": "동생이랑 주말에 갔어요. 점심시간 끝나기 전에 먹어야 해서 좀 서둘렀어요. 포케는 기대보단 조금 아쉬웠어요. 가격이 조금 오른 게 아쉬워요. 단골 될 것 같아요. 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S074",
+          "MenuCode": "M02",
+          "VisitDate": "2026-05-26",
+          "MenuName": "샐러드파스타",
+          "Rating": 4,
+          "Price": 12900,
+          "ReviewText": "대학 친구랑 오랜만에 만나서 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 샐러드파스타는 가볍게 먹기 좋은데 은근 배불러요. 자리가 좁은 편이에요. 단골 될 것 같아요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S074",
+          "MenuCode": "M03",
+          "VisitDate": "2026-06-30",
+          "MenuName": "샐러드파스타",
+          "Rating": 4,
+          "Price": 12900,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 샐러드파스타는 채소가 신선하고 드레싱이 잘 어울려요. 양이 많아서 배불러요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S075",
+      "StoreName": "서브웨이",
+      "Category": "ETC",
+      "Tag": "샌드위치",
+      "Phone": "02-0475-2005",
+      "ImageUrl": "img/food/bakery.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S075",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-10",
+          "MenuName": "에그마요 샌드위치",
+          "Rating": 5,
+          "Price": 7900,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 에그마요 샌드위치는 빵결이 살아 있고 버터 향이 진해요. 사진 찍기 좋은 곳이에요. 재방문 의사 있어요. 다음엔 저녁에 와서 다른 메뉴도 시켜보고 싶어요."
+        },
+        {
+          "StoreCode": "S075",
+          "MenuCode": "M02",
+          "VisitDate": "2026-04-27",
+          "MenuName": "샌드위치",
+          "Rating": 4,
+          "Price": 8500,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 샌드위치는 빵결이 살아 있고 버터 향이 진해요. 직원분들이 친절해요. 다음엔 다른 메뉴도 먹어볼래요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S075",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-08",
+          "MenuName": "쿠키",
+          "Rating": 3,
+          "Price": 1500,
+          "ReviewText": "부모님 모시고 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 쿠키는 맛은 평범한 편이에요. 자리가 좁은 편이에요. 재방문은 고민해볼게요. 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S076",
+      "StoreName": "뽀끼살롱",
+      "Category": "ETC",
+      "Tag": "분식",
+      "Phone": "02-0274-3652",
+      "ImageUrl": "img/food/tteokbokki.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S076",
+          "MenuCode": "M01",
+          "VisitDate": "2026-02-09",
+          "MenuName": "모둠튀김",
+          "Rating": 3,
+          "Price": 6000,
+          "ReviewText": "부모님 모시고 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 모둠튀김은 특별한 건 없지만 나쁘지 않아요. 자리가 좁은 편이에요. 재방문은 고민해볼게요. 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        },
+        {
+          "StoreCode": "S076",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-10",
+          "MenuName": "떡볶이",
+          "Rating": 3,
+          "Price": 5000,
+          "ReviewText": "고등학교 친구 셋이서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 떡볶이는 특별한 건 없지만 나쁘지 않아요. 간이 살짝 센 편이에요. 근처면 한 번쯤 더 올지도? 근처에 비슷한 데가 많아서 굳이 찾아올 정도는 아닌 것 같아요."
+        },
+        {
+          "StoreCode": "S076",
+          "MenuCode": "M03",
+          "VisitDate": "2026-08-20",
+          "MenuName": "순대",
+          "Rating": 2,
+          "Price": 5000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 순대는 식은 상태로 나와서 실망했어요. 다시 갈 일은 없을 것 같아요. 리뷰 보고 갔는데 기대가 너무 컸나 봐요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S077",
+      "StoreName": "김밥천국 구로디지털점",
+      "Category": "ETC",
+      "Tag": "분식",
+      "Phone": "02-0841-2015",
+      "ImageUrl": "img/food/tteokbokki.jpg",
+      "WeatherCode": "RAINY",
+      "Reviews": [
+        {
+          "StoreCode": "S077",
+          "MenuCode": "M01",
+          "VisitDate": "2025-11-04",
+          "MenuName": "라볶이",
+          "Rating": 1,
+          "Price": 6500,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 12시 조금 넘어서 갔는데 자리가 거의 꽉 차 있었어요. 라볶이는 기대 이하였어요. 재방문은 안 할 듯해요. 리뷰 보고 갔는데 기대가 너무 컸나 봐요."
+        },
+        {
+          "StoreCode": "S077",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-17",
+          "MenuName": "참치김밥",
+          "Rating": 1,
+          "Price": 4500,
+          "ReviewText": "동생이랑 주말에 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 참치김밥은 기대 이하였어요. 재방문은 안 할 듯해요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S077",
+          "MenuCode": "M03",
+          "VisitDate": "2026-05-12",
+          "MenuName": "돈까스",
+          "Rating": 1,
+          "Price": 11000,
+          "ReviewText": "스터디 끝나고 친구들이랑 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 돈까스는 간이 너무 세서 아쉬웠어요. 다시 갈 일은 없을 것 같아요. 같이 간 친구도 표정이 별로였어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S078",
+      "StoreName": "후후카츠",
+      "Category": "ETC",
+      "Tag": "돈까스",
+      "Phone": "02-0127-5889",
+      "ImageUrl": "img/food/donkatsu.jpg",
+      "WeatherCode": "SUNNY",
+      "Reviews": [
+        {
+          "StoreCode": "S078",
+          "MenuCode": "M01",
+          "VisitDate": "2026-08-19",
+          "MenuName": "카츠산도",
+          "Rating": 5,
+          "Price": 9500,
+          "ReviewText": "소개팅 끝나고 친구 불러서 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 카츠산도는 빵결이 살아 있고 버터 향이 진해요. 자리가 넓어서 편해요. 다음에 또 올 거예요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S078",
+          "MenuCode": "M02",
+          "VisitDate": "2026-09-01",
+          "MenuName": "히레카츠",
+          "Rating": 4,
+          "Price": 13000,
+          "ReviewText": "프로젝트 팀원들이랑 회의 끝나고 갔어요. 날이 추워서 따뜻한 데 들어가니까 살 것 같았어요. 히레카츠는 기름지지 않고 바삭하게 잘 튀겼어요. 자리가 좁은 편이에요. 다음에 또 올 거예요. 배불러서 오후 내내 졸렸던 건 함정이에요."
+        },
+        {
+          "StoreCode": "S078",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-07",
+          "MenuName": "돈까스",
+          "Rating": 5,
+          "Price": 11000,
+          "ReviewText": "옆자리 동료랑 퇴근길에 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 돈까스는 겉은 바삭하고 속은 촉촉해요. 사장님이 친절하세요. 재방문 의사 있어요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S079",
+      "StoreName": "달콤공방 구디점",
+      "Category": "ETC",
+      "Tag": "디저트",
+      "Phone": "02-0631-5633",
+      "ImageUrl": "img/food/cafe.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S079",
+          "MenuCode": "M01",
+          "VisitDate": "2025-10-14",
+          "MenuName": "마카롱",
+          "Rating": 4,
+          "Price": 3000,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 마카롱은 비주얼도 예쁘고 맛도 만족스러워요. 간이 살짝 센 편이에요. 단골 될 것 같아요. 다 먹고 근처 카페까지 들렀는데 코스로 딱 좋았어요."
+        },
+        {
+          "StoreCode": "S079",
+          "MenuCode": "M02",
+          "VisitDate": "2026-03-30",
+          "MenuName": "크로플",
+          "Rating": 2,
+          "Price": 7500,
+          "ReviewText": "동생이랑 주말에 갔어요. 가는 길에 비가 와서 우산 쓰고 걸어갔어요. 크로플은 식은 상태로 나와서 실망했어요. 재방문은 안 할 듯해요. 솔직히 돈이 좀 아까웠어요."
+        },
+        {
+          "StoreCode": "S079",
+          "MenuCode": "M03",
+          "VisitDate": "2026-09-03",
+          "MenuName": "딸기케이크",
+          "Rating": 3,
+          "Price": 8500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 원래 다른 데 가려다가 문이 닫혀 있어서 여기로 왔어요. 딸기케이크는 기대보단 조금 아쉬웠어요. 간이 살짝 센 편이에요. 근처면 한 번쯤 더 올지도? 메뉴 고르는 데만 5분 넘게 걸렸어요."
+        }
+      ]
+    },
+    {
+      "StoreCode": "S080",
+      "StoreName": "카페 오후세시",
+      "Category": "ETC",
+      "Tag": "카페",
+      "Phone": "02-0125-1240",
+      "ImageUrl": "img/food/cafe.jpg",
+      "WeatherCode": "HOT",
+      "Reviews": [
+        {
+          "StoreCode": "S080",
+          "MenuCode": "M01",
+          "VisitDate": "2026-04-03",
+          "MenuName": "바스크 치즈케이크",
+          "Rating": 5,
+          "Price": 7800,
+          "ReviewText": "과 동기 두 명이랑 갔어요. 가게 앞에 웨이팅이 두세 팀 정도 있었어요. 바스크 치즈케이크는 너무 달지 않고 딱 적당한 단맛이에요. 자리가 넓어서 편해요. 재방문 의사 있어요. 같이 간 사람도 다음에 또 오자고 하더라고요."
+        },
+        {
+          "StoreCode": "S080",
+          "MenuCode": "M02",
+          "VisitDate": "2026-06-05",
+          "MenuName": "티라미수",
+          "Rating": 5,
+          "Price": 7500,
+          "ReviewText": "혼자 점심 먹으러 갔어요. 에어컨이 빵빵해서 들어가자마자 시원했어요. 티라미수는 비주얼도 예쁘고 맛도 만족스러워요. 자리가 넓어서 편해요. 다음에 또 올 거예요. 계산하면서 사장님이 사탕까지 챙겨주셨어요."
+        },
+        {
+          "StoreCode": "S080",
+          "MenuCode": "M03",
+          "VisitDate": "2026-07-16",
+          "MenuName": "아인슈페너",
+          "Rating": 2,
+          "Price": 6000,
+          "ReviewText": "회사 선배랑 둘이서 갔어요. 평일 저녁이라 그런지 생각보다 한산했어요. 아인슈페너는 식은 상태로 나와서 실망했어요. 재방문은 안 할 듯해요. 같이 간 친구도 표정이 별로였어요."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <!-- 리뷰 입력 팝업 (생성 C / 수정 U 공용)
+         팝업을 처음 로드할 때 oFormDialog.setModel(this._oFormModel)을 이름 없이 넣는다.
+         그래서 프래그먼트 안에서는 {/MenuName}, ${/Mode}처럼 form> 없이 쓴다.
+         입력칸은 원본이 아니라 form 모델(복사본)에 바인딩돼서, 취소하면 원본은 그대로 유지된다.
+         stretch 핸드폰으로 볼 때 화면을 크게 채우는 문법
+         contentWidth pc 버전의 픽셀
+         horizontalScrolling 좌우가 길어질 때 스크롤 가능한 화면 레이아웃 없어도 무관 -->
+    <Dialog
+        id="idReviewForm"
+        title="{= ${/Mode} === 'C' ? '리뷰 생성' : '리뷰 수정' }"
+        stretch="{device>/system/phone}"
+        icon="{= ${/Mode} === 'C' ? 'sap-icon://add' : 'sap-icon://edit' }"                                        
+        contentWidth="480px"                                                        
+        horizontalScrolling="false"
+    >
+
+            <VBox class = "sapUiSmallMargin">
+
+
+            <Label text = "별점 " required= "true"/>
+            <RatingIndicator id = "idFormRating"
+                             value = "{/Rating}"
+                             maxValue="5"
+                             iconSize = "2rem"
+                                                         
+            />            
+            
+            <Label text = "메뉴 코드 " visible="false"/>
+            <Input id = "idFormMenuCode" 
+                   value = "{/MenuCode}" 
+                   editable="false" 
+                   width = "100%"
+                   class ="sapUiSmallMarginBottom"
+                   visible="false"  
+                />
+            <Label text = "먹은 메뉴" required="true"/>
+            <Input id = "idFormMenu" 
+                   value = "{/MenuName}" 
+                   maxLength="40"
+                   width = "50%"
+                   placeholder="예) 보쌈"
+                   class ="sapUiSmallMarginBottom"
+                                
+            />
+
+
+            <Label text = "메뉴 가격 "/>
+            <StepInput id = "idFormPrice"
+                       value= "{/Price}"
+                       min = "0"
+                       step = "500"
+                       width = "100%"
+                       description="원"
+                       class ="sapUiSmallMarginBottom"
+            />
+
+            
+            <Label text = "방문일자" required="true"/>
+            <DatePicker id = "idFormDate"
+                        value = "{/VisitDate}" 
+                        valueFormat="yyyy-MM-dd" 
+                        displayFormat="yyyy.MM.dd"
+                        width = "100%"
+                        class ="sapUiSmallMarginBottom"             
+            />
+
+
+            <Label text = "리뷰 "/>
+            <TextArea id = "idFormReview"
+                      value = "{/ReviewText}"
+                      rows = "4"
+                      growing= "true"
+                      maxLength="200"
+                      width = "100%"
+                      showExceededText="true"
+                      placeholder="자유롭게 적어주세요"
+            />
+                            
+            </VBox>
+
+        <beginButton>
+            <Button id = "idFormSaveBtn"
+                    text = "{= ${/Mode} === 'C' ? '생성' : '저장'}"
+                    type = "Emphasized"
+                    class = "mkFormSaveBtn"
+                    icon="sap-icon://accept"
+                    press = ".onFormSave"
+                    
+            />
+        </beginButton>
+            
+        <endButton>    
+            <Button id = "idFormCancelBtn"
+                    text = "취소"
+                    type="Transparent"
+                    press = ".onFormCancel"
+                    
+            />
+        </endButton>                                                                <!-- begin/end button은 팝업에서 푸터 부분의 오른쪽 끝열에 자동으로 넣어진다.-->
+
+    </Dialog>
+    
+
+
+</core:FragmentDefinition>

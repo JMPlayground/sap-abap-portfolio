@@ -1,0 +1,42 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="zcl4mukgorithm.zcl4mukgorithm.controller.Home" displayBlock="true">
+    <Page id="page" class="homePage" showHeader="false">
+    <!--  상단 가운데 로고  -->
+    <HBox width="100%" renderType="Bare" justifyContent="Center" alignItems="Center" class="homeLogoArea">
+    <Image src="/img/Home_logo.png" alt="먹고리즘" decorative="false" densityAware="false" class="homeLogo"/>
+    </HBox>
+        <content>
+                <VBox width="100%" renderType="Bare" class="homeContent">
+                <!--  캐릭터와 안내 문구  -->
+                <HBox renderType="Bare" alignItems="Center" justifyContent="SpaceBetween" class="homeHero">
+                <VBox renderType="Bare" class="heroCopy">
+                <Text text="먹고리즘" class="heroBrand"/>
+                <Title text="오늘 뭐 먹지?" level="H1" class="heroTitle"/>
+                <Text text="맛있는 고민, 먹고리즘이 도와줄게요." class="heroDescription"/>
+                </VBox>
+            <Image src="/img/Home_icon.png" decorative="true" densityAware="false" class="heroMascot"/>
+            </HBox>
+            <!--  메뉴 카테고리  -->
+                        <Panel expanded="true" expandable="false" width="100%" class="categoryPanel">
+                        <headerToolbar>
+                        <Toolbar class="categoryToolbar">
+                        <Title text="메뉴 카테고리" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Text text="원하는 메뉴를 선택하세요"/>
+                        </Toolbar>
+                        </headerToolbar>
+                        <content>
+                        <HBox id="_HBoxMenu" wrap="Wrap" renderType="Bare" class="menuGrid">
+                        <items>
+                        <Button id="btnKOR" text="한식" icon="/img/korean.png" iconDensityAware="false" press=".onCategoryPress" class="menuBtn characterMenuBtn"/>
+                        <Button id="btnCHN" text="중식" icon="/img/chinese.png" iconDensityAware="false" press=".onCategoryPress" class="menuBtn characterMenuBtn"/>
+                        <Button id="btnWST" text="양식" icon="/img/western.png" iconDensityAware="false" press=".onCategoryPress" class="menuBtn characterMenuBtn"/>
+                        <Button id="btnETC" text="기타" icon="/img/etc.png" iconDensityAware="false" press=".onCategoryPress" class="menuBtn characterMenuBtn"/>
+                        <Button id="btnRandomGame" text="랜덤 게임" iconDensityAware="false" press=".onCategoryPress" class="menuBtn randomMenuBtn"/>
+                        </items>
+                        </HBox>
+                    </content>
+                    </Panel>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

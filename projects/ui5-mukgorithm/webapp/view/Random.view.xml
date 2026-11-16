@@ -1,0 +1,86 @@
+<mvc:View controllerName="zcl4mukgorithm.zcl4mukgorithm.controller.Random"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="idRandomPage" title="랜덤 추천"
+    class= "mkRandomPage"
+    showNavButton   ="true"  
+    navButtonPress=".onNavBack">
+
+    <VBox id = "idRandomContainer" class="mkContainer"> 
+
+<!-- ===== 모드 선택: 완전랜덤 / 날씨추천 ===== -->
+    <SegmentedButton id = "idRandomMode"
+                     class="mkSeg"
+                     selectedKey="ALL" 
+                     selectionChange=".onModeChange"
+                     width="100%">
+                    <items>
+                    <SegmentedButtonItem key="ALL" text="🎰 완전랜덤"     id="btn1" />
+                    <SegmentedButtonItem key="WEATHER" text="🌦️ 날씨추천" id="btn2" />
+                    </items>
+                     </SegmentedButton>
+
+<!-- ===== 날씨 선택: 둥근 아이콘 (날씨추천일 때만 보임) ===== -->
+    <SegmentedButton id="idWeatherSelect" class="mkWeather"
+                 selectedKey="SUNNY"
+                 visible="false"
+                 width="100%">
+    <items>
+        <SegmentedButtonItem key="SUNNY" icon="sap-icon://light-mode"      tooltip="맑음" id="btn3" />
+        <SegmentedButtonItem key="RAINY" icon="sap-icon://umbrella"        tooltip="비"   id="btn4" />
+        <SegmentedButtonItem key="COLD"  icon="sap-icon://heating-cooling" tooltip="추움" id="btn5" />
+        <SegmentedButtonItem key="HOT"   icon="sap-icon://temperature"     tooltip="더움" id="btn6" />
+    </items>
+</SegmentedButton>
+
+<!-- ===== 슬롯: 캐릭터(src는 컨트롤러 onInit에서 지정) + 가게 이름 + 돌리기 ===== -->
+    <VBox alignItems="Center" id="casino" width="100%" class="sapUiMediumMarginTop">
+    <Image id="idSlotImg" class="mkSlotImg"
+        width="160px" height="160px" />
+    <Text text="버튼을 누르면 오늘 먹을 곳을 골라드려요" id="chooseTxt" class="sapUiSmallMarginTop" />
+    </VBox>                                     
+
+    <Title text="오늘의 메뉴는?" id="idSlotText" titleStyle="H1" 
+           textAlign="Center"  width="100%"
+           class="mkSlot"/> 
+
+    <Button text="돌리기" id="idSpinBtn" type="Emphasized" class="mkBigBtn"
+    press=".onSpinPress"  width="100%"  />
+
+        <!-- ===== 결과 카드 (돌린 뒤에만 보임) ===== -->
+    <VBox id="idResultBox" visible="false" class="mkResultCard" width="100%">
+
+        <!-- 사진 클릭 → 리뷰 팝업 -->
+        <Image id="imageUrl"
+            src="{path:'ImageUrl', formatter:'.formatter.imageUrl'}"
+            width="100%" height="200px"
+            class="mkFeedImg mkClickable" press=".onResultPress" />
+
+        <!-- 이름(클릭 → 팝업) + 종류 뱃지 -->
+        <HBox id="idResultHead" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
+            <Link id="title1" text="{StoreName}" class="mkResultName" press=".onResultPress" />
+            <Text id="categoryTag" text="{Tag}" class="mkTag" />
+        </HBox>
+
+        
+        <!-- 별점 + 숫자 (App.controller에서 계산한 값) -->
+        <RatingIndicator id="rIndi" value="{AvgRating}" displayOnly="true" iconSize="1.1rem" />
+        <Text id="idAvgText" text="{path:'AvgRating', formatter:'.formatter.avgText'}"
+            class="mkAvg sapUiTinyMarginBegin" />
+
+        <Link id="link1" text="{Phone}" href="tel:{Phone}" class="mkPhone sapUiTinyMarginTop" />
+
+
+       <!-- 대표리뷰 (App.controller에서 계산한 값) -->
+        <Text id="repText" text="{RepReview}" maxLines="2" width="100%"
+            class="mkRepReview sapUiSmallMarginTop" />
+
+        <!-- 리뷰 보기 버튼 (클릭 → 팝업) -->
+        <Button id="idGoDetailBtn" text="리뷰 보기" icon="sap-icon://navigation-right-arrow" iconFirst="false"
+            width="100%" class="mkGhostBtn sapUiSmallMarginTop" press=".onResultPress" />
+    </VBox>
+    
+    </VBox> 
+
+    </Page>
+</mvc:View>
