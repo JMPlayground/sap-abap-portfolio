@@ -1,4 +1,4 @@
-b  /* 공통 컨테이너: 폰은 꽉 차게, 웹은 가운데 480px */
+/* 공통 컨테이너: 폰은 꽉 차게, 웹은 가운데 480px */
 .mkContainer {
   width: 100%; max-width: 480px; margin: 0 auto;
   box-sizing: border-box; padding: 0 0.5rem;
