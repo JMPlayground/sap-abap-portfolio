@@ -1,0 +1,75 @@
+<mvc:View
+    xmlns:mvc       ="sap.ui.core.mvc"
+    xmlns           ="sap.m"
+    xmlns:f         ="sap.ui.layout.form"
+    controllerName  ="ncode.zncl040203.controller.Detail"
+>
+    <!--
+    ================================================================
+     Detail.view.xml : 상세/수정 화면 (라우팅 도착지)
+     ★ 새 View 만들 때 xmlns:f="sap.ui.layout.form" 잊지 말 것!
+     ★ 모든 바인딩은 "/" 없는 상대경로 → controller 에서 bindElement 로 경로 지정
+    ================================================================
+    -->
+    <Page
+        id              ="pageDetail"
+        title           ="구매 상세 / 수량 수정"
+        showNavButton   ="true"
+        navButtonPress  =".onNavBack"
+    >
+        <headerContent>
+            <Button
+                text    ="저장"
+                type    ="Accept"
+                icon    ="sap-icon://save"
+                press   =".onSave"
+            />
+        </headerContent>
+
+        <content>
+            <f:SimpleForm
+                title       ="선택한 구매 건"
+                editable    ="true"
+                layout      ="ResponsiveGridLayout"
+                labelSpanXL ="3"
+                labelSpanL  ="3"
+                labelSpanM  ="3"
+                labelSpanS  ="12"
+            >
+                <f:content>
+                    <Label text ="주문번호" />
+                    <Text  text ="{purchaseNo}" />
+
+                    <Label text ="상품명" />
+                    <Text  text ="{productName}" />
+
+                    <Label text ="구매일" />
+                    <Text  text ="{ path : 'purchaseDate', formatter : '.formatDate' }" />
+
+                    <Label text ="단가" />
+                    <Text  text ="{ path : 'unitPrice', formatter : '.formatPrice' }" />
+
+                    <!-- 양방향 바인딩 : 여기서 바꾸면 원본 JSON 데이터도 즉시 바뀜 -->
+                    <Label text ="수량 (1~99)" />
+                    <Input
+                        id          ="inpQty"
+                        width       ="150px"
+                        textAlign   ="End"
+                        value       ="{
+                                        path        : 'quantity',
+                                        type        : 'sap.ui.model.type.Integer',
+                                        constraints : { minimum : 1, maximum : 99 }
+                                      }"
+                    />
+
+                    <!-- 수량 바꾸면 금액도 자동 재계산 (parts) -->
+                    <Label text ="금액" />
+                    <Text  text ="{
+                                    parts     : [ { path : 'quantity' }, { path : 'unitPrice' } ],
+                                    formatter : '.formatAmount'
+                                  }" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

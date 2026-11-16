@@ -1,0 +1,119 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+ xmlns             ="sap.m"
+ xmlns:core        ="sap.ui.core" 
+ controllerName    ="ncode.zncl0402ljm.controller.List">
+    <!--
+    ================================================================
+     List.view.xml : 조회 화면 (sap.m.Table 기준 Growing 10)
+    ================================================================
+    --><Page id="pageList" title="생산 오더 조회">
+
+        <content>
+     <!-- ===================== 검색 조건 ===================== -->
+         <Toolbar design="Transparent">
+            <Label text="검색 조건" 
+                  class="sapUiSmallMarginBegin"/>
+
+             <ToolbarSpacer/>
+
+            </Toolbar>
+
+                <HBox alignItems="End" 
+                        class="sapUiSmallMarginBottom">
+
+                <VBox class="sapUiSmallMarginRight">
+                    <Label text="검색 기준" id="label1"/>      
+                    <ComboBox
+                                id              = "cOrderCombo"
+                                width           = "200px"
+                                placeholder     = "검색 기준을 정하세요"
+                                selectedKey     = "OrderID"
+                                    >           
+                                    <items>
+                                    <core:Item
+                                    key         = "OrderID"
+                                    text        = "생산 오더 번호"/>
+                                    <core:Item
+                                    key         = "Customer"
+                                    text        = "고객명"/>
+                                    <core:Item
+                                    key         = "SalesOrder"
+                                    text        = "판매 오더 번호"/>                               
+                                    </items>
+                            </ComboBox>
+                    </VBox>
+
+                <VBox class="sapUiSmallMarginRight">
+                <Label text="검색어" id="label2"/>
+                <Input id      ="inpKeyword" 
+                    width      ="300px" 
+                    placeholder="검색어 입력"/>
+                </VBox>
+
+                <Button xmlns="sap.m" 
+                         text="검색" 
+                         type="Emphasized" 
+                         icon="sap-icon://search" 
+                           id="button1" 
+                        press=".onSearch"/>
+                
+                </HBox>   
+
+            <!-- ===================== 메인 테이블 (sap.m.Table) ===================== -->
+            <!-- m.Table : items 바인딩 / 선택 이벤트 selectionChange / 파라미터  -->
+           
+            <Table id               ="idOrderTable" 
+                items               ="{/Orders}" 
+                mode                ="SingleSelectMaster" 
+                selectionChange     =".onOrderSelect" 
+                noDataText          ="조회된 데이터가 없습니다." 
+                class               ="sapUiSmallMarginTop"
+                growing             ="true"
+                growingThreshold    ="10" >
+        
+
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text ="생산 오더 목록" 
+                        level       ="H2"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text  ="생산 오더"/></Column>
+                    <Column><Text text  ="판매 오더"/></Column>
+                    <Column><Text text  ="고객"/></Column>
+                    <Column><Text text  ="대표 자재명"/></Column>
+                    <Column hAlign      ="End"><Text text="대표 계획수량"/></Column>
+                    <Column><Text text  ="생산 상태"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!-- 기본 Property 바인딩 + Element Binding-->
+                            <Text text="{OrderID}"/>
+                            <Text text="{SalesOrder}"/>
+                            <Text text="{Customer}"/>
+
+                            <Text text="{_Items/0/MaterialName}"/>
+
+                            <!-- 대표 계획수량 : 0번째 품목 수량(콤마) + 0번째 품목 단위 -->
+                            <ObjectNumber
+                                number  ="{ path : '_Items/0/PlannedQty', formatter : '.formatNumber' }"
+                                unit    ="{_Items/0/Unit}"
+                            />
+                            <!-- 생산 상태 : 표현식으로 코드 → 한글 + 색상 -->             
+                            <ObjectStatus
+                                text  ="{= ${Status} === '01' ? '계획' : ( ${Status} === '02' ? '진행 중' : ( ${Status} === '03' ? '완료' : ( ${Status} === '09' ? '보류' : ${Status} ) ) ) }"
+                                state ="{= ${Status} === '03' ? 'Success' : 
+                                            ( ${Status} === '02' ? 'Information' : 
+                                            ( ${Status} === '09' ? 'Error' : 'None' ) ) }"
+                            />      
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

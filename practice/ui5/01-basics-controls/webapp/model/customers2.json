@@ -1,0 +1,124 @@
+{
+  "customers": [
+    {
+      "name": "김철수",
+      "age": 28,
+      "adultStatus": "성인",
+      "phone": "01012345678",
+      "_purchaseList": [
+        {
+          "purchaseNo": "P202610001",
+          "purchaseDate": "20261002",
+          "productName": "무선 마우스",
+          "quantity": 1,
+          "unitPrice": 29000,
+          "status": "구매완료",
+          "statusState": "Success"
+        },
+        {
+          "purchaseNo": "P202610014",
+          "purchaseDate": "20261011",
+          "productName": "기계식 키보드",
+          "quantity": 1,
+          "unitPrice": 89000,
+          "status": "배송중",
+          "statusState": "Information"
+        },
+        {
+          "purchaseNo": "P202610022",
+          "purchaseDate": "20261020",
+          "productName": "USB 허브",
+          "quantity": 2,
+          "unitPrice": 18000,
+          "status": "구매완료",
+          "statusState": "Success"
+        }
+      ]
+    },
+    {
+      "name": "이영희",
+      "age": 17,
+      "adultStatus": "미성년자",
+      "phone": "01023456789",
+      "_purchaseList": [
+        {
+          "purchaseNo": "P202610003",
+          "purchaseDate": "20261004",
+          "productName": "무선 이어폰",
+          "quantity": 1,
+          "unitPrice": 59000,
+          "status": "배송중",
+          "statusState": "Information"
+        },
+        {
+          "purchaseNo": "P202610018",
+          "purchaseDate": "20261015",
+          "productName": "휴대폰 케이스",
+          "quantity": 2,
+          "unitPrice": 12000,
+          "status": "구매완료",
+          "statusState": "Success"
+        }
+      ]
+    },
+    {
+      "name": "박민수",
+      "age": 35,
+      "adultStatus": "성인",
+      "phone": "01034567890",
+      "_purchaseList": [
+        {
+          "purchaseNo": "P202610005",
+          "purchaseDate": "20261005",
+          "productName": "모니터",
+          "quantity": 1,
+          "unitPrice": 249000,
+          "status": "구매완료",
+          "statusState": "Success"
+        },
+        {
+          "purchaseNo": "P202610019",
+          "purchaseDate": "20261016",
+          "productName": "HDMI 케이블",
+          "quantity": 3,
+          "unitPrice": 9000,
+          "status": "취소",
+          "statusState": "Error"
+        },
+        {
+          "purchaseNo": "P202610024",
+          "purchaseDate": "20261022",
+          "productName": "노트북 거치대",
+          "quantity": 1,
+          "unitPrice": 35000,
+          "status": "구매완료",
+          "statusState": "Success"
+        }
+      ]
+    },
+    {
+      "name": "최지현",
+      "age": 19,
+      "adultStatus": "미성년자",
+      "phone": "01045678901",
+      "_purchaseList": [
+        {
+          "purchaseNo": "P202610008",
+          "purchaseDate": "20261007",
+          "productName": "텀블러",
+          "quantity": 1,
+          "unitPrice": 22000,
+          "status": "구매완료",
+          "statusState": "Success"
+        }
+      ]
+    },
+    {
+      "name": "정수민",
+      "age": 15,
+      "adultStatus": "미성년자",
+      "phone": "01056789012",
+      "_purchaseList": []
+    }
+  ]
+}

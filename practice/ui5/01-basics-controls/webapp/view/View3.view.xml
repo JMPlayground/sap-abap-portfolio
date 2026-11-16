@@ -1,0 +1,177 @@
+<mvc:View
+    xmlns:mvc       ="sap.ui.core.mvc"
+    xmlns           ="sap.m"
+    xmlns:form      ="sap.ui.layout.form"
+    xmlns:core      ="sap.ui.core"
+    controllerName  ="ncode.zncl401.controller.View3"
+>
+    <Page
+        id      ="page3"
+        title   ="수강생 등록"
+    >
+        <content>
+            <VBox width="100%">
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        text    ="수강생 등록"
+                        press   =".onRegister"
+                    />
+                    <!-- class="sapUiHideOnDesktop" -->
+                </Toolbar>
+                <form:SimpleForm
+                    editable    ="true"
+                    layout      ="ResponsiveGridLayout"
+                    columnsXL   ="1"
+                    columnsL    ="1"
+                    columnsM    ="1"
+                    emptySpanXL ="0"
+                    emptySpanL  ="0"
+                    emptySpanM  ="0"
+                    labelSpanXL ="2"
+                    labelSpanL  ="2"
+                    labelSpanM  ="3"
+                >
+                    <form:content>
+                        <core:Title text="기본정보" />
+
+                        <Label text ="이름" />
+                        <Input
+                            id      ="name"
+                            width   ="100%"
+                            required="true"
+                        />
+
+                        <Label text    ="성별" />
+                        <Select
+                            id         ="gender"
+                            selectedKey="M"
+                            width="100%"
+                        items="{/genderList}" >
+
+                    
+                        <core:Item
+                            key  ="{key}"
+                            text ="{text}"
+                            
+                            />
+
+                             <!-- <core:Item
+                                key    ="M"
+                                text   ="남성"
+                            />
+                            <core:Item
+                                key    ="F"
+                                text   ="여성"
+                            />  -->
+
+                        
+                        </Select>
+
+                        <Label text     ="전공 유무" />
+                        <Select
+                            id="major"
+                            selectedKey ="Y"
+                            width="100%"
+                        items="{/majorList}" >
+
+                    
+                        <core:ListItem
+                            key  ="{key}"
+                            text ="{text}"
+                            
+                            />
+                            <!-- <core:Item
+                                key     ="Y"
+                                text    ="전공자"
+                            />
+                            <core:Item
+                                key     ="N"
+                                text    ="비전공자"
+                            /> -->
+                        </Select>
+
+                        <Label text     ="주소" />
+                        <Input
+                            id          ="address"
+                            width       ="100%"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+
+                <!-- <form:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    title="추가 정보"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    labelSpanXL="2"
+                    labelSpanL="2"
+                    labelSpanM="3"
+                >
+                    <Label text="취미" />
+                    <Input
+                        id="hobby"
+                        width="100%"
+                    />
+
+                    <Label text="좋아하는 메뉴" />
+                    <Input
+                        id="menu"
+                        width="100%"
+                    />
+
+                    <Label text="희망 진로" />
+                    <RadioButtonGroup
+                        id="career"
+                        columns="1"
+                        selectedIndex="2"
+                    >
+                        <buttons>
+                            <RadioButton text="ABAP 개발자" />
+                            <RadioButton text="Fiori/UI5 개발자" />
+                            <RadioButton text="아직 미정" />
+                        </buttons>
+                    </RadioButtonGroup>
+
+                </form:SimpleForm>  -->
+
+                <core:Fragment
+                    fragmentName    ="ncode.zncl401.view.AddInfo"
+                    type="XML"
+                />
+
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        text        ="초기화"
+                        press       =".onReset"
+                    />
+                    <!-- 팝업 열기 버튼 -->
+                    <Button
+                        text        ="추가 정보"
+                        type        ="Emphasized"
+                        press       =".onPopup"
+                    />
+                    <Button
+                        text        ="팝업 열기"
+                        type        ="Emphasized"
+                        press       =".onPopup2"
+                    />
+                </Toolbar>
+                <TextArea
+                    id              ="result"
+                    width           ="100%"
+                    rows            ="8"
+                    editable        ="false"
+                />
+            </VBox>
+        </content>
+
+        <headerContent />
+    </Page>
+</mvc:View>

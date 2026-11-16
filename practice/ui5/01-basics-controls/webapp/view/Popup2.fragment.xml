@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+    xmlns       ="sap.m"
+    xmlns:core  ="sap.ui.core"
+    xmlns:form  ="sap.ui.layout.form"
+>
+<Dialog
+        id                  ="idPopup2"
+        title               ="Popup View"
+        titleAlignment      ="Center" 
+ >
+<!-- 재사용 고려한 화면의 ui 정의 -->
+                <form:SimpleForm
+                    editable    ="true"
+                    layout      ="ResponsiveGridLayout"
+                    title       ="추가 정보"
+                    columnsXL   ="1"
+                    columnsL    ="1"
+                    columnsM    ="1"
+                    emptySpanXL ="0"
+                    emptySpanL  ="0"
+                    emptySpanM  ="0"
+                    labelSpanXL ="2"
+                    labelSpanL  ="2"
+                    labelSpanM  ="3"
+                >
+                    <Label text ="취미" />
+                    <Input
+                        id      ="hobby2"
+                        width   ="100%"
+                    />
+
+                    <Label text ="좋아하는 메뉴" />
+                    <Input
+                        id      ="menu2"
+                        width   ="100%"
+                    />
+
+                    <Label text ="희망 진로" />
+                    <RadioButtonGroup
+                        id              ="career2"
+                        columns         ="1"
+                        selectedIndex   ="2"
+                    >
+                        <buttons>
+                            <RadioButton text   ="ABAP 개발자" />
+                            <RadioButton text   ="Fiori/UI5 개발자" />
+                            <RadioButton text   ="아직 미정" />
+                        </buttons>
+                    </RadioButtonGroup>
+
+                </form:SimpleForm>
+
+                        <buttons>
+            <!-- 팝업 닫기 버튼 -->
+            <Button
+                text        ="Close"
+                type        ="Transparent"
+                press       =".onClose"
+            />
+        </buttons>
+</Dialog>
+
+
+</core:FragmentDefinition>

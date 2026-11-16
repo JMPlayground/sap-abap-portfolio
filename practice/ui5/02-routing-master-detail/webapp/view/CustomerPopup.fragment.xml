@@ -1,0 +1,84 @@
+<core:FragmentDefinition
+    xmlns       ="sap.m"
+    xmlns:core  ="sap.ui.core"
+    xmlns:form  ="sap.ui.layout.form"
+>
+    <!--
+    ================================================================
+     CustomerPopup.fragment.xml : 재사용 팝업 (Dialog)
+     ★ 파일은 view 폴더 / 호출 이름 = "ncode.zncl040203.view.CustomerPopup"
+     ★ 바인딩은 "/" 없는 상대경로 → 열 때 setBindingContext 로 선택 행 연결
+    ================================================================
+    -->
+    <Dialog
+        id              ="dlgCustomer"
+        title           ="고객 상세 정보"
+        contentWidth    ="45rem"
+    >
+        <content>
+            <form:SimpleForm
+                editable    ="false"
+                layout      ="ResponsiveGridLayout"
+                labelSpanXL ="3"
+                labelSpanL  ="3"
+                labelSpanM  ="3"
+                labelSpanS  ="12"
+            >
+                <form:content>
+                    <Label text ="이름" />
+                    <Text  text ="{name}" />
+
+                    <Label text ="나이" />
+                    <Text  text ="{age}" />
+
+                    <Label text ="구분" />
+                    <ObjectStatus
+                        text    ="{adultStatus}"
+                        state   ="{= ${age} >= 20 ? 'Success' : 'Error' }"
+                    />
+
+                    <Label text ="연락처" />
+                    <Text  text ="{ path : 'phone', formatter : '.formatPhone' }" />
+                </form:content>
+            </form:SimpleForm>
+
+            <!-- 고객 안의 배열(_purchaseList) → 팝업 안 테이블 -->
+            <Table
+                items       ="{_purchaseList}"
+                noDataText  ="구매 내역이 없습니다."
+            >
+                <columns>
+                    <Column><Text text="주문번호" /></Column>
+                    <Column><Text text="구매일" /></Column>
+                    <Column><Text text="상품명" /></Column>
+                    <Column hAlign="End"><Text text="수량" /></Column>
+                    <Column hAlign="End"><Text text="단가" /></Column>
+                    <Column><Text text="상태" /></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text ="{purchaseNo}" />
+                            <Text text ="{ path : 'purchaseDate', formatter : '.formatDate' }" />
+                            <Text text ="{productName}" />
+                            <Text text ="{quantity}" />
+                            <Text text ="{ path : 'unitPrice', formatter : '.formatPrice' }" />
+                            <ObjectStatus
+                                text    ="{status}"
+                                state   ="{statusState}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+
+        <endButton>
+            <Button
+                text    ="닫기"
+                type    ="Emphasized"
+                press   =".onClose"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,43 @@
+{
+    "classes": [
+        { "key": "1조", "text": "1조" },
+        { "key": "2조", "text": "2조" },
+        { "key": "3조", "text": "3조" },
+        { "key": "4조", "text": "4조" },
+        { "key": "5조", "text": "5조" },
+        { "key": "6조", "text": "6조" }
+    ],
+    
+    "student": [
+    { "stdNo": "26040101", "stdName": "강서연", "class": "4", "classT": "1조" },
+    { "stdNo": "26040102", "stdName": "윤은정", "class": "4", "classT": "1조" },
+    { "stdNo": "26040103", "stdName": "이성준", "class": "4", "classT": "1조" },
+    { "stdNo": "26040104", "stdName": "임재호", "class": "4", "classT": "1조" },
+    { "stdNo": "26040105", "stdName": "한유민", "class": "4", "classT": "1조" },
+    { "stdNo": "26040201", "stdName": "김예지", "class": "4", "classT": "2조" },
+    { "stdNo": "26040202", "stdName": "김지은", "class": "4", "classT": "2조" },
+    { "stdNo": "26040203", "stdName": "이정민", "class": "4", "classT": "2조" },
+    { "stdNo": "26040204", "stdName": "이준헌", "class": "4", "classT": "2조" },
+    { "stdNo": "26040205", "stdName": "함재연", "class": "4", "classT": "2조" },    
+    { "stdNo": "26040301", "stdName": "강영준", "class": "4", "classT": "3조" },
+    { "stdNo": "26040302", "stdName": "김동현", "class": "4", "classT": "3조" },
+    { "stdNo": "26040303", "stdName": "강민서", "class": "4", "classT": "3조" },
+    { "stdNo": "26040304", "stdName": "신희은", "class": "4", "classT": "3조" },
+    { "stdNo": "26040305", "stdName": "최영준", "class": "4", "classT": "3조" },
+    { "stdNo": "26040401", "stdName": "김경민", "class": "4", "classT": "4조" },
+    { "stdNo": "26040402", "stdName": "이지오", "class": "4", "classT": "4조" },
+    { "stdNo": "26040403", "stdName": "이효은", "class": "4", "classT": "4조" },
+    { "stdNo": "26040404", "stdName": "이효준", "class": "4", "classT": "4조" },
+    { "stdNo": "26040405", "stdName": "주성민", "class": "4", "classT": "4조" },
+    { "stdNo": "26040501", "stdName": "김건희", "class": "4", "classT": "5조" },
+    { "stdNo": "26040502", "stdName": "김채민", "class": "4", "classT": "5조" },
+    { "stdNo": "26040503", "stdName": "노희수", "class": "4", "classT": "5조" },
+    { "stdNo": "26040504", "stdName": "송윤아", "class": "4", "classT": "5조" },
+    { "stdNo": "26040505", "stdName": "옥진서", "class": "4", "classT": "5조" },
+    { "stdNo": "26040601", "stdName": "정동혁", "class": "4", "classT": "6조" },
+    { "stdNo": "26040602", "stdName": "공상현", "class": "4", "classT": "6조" },
+    { "stdNo": "26040603", "stdName": "송제석", "class": "4", "classT": "6조" },
+    { "stdNo": "26040604", "stdName": "최성윤", "class": "4", "classT": "6조" }
+    ],
+     "filteredStudents": []
+}

@@ -1,0 +1,39 @@
+{
+    "customers": [
+        {
+            "name": "김철수",
+            "age": 28,
+            "adultStatus": "성인",
+            "adultState": "Success",
+            "phone": "01012345678"
+        },
+        {
+            "name": "이영희",
+            "age": 17,
+            "adultStatus": "미성년자",
+            "adultState": "Warning",
+            "phone": "01023456789"
+        },
+        {
+            "name": "박민수",
+            "age": 35,
+            "adultStatus": "성인",
+            "adultState": "Success",
+            "phone": "01034567890"
+        },
+        {
+            "name": "최지현",
+            "age": 19,
+            "adultStatus": "미성년자",
+            "adultState": "Warning",
+            "phone": "01045678901"
+        },
+        {
+            "name": "정수민",
+            "age": 15,
+            "adultStatus": "미성년자",
+            "adultState": "Warning",
+            "phone": "01056789012"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+<mvc:View
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m" 
+xmlns:core="sap.ui.core" 
+xmlns:t="sap.ui.table" 
+xmlns:modes="sap.ui.table.rowmodes" 
+controllerName="ncode.zncl401.controller.Detail"
+xmlns:f ="sap.ui.layout.form"
+
+>
+
+<Page title="점수 수정" showNavButton="true" navButtonPress=".onNaviBack">
+        <headerContent>
+            <Button text="저장" type="Accept" icon="sap-icon://save" press=".onSave" />
+        </headerContent>
+        <content>
+            <f:SimpleForm 
+                title="선택한 과목 점수 수정" 
+                editable="true" 
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12">
+                <f:content>
+                    <Label text="과목명" />
+                    <Text text="{subjectName}" class="sapUiSmallMarginTop" />
+                    <Label text="점수" />
+                    <Input value="{score}" type="Number" width="150px" textAlign="Right" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

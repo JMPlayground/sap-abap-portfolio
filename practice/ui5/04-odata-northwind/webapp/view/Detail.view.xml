@@ -1,0 +1,58 @@
+<mvc:View controllerName="ncode.zncl04ljm.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form">
+    <Page id="page2" title="{i18n>title}">
+
+
+           <form:SimpleForm
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="1"
+                emptySpanL="1"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <form:content>
+                    <core:Title text="상품 정보" />
+                    <Label text="상품 번호" />
+                    <Text text="{ProductID}" />
+                    <Label text="상품명" />
+                    <Text text="{ProductName}" />
+                    <Label text="공급업체 번호" />
+                    <Text text="{SupplierID}" />
+                    <Label text="분류 번호" />
+                    <Text text="{CategoryID}" />
+                    <Label text="포장 단위" />
+                    <Text text="{QuantityPerUnit}" />
+                    <Label text="단가" />
+                    <ObjectNumber
+                        number="{UnitPrice}"
+                        unit="USD"
+                    />
+                    <Label text="재고 수량" />
+                    <ObjectNumber number="{UnitsInStock}" />
+                    <Label text="주문 수량" />
+                    <ObjectNumber number="{UnitsOnOrder}" />
+                    <Label text="재주문 기준" />
+                    <ObjectNumber number="{ReorderLevel}" />
+                    <Label text="판매 중단 여부" />
+                    <ObjectStatus
+                        text="{= ${Discontinued} ? '중단' : '판매 중'}"
+                        state="{= ${Discontinued} ? 'Error' : 'Success'}"
+                    />
+                </form:content>
+            </form:SimpleForm>
+
+    </Page>
+</mvc:View>

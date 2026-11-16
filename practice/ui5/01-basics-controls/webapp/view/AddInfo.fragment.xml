@@ -1,0 +1,58 @@
+<core:FragmentDefinition
+    xmlns       ="sap.m"
+    xmlns:core  ="sap.ui.core"
+    xmlns:form  ="sap.ui.layout.form"
+>
+
+<!-- 재사용 고려한 화면의 ui 정의 -->
+                <form:SimpleForm
+                    editable    ="true"
+                    layout      ="ResponsiveGridLayout"
+                    title       ="추가 정보"
+                    columnsXL   ="1"
+                    columnsL    ="1"
+                    columnsM    ="1"
+                    emptySpanXL ="0"
+                    emptySpanL  ="0"
+                    emptySpanM  ="0"
+                    labelSpanXL ="2"
+                    labelSpanL  ="2"
+                    labelSpanM  ="3"
+                >
+                    <Label text ="취미" />
+                    <Input
+                        id      ="hobby"
+                        width   ="100%"
+                    />
+
+                    <Label text ="좋아하는 메뉴" />
+                    <Input
+                        id      ="menu"
+                        width   ="100%"
+                    />
+
+                    <Label text ="희망 진로" />
+                    <RadioButtonGroup
+                        id              ="career"
+                        columns         ="1"
+                        selectedIndex   ="{/careerIndex}"                
+                        buttons="{/careerList}" >
+
+                    
+                        <buttons>
+                          
+                    <RadioButton text="{text}" />                 
+                            
+                            </buttons>
+                        <!-- <buttons>
+                            <RadioButton text   ="ABAP 개발자" />
+                            <RadioButton text   ="Fiori/UI5 개발자" />
+                            <RadioButton text   ="아직 미정" />
+                        </buttons> -->
+                    </RadioButtonGroup>
+
+                </form:SimpleForm>
+
+
+
+</core:FragmentDefinition>

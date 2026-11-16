@@ -1,0 +1,31 @@
+
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ncode.zncl401.controller.Img">
+    <Page id="page" title="피오리 실습">
+
+
+ <content>
+<Panel expanded="false" expandable="true" width="50%" >
+        <headerToolbar>
+            <Toolbar >
+                <content>
+                    <Title text="Condition"  > </Title>
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <Button icon="sap-icon://search" press="onSearch" ></Button>
+                </content>
+            </Toolbar>
+        </headerToolbar>
+        <content>
+        <!-- Image는 상위의 img 폴더에 위치해야한다. -->
+            <Image src="../Img/Rhino.webp" width="600px" height="500px" ></Image>
+        </content> 
+       </Panel>
+<Image src="../Img/Rhino.webp" width="600px" height="500px" ></Image>
+
+  </content>
+
+    <headerContent>
+
+    </headerContent>
+
+    </Page>
+</mvc:View>

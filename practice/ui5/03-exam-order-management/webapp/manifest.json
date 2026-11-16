@@ -1,0 +1,119 @@
+{
+  "_version": "1.90.0",
+  "sap.app": {
+    "id": "ncode.zncl0402ljm",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.34.0",
+      "toolsId": "94ba896a-a800-4037-a020-998862dd249b"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.154.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.layout": {},
+        "sap.ui.table": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ncode.zncl0402ljm.i18n.i18n"
+        }
+      }
+    },
+    "handleValidation": true,
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "ncode.zncl0402ljm.view",
+        "async": true,
+        "viewPath": "ncode.zncl0402ljm.view",
+        "bypassed": { "target": "notFound" }
+      },
+      "routes": [
+        {
+          "name": "RouteList",
+          "pattern": ":?query:",
+          "target": [
+            "TargetList"
+          ]
+        },
+
+        {
+          "name": "detail",
+          "pattern": "detail/{OrderID}",
+          "target": ["detail"]
+        } 
+      ],
+      "targets": {
+        "TargetList": {
+          "id": "List",
+          "name": "List"
+        },
+
+          "detail": {
+          "viewName": "Detail",
+          "viewId": "Detail",
+          "viewLevel": 2
+        },
+          "notFound": {
+          "viewName" : "NotFound",
+          "viewId"   : "notFound",
+          "transition": "show"
+        }  
+      }
+    },
+    "rootView": {
+      "viewName": "ncode.zncl0402ljm.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

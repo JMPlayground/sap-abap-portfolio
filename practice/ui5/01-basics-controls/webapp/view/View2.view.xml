@@ -1,0 +1,157 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="ncode.zncl401.controller.View2">
+    <Page id="page2" title="View, Controller">
+    <Page title = "조별 수강생 조회">   
+     <content>
+    
+    <!-- <HBox alignItems="End" class="sapUiSmallMarginBottom">
+     <VBox class="sapUiSmallMarginRight">
+        <Label text="Carrid" id="label1"/>      
+        <Input id="inpNum1" placeholder="Carrid를 입력하세요"/>
+        </VBox>
+
+        <VBox class="sapUiSmallMarginRight">
+        <Label text="Carr Name" id="label2"/>
+        <Input id="inpNum2" placeholder="Carr Name을 입력하세요"/>
+        </VBox>
+        <items>
+        <Button xmlns="sap.m" text="Search" id="button1" icon="sap-icon://dishwasher" press=".onSearch"/>
+        </items>
+        </HBox>
+
+        <HBox> -->
+        <Toolbar design = "Transparent"
+                 class  = "sapUiNoContentPadding">
+                        <Label text = "조선택: "
+                        class = "sapUiSmallMarginEnd" />
+
+
+                <ComboBox
+                    id              = "classCombo"
+                    width           = "200px"
+                    placeholder     = "조를 선택하세요"
+                    items           = "{path: '/classes'}"
+                    selectionChange = ".onClassChange"
+                   
+                        >           
+                         <items>
+                        <core:Item
+                        key         = "{key}"
+                        text        = "{text}"
+                                />
+                        </items>
+                </ComboBox>
+                 
+                <ToolbarSeparator />
+
+                <Input id="inpNum1" placeholder="이름 입력하세요"/>
+
+                <!-- <Label text        = "조원 선택 :" class="sapUiSmallMarginEnd" />
+                <ComboBox
+                    id="studentCombo"
+                    placeholder     = "조를 먼저 선택하세요"
+                    items           = "{/filteredStudents}"                    
+                    
+                        >
+                         <items>
+                        <core:Item
+                        key         =  "{stdNo}"
+                        text        =  "{stdName}"
+                                />
+                        </items>
+                        </ComboBox> --> 
+
+                        <ToolbarSpacer />
+
+            <!-- 검색 버튼 추가 -->
+                <Button text="조회" type="Emphasized" icon="sap-icon://search" press=".onSearch" />
+
+        
+        </Toolbar>
+
+        <Table 
+            id              = "idResultTable"
+            items           = "{/student}"
+            noDataText      = "조회된 데이터가 없습니다."
+            mode            = "SingleSelectMaster"
+            selectionChange = ".onRowSelect"
+            class           = "sapUiSmallMarginTop" >
+
+<!-- //자리만 지정 //실제 컨트롤 -->
+
+            <headerToolbar>
+            <OverflowToolbar>
+            <Title text        = "수강생 조회 결과" level = "H2" />
+            </OverflowToolbar>
+            </headerToolbar>
+            
+            <columns>
+            <Column><Text text = "학번(key)"  /></Column>
+            <Column><Text text = "이름"       /></Column>
+            <Column><Text text = "소속 조"    /></Column>
+            </columns>
+
+            <items>
+
+            <ColumnListItem>
+            <cells>
+            <Text text         = "{stdNo}" />
+            <Text text         = "{stdName}" />
+            <Text text         = "{classT}" />
+            </cells>
+            </ColumnListItem>
+
+                </items>
+            </Table>
+
+
+        <Table 
+                id="idScoreTable" 
+                items="{_score}"
+                noDataText="조회된 데이터가 없습니다."
+                mode = "SingleSelectMaster"
+                selectionChange = ".onScoreRowSelect" 
+                class="sapUiSmallMarginTop">
+
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="수강생 점수" level="H2"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="과목코드" /></Column>
+                    <Column><Text text="점수" /></Column>
+                </columns>
+                
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{subjectName}" />
+                            <Text text="{score}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+        <!-- <Label text="Carr ID" width="100%" id="label3"/>      
+        <Input id="inpNum3" enabled="false"/>
+        <Label text="Carr Name" width="100%" id="label4"/>
+        <Input id="inpNum4" enabled="false"/>
+         <Label text="Curr Code" width="100%" id="label5"/>      
+        <Input id="inpNum5" enabled="false"/>
+        <Label text="URL" width="100%" id="label6"/>
+        <Input id="inpNum6" enabled="false"/> -->
+        <!-- <Label text="Group Number" width="100%" id="label5"/>
+        <Input id="inpNum5" enabled="false"/> -->
+        <!-- </HBox> -->
+
+
+    </content>
+    <headerContent>
+
+
+    </headerContent>
+
+</Page>
+    </Page>
+</mvc:View>

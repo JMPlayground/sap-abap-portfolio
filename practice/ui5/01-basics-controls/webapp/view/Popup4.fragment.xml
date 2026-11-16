@@ -1,0 +1,132 @@
+<core:FragmentDefinition
+    xmlns       ="sap.m"
+    xmlns:core  ="sap.ui.core"
+    xmlns:form  ="sap.ui.layout.form"
+    xmlns:t="sap.ui.table" 
+    xmlns:modes="sap.ui.table.rowmodes"
+>
+<Dialog
+        id                  ="idPopup4"
+        title               ="고객 상세 정보"
+        titleAlignment      ="Start" 
+ >
+<!-- 재사용 고려한 화면의 ui 정의 -->
+                <form:SimpleForm
+                    editable    ="false"
+                    layout      ="ResponsiveGridLayout"
+                    title       =""
+                    columnsXL   ="1"
+                    columnsL    ="1"
+                    columnsM    ="1"
+                    emptySpanXL ="0"
+                    emptySpanL  ="0"
+                    emptySpanM  ="0"
+                    labelSpanXL ="2"
+                    labelSpanL  ="2"
+                    labelSpanM  ="3"
+                >
+                    <Label text ="이름" />
+                <Input
+                        id      ="name"
+                        value=  "{name}"
+                        width   ="100%"
+                        enabled="false"
+                    />
+
+                    <Label text ="나이" />
+                    <Input
+                        id      ="age"
+                        value   ="{age}"
+                        width   ="100%"
+                        enabled="false"
+                    />
+
+                    <Label text ="구분" />
+                    <Input
+                        id      ="gubun"
+                        value=  "{adultStatus}"
+                        width   ="100%"
+                        enabled="false"
+                    />
+
+                    <Label text ="연락처" />
+                        <Text text= "{path: 'phone',
+                                      formatter: '.formatPhone'
+            
+                        }"
+                        
+                             /> 
+            
+                   
+                </form:SimpleForm>
+
+
+                <t:Table
+            id="purchaselist"
+            rows="{_purchaseList}"
+            rowActionCount="1"
+        >
+        <t:rowMode>
+                <modes:Fixed rowCount="5" />
+            </t:rowMode>
+        <t:extension>
+            </t:extension>
+            <t:columns>
+                <t:Column>
+                    <Label text="주문번호" />
+                    <t:template>
+                        <Text text="{purchaseNo}" />
+                    </t:template>
+                </t:Column>
+                <t:Column>
+                    <Label text="구매일" />
+                    <t:template>
+                     <Text text="{ path: 'purchaseDate', formatter: '.formatDate' }" />
+                            
+                    </t:template>
+                </t:Column>
+                <t:Column>
+                    <Label text="상품명" />
+                    <t:template>
+                        <Text text="{productName}" />
+                         
+                    </t:template>
+                </t:Column>
+                <t:Column hAlign="End">               
+                    <Label text= "수량" />
+                    <t:template>
+                        <Text text="{quantity}" />                      
+                        
+                    </t:template>
+                </t:Column>
+                <t:Column hAlign="End">
+                    <Label text="단가" />
+                    <t:template>
+                <Text text="{ path: 'unitPrice', formatter: '.formatPrice' }" />
+                     
+                    </t:template>
+                </t:Column>
+                <t:Column>
+                    <Label text="상태" />
+                    <t:template>
+                          <ObjectStatus
+                            text        = "{status}"
+                            state       = "{= ${status} === '구매완료' ? 'Success' : (${status} === '배송중' ? 'Information' : 'Error')}" /> 
+                         
+                    </t:template>
+                </t:Column>                                
+            </t:columns>
+        </t:Table>
+
+                        <buttons>
+            <!-- 팝업 닫기 버튼 -->
+            <Button
+                text        ="Close"
+                type        ="Transparent"
+                press       =".onClose"
+            />
+        </buttons>
+</Dialog>
+
+
+</core:FragmentDefinition>

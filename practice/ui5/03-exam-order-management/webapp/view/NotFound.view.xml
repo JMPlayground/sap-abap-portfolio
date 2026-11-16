@@ -1,0 +1,15 @@
+<mvc:View
+    controllerName="ncode.zncl0402ljm.controller.NotFound"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="페이지 없음" showNavButton="true" navButtonPress=".onGoList">
+        <IllustratedMessage
+            illustrationType="sapIllus-PageNotFound"
+            title="찾는 데이터가 없습니다"
+            description="주소나 오더 번호를 확인해주세요.">
+            <additionalContent>
+                <Button text="목록으로" type="Emphasized" press=".onGoList"/>
+            </additionalContent>
+        </IllustratedMessage>
+    </Page>
+</mvc:View>

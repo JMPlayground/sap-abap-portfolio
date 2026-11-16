@@ -1,0 +1,218 @@
+<mvc:View
+    xmlns:mvc       ="sap.ui.core.mvc"
+    xmlns           ="sap.m"
+    xmlns:core      ="sap.ui.core"
+    xmlns:form      ="sap.ui.layout.form"
+    controllerName  ="ncode.zncl040203.controller.Basic"
+>
+    <!--
+    ================================================================
+     Basic.view.xml : 1주차 기본 실습 모음 (Panel 단위로 통째 삭제 가능)
+       [B1] 계산기 (getValue / setText / 예외처리)
+       [B2] 반복문 결과 TextArea (구구단 / 별찍기)
+       [B3] 배열 for 검색 + MessageBox
+       [B4] 등록 폼 (Select / RadioButtonGroup / 초기화)
+    ================================================================
+    -->
+    <Page
+        id              ="pageBasic"
+        title           ="기본 실습"
+        showNavButton   ="true"
+        navButtonPress  =".onNavBack"
+    >
+        <content>
+            <!-- ===================== [B1] 계산기 ===================== -->
+            <Panel
+                headerText  ="[B1] 계산기"
+                expandable  ="true"
+                expanded    ="true"
+            >
+                <HBox
+                    alignItems  ="Center"
+                    wrap        ="Wrap"
+                >
+                    <Input
+                        id          ="inpNum1"
+                        width       ="8rem"
+                        type        ="Number"
+                        placeholder ="숫자1"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Select
+                        id          ="selOper"
+                        width       ="5rem"
+                        items       ="{/operList}"
+                        class       ="sapUiTinyMarginEnd"
+                    >
+                        <core:Item
+                            key     ="{key}"
+                            text    ="{text}"
+                        />
+                    </Select>
+                    <Input
+                        id          ="inpNum2"
+                        width       ="8rem"
+                        type        ="Number"
+                        placeholder ="숫자2"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text        ="="
+                        type        ="Emphasized"
+                        press       =".onCalc"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Text id ="txtCalcResult" />
+                </HBox>
+            </Panel>
+
+            <!-- ===================== [B2] 반복문 ===================== -->
+            <Panel
+                headerText  ="[B2] 반복문 (구구단 / 별찍기)"
+                expandable  ="true"
+                expanded    ="true"
+            >
+                <HBox alignItems ="Center">
+                    <Input
+                        id          ="inpLoop"
+                        width       ="8rem"
+                        type        ="Number"
+                        placeholder ="숫자 입력"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text        ="구구단"
+                        press       =".onGugudan"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text        ="별찍기"
+                        press       =".onStar"
+                    />
+                </HBox>
+                <TextArea
+                    id          ="taLoop"
+                    width       ="100%"
+                    rows        ="9"
+                    editable    ="false"
+                />
+            </Panel>
+
+            <!-- ===================== [B3] 배열 검색 ===================== -->
+            <Panel
+                headerText  ="[B3] 조원 검색 (학번 또는 이름)"
+                expandable  ="true"
+                expanded    ="true"
+            >
+                <HBox alignItems ="Center">
+                    <Input
+                        id          ="inpKey"
+                        width       ="14rem"
+                        placeholder ="학번 또는 이름"
+                        submit      =".onMemberSearch"
+                        class       ="sapUiTinyMarginEnd"
+                    />
+                    <Button
+                        text        ="검색"
+                        icon        ="sap-icon://search"
+                        press       =".onMemberSearch"
+                    />
+                </HBox>
+                <HBox wrap ="Wrap">
+                    <VBox class ="sapUiSmallMarginEnd">
+                        <Label text ="학번" />
+                        <Input
+                            id          ="outStdNo"
+                            enabled     ="false"
+                        />
+                    </VBox>
+                    <VBox class ="sapUiSmallMarginEnd">
+                        <Label text ="이름" />
+                        <Input
+                            id          ="outName"
+                            enabled     ="false"
+                        />
+                    </VBox>
+                    <VBox class ="sapUiSmallMarginEnd">
+                        <Label text ="조" />
+                        <Input
+                            id          ="outClass"
+                            enabled     ="false"
+                        />
+                    </VBox>
+                </HBox>
+            </Panel>
+
+            <!-- ===================== [B4] 등록 폼 ===================== -->
+            <Panel
+                headerText  ="[B4] 수강생 등록"
+                expandable  ="true"
+                expanded    ="true"
+            >
+                <form:SimpleForm
+                    editable    ="true"
+                    layout      ="ResponsiveGridLayout"
+                    labelSpanXL ="2"
+                    labelSpanL  ="2"
+                    labelSpanM  ="3"
+                    labelSpanS  ="12"
+                >
+                    <form:content>
+                        <Label text ="이름" required ="true" />
+                        <Input
+                            id          ="inpRegName"
+                            placeholder ="필수 입력"
+                        />
+
+                        <Label text ="성별" />
+                        <Select
+                            id          ="selGender"
+                            selectedKey ="M"
+                            items       ="{/genderList}"
+                        >
+                            <core:Item
+                                key     ="{key}"
+                                text    ="{text}"
+                            />
+                        </Select>
+
+                        <Label text ="주소" />
+                        <Input id ="inpAddress" />
+
+                        <Label text ="희망 진로" />
+                        <RadioButtonGroup
+                            id              ="rbgCareer"
+                            columns         ="3"
+                            selectedIndex   ="0"
+                            buttons         ="{/careerList}"
+                        >
+                            <buttons>
+                                <RadioButton text ="{text}" />
+                            </buttons>
+                        </RadioButtonGroup>
+                    </form:content>
+                </form:SimpleForm>
+
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        text    ="등록"
+                        type    ="Emphasized"
+                        press   =".onRegister"
+                    />
+                    <Button
+                        text    ="초기화"
+                        press   =".onRegReset"
+                    />
+                </Toolbar>
+
+                <TextArea
+                    id          ="taRegResult"
+                    width       ="100%"
+                    rows        ="5"
+                    editable    ="false"
+                />
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

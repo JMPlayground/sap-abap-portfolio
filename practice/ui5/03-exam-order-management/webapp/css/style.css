@@ -1,0 +1,19 @@
+/* Enter your custom styles here *//* 공통 컨테이너: 폰은 꽉 차게, 웹은 가운데 480px */
+.mkContainer {
+  width: 100%; max-width: 480px; margin: 0 auto;
+  box-sizing: border-box; padding: 0 0.5rem;
+}
+/* 피드·랜덤 결과 사진 */
+.mkFeedImg { object-fit: cover; border-radius: 0.5rem; }
+/* 대표리뷰: 2줄 넘으면 … */
+.mkClamp2 {
+  display: -webkit-box !important; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden; white-space: normal;
+}
+/* 랜덤 슬롯 글자 */
+.mkSlot { font-size: 1.75rem !important; margin: 2rem 0; }
+/* 랜덤 결과 카드 */
+.mkResultCard {
+  border: 1px solid #e5e5e5; border-radius: 0.75rem;
+  padding: 1rem; margin-top: 1rem;
+}

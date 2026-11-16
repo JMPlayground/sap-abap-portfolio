@@ -1,0 +1,116 @@
+<mvc:View
+    xmlns:mvc       ="sap.ui.core.mvc"
+    xmlns           ="sap.m"
+    xmlns:core      ="sap.ui.core"
+    xmlns:t         ="sap.ui.table"
+    xmlns:modes     ="sap.ui.table.rowmodes"
+    controllerName  ="ncode.zncl040203.controller.GridList"
+>
+    <!--
+    ================================================================
+     GridList.view.xml : t:Table (sap.ui.table.Table) 버전
+     m.Table 과 다른 점 : rows / t:columns / t:template / rowSelectionChange / rowContext
+    ================================================================
+    -->
+    <Page
+        id              ="pageGrid"
+        title           ="고객 조회 (t:Table)"
+        showNavButton   ="true"
+        navButtonPress  =".onNavBack"
+    >
+        <content>
+            <t:Table
+                id                  ="idGridTable"
+                rows                ="{/customers}"
+                selectionMode       ="Single"
+                selectionBehavior   ="RowOnly"
+                rowSelectionChange  =".onRowSelectionChange"
+                noData              ="조회된 데이터가 없습니다."
+            >
+                <!-- 보이는 행 수 고정 -->
+                <t:rowMode>
+                    <modes:Fixed rowCount ="5" />
+                </t:rowMode>
+
+                <!-- 테이블 위 툴바 : t:extension -->
+                <t:extension>
+                    <OverflowToolbar design ="Transparent">
+                        <Title
+                            text    ="Customers"
+                            level   ="H2"
+                        />
+                        <ToolbarSpacer />
+                        <SearchField
+                            id          ="sfName"
+                            width       ="12rem"
+                            placeholder ="이름 검색"
+                            liveChange  =".onFilter"
+                        />
+                        <Select
+                            id          ="selStatus"
+                            width       ="9rem"
+                            change      =".onFilter"
+                        >
+                            <core:Item key =""         text ="전체" />
+                            <core:Item key ="성인"     text ="성인" />
+                            <core:Item key ="미성년자" text ="미성년자" />
+                        </Select>
+                        <Button
+                            text    ="이름순"
+                            icon    ="sap-icon://sort"
+                            press   =".onSortName"
+                        />
+                        <Button
+                            text    ="나이순"
+                            icon    ="sap-icon://sort"
+                            press   =".onSortAge"
+                        />
+                    </OverflowToolbar>
+                </t:extension>
+
+                <t:columns>
+                    <t:Column>
+                        <Label text ="이름" />
+                        <t:template>
+                            <Text text ="{name}" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign ="End">
+                        <Label text ="나이" />
+                        <t:template>
+                            <Input
+                                textAlign   ="End"
+                                value       ="{
+                                                path        : 'age',
+                                                type        : 'sap.ui.model.type.Integer',
+                                                constraints : { minimum : 10, maximum : 100 }
+                                              }"
+                            />
+                        </t:template>
+                    </t:Column>
+                    <t:Column>
+                        <Label text ="구분" />
+                        <t:template>
+                            <ObjectStatus
+                                text    ="{adultStatus}"
+                                state   ="{= ${age} >= 20 ? 'Success' : 'Error' }"
+                            />
+                        </t:template>
+                    </t:Column>
+                    <t:Column>
+                        <Label text ="연락처" />
+                        <t:template>
+                            <Text text ="{ path : 'phone', formatter : '.formatPhone' }" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column hAlign ="End">
+                        <Label text ="구매건수" />
+                        <t:template>
+                            <Text text ="{ path : '_purchaseList', formatter : '.formatCount' }" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </content>
+    </Page>
+</mvc:View>

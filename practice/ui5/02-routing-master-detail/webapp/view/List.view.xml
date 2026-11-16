@@ -1,0 +1,214 @@
+<mvc:View
+    xmlns:mvc       ="sap.ui.core.mvc"
+    xmlns           ="sap.m"
+    xmlns:core      ="sap.ui.core"
+    controllerName  ="ncode.zncl040203.controller.List"
+>
+    <!--
+    ================================================================
+     List.view.xml : 조회 화면 (sap.m.Table 기준)
+     ★ 바꿀 곳 : items="{/customers}" 경로 / {name} 등 필드명 / 컬럼 제목
+    ================================================================
+    -->
+    <Page
+        id          ="pageList"
+        title       ="{i18n>listTitle}"
+    >
+        <!-- [L0] 다른 화면 이동 버튼 (라우팅 navTo) : 필요 없으면 headerContent 통째 삭제 -->
+        <headerContent>
+            <!-- [L5] 언어 전환 (i18n) -->
+            <Button
+                text    ="KO / EN"
+                icon    ="sap-icon://world"
+                press   =".onToggleLang"
+            />
+            <Button
+                text    ="기본 실습"
+                icon    ="sap-icon://edit"
+                press   =".onGoBasic"
+            />
+            <Button
+                text    ="t:Table"
+                icon    ="sap-icon://table-view"
+                press   =".onGoGrid"
+            />
+        </headerContent>
+
+        <content>
+            <!-- ===================== [L1] 검색 조건 ===================== -->
+            <Toolbar
+                design  ="Transparent"
+                class   ="sapUiSmallMarginTop"
+            >
+                <Label
+                    text    ="이름"
+                    class   ="sapUiSmallMarginBegin"
+                />
+                <Input
+                    id          ="inpName"
+                    width       ="12rem"
+                    placeholder ="이름을 입력하세요"
+                    submit      =".onSearch"
+                />
+
+                <Label text ="구분" />
+                <!-- ComboBox : items 바인딩 + key/text → 선택값은 getSelectedKey() -->
+                <ComboBox
+                    id          ="cbStatus"
+                    width       ="10rem"
+                    placeholder ="구분 선택"
+                    items       ="{/statusList}"
+                >
+                    <core:Item
+                        key     ="{key}"
+                        text    ="{text}"
+                    />
+                </ComboBox>
+
+                <ToolbarSpacer />
+
+                <Button
+                    text    ="{i18n>btnSearch}"
+                    type    ="Emphasized"
+                    icon    ="sap-icon://search"
+                    press   =".onSearch"
+                />
+                <Button
+                    text    ="{i18n>btnReset}"
+                    icon    ="sap-icon://reset"
+                    press   =".onReset"
+                />
+            </Toolbar>
+
+            <!-- ===================== [L2] 메인 테이블 (sap.m.Table) ===================== -->
+            <!-- m.Table : items 바인딩 / 선택 이벤트 selectionChange / 파라미터 listItem -->
+            <Table
+                id              ="idCustomerTable"
+                items           ="{/customers}"
+                mode            ="SingleSelectMaster"
+                selectionChange =".onCustomerSelect"
+                noDataText      ="조회된 데이터가 없습니다."
+                class           ="sapUiSmallMarginTop"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text    ="고객 목록"
+                            level   ="H2"
+                        />
+                        <ToolbarSpacer />
+                        <!-- [L4] 정렬 버튼 -->
+                        <Button
+                            text    ="이름순"
+                            icon    ="sap-icon://sort"
+                            press   =".onSortName"
+                        />
+                        <Button
+                            text    ="나이순"
+                            icon    ="sap-icon://sort"
+                            press   =".onSortAge"
+                        />
+                        <!-- [L6] Fragment 팝업 버튼 -->
+                        <Button
+                            text    ="상세 팝업"
+                            icon    ="sap-icon://detail-view"
+                            press   =".onOpenPopup"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="이름" /></Column>
+                    <Column hAlign="End"><Text text="나이" /></Column>
+                    <Column><Text text="구분" /></Column>
+                    <Column><Text text="연락처" /></Column>
+                    <Column hAlign="End"><Text text="구매건수" /></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <!-- 기본 Property 바인딩 -->
+                            <Text text ="{name}" />
+
+                            <!-- [L7] Data Type : 정수 + 범위(10~100) 벗어나면 빨간 테두리 + 메시지 -->
+                            <Input
+                                width       ="6rem"
+                                textAlign   ="End"
+                                value       ="{
+                                                path        : 'age',
+                                                type        : 'sap.ui.model.type.Integer',
+                                                constraints : { minimum : 10, maximum : 100 }
+                                              }"
+                            />
+
+                            <!-- [L8] 표현식 바인딩 : {= 조건 ? 참 : 거짓 } -->
+                            <ObjectStatus
+                                text    ="{adultStatus}"
+                                state   ="{= ${age} >= 20 ? 'Success' : 'Error' }"
+                            />
+
+                            <!-- [L9] Formatter : 01012345678 → 010-1234-5678 -->
+                            <Text text ="{ path : 'phone', formatter : '.formatPhone' }" />
+
+                            <!-- [L9] Formatter : 배열 길이 → "3 건" -->
+                            <Text text ="{ path : '_purchaseList', formatter : '.formatCount' }" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <!-- ===================== [L3] 하위 테이블 (Master-Detail) ===================== -->
+            <!-- items 가 "/" 없이 {_purchaseList} = 상대경로 → 위에서 고른 고객 Context 가 붙어야 데이터 나옴 -->
+            <Table
+                id              ="idPurchaseTable"
+                items           ="{_purchaseList}"
+                mode            ="SingleSelectMaster"
+                selectionChange =".onPurchaseSelect"
+                noDataText      ="위에서 고객을 선택하세요."
+                class           ="sapUiSmallMarginTop"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title
+                            text    ="구매 목록 (행 클릭 → 상세 화면 이동)"
+                            level   ="H2"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="주문번호" /></Column>
+                    <Column><Text text="구매일" /></Column>
+                    <Column><Text text="상품명" /></Column>
+                    <Column hAlign="End"><Text text="수량" /></Column>
+                    <Column hAlign="End"><Text text="단가" /></Column>
+                    <Column hAlign="End"><Text text="금액" /></Column>
+                    <Column><Text text="상태" /></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text ="{purchaseNo}" />
+                            <Text text ="{ path : 'purchaseDate', formatter : '.formatDate' }" />
+                            <Text text ="{productName}" />
+                            <Text text ="{quantity}" />
+                            <Text text ="{ path : 'unitPrice', formatter : '.formatPrice' }" />
+                            <!-- 값 2개 이상 → parts + formatter(인자 순서 = parts 순서) -->
+                            <Text text ="{
+                                            parts     : [ { path : 'quantity' }, { path : 'unitPrice' } ],
+                                            formatter : '.formatAmount'
+                                         }" />
+                            <!-- 표현식 바인딩 중첩 (3가지 상태) -->
+                            <ObjectStatus
+                                text    ="{status}"
+                                state   ="{= ${status} === '구매완료' ? 'Success' : ( ${status} === '배송중' ? 'Information' : 'Error' ) }"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
