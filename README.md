@@ -56,6 +56,8 @@ sap-abap-portfolio/
 │   └── ui5-mukgorithm/                  # [UI5] 먹고리즘 — 맛집 랜덤 추천 앱
 │       ├── webapp/                      # View · Controller · Fragment · Model
 │       └── images/                      # 와이어프레임 · 구현 화면
+├── mentoring/
+│   └── abap-sql-quiz/                   # 멘토링용 클래식 Open SQL 문제 카드 30제
 ├── practice/
 │   ├── taw10/                           # ABAP 기초 (Part 1·2)
 │   ├── bc405/                           # Report 프로그래밍 · ALV

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABAP SQL 30제</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday study tool, calm and exact
+   IDEA an SAP GUI workbench sheet: data browser tables (SE16N) and the ABAP editor side by side
+   PICTURE the problem card itself: source tables and expected result on the left, ABAP editor on the right
+   COLOUR white ground, SAP blue for actions and keys, SAP editor colours for code, red / green / gold for feedback
+   TYPE Schibsted Grotesk for text, JetBrains Mono for ABAP and field names
+   LAYOUT laptop: two columns (data | editor, editor sticky); under 900px one column: question, tables, editor */
+:root{color-scheme:light;--bg:#ffffff;--sheet:#ffffff;--ink:#1d2d3e;--mute:#556b82;--rule:#d9dee3;--head:#f5f6f7;--brick:#0a6ed1;--brickbg:#ebf5fe;--red:#bb0000;--redbg:#ffebeb;--teal:#107e3e;--tealbg:#f1fdf6;--amber:#7a5b00;--amberbg:#fff8d6;--code:#ffffff;--gut:#f2f2f2;--kw:#0000ff;--lit:#3b9a12;--cmt:#808080}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 "Schibsted Grotesk",system-ui,sans-serif;overflow-x:clip}
+code,pre,textarea,.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+code{font-size:.9em;background:var(--code);border:1px solid var(--rule);border-radius:4px;padding:0 4px;overflow-wrap:anywhere}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:16px max(4vw,16px) 0;max-width:1320px;margin:0 auto;justify-content:flex-end}
+.top h1{font-size:clamp(24px,3vw,32px);line-height:1.05;letter-spacing:-.02em;margin:0;font-weight:800}
+.top .sub{color:var(--mute);font-size:14px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:8px}
+button,select{font:inherit;font-size:15px;min-height:44px;border-radius:8px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);padding:0 16px;cursor:pointer}
+button:hover{border-color:var(--ink)}
+button:focus-visible,select:focus-visible,textarea.x:focus-visible{outline:3px solid color-mix(in srgb,var(--brick) 55%,transparent);outline-offset:2px}
+button:disabled{opacity:.4;cursor:default}
+.primary{background:var(--brick);border-color:var(--brick);color:#fff;font-weight:600}
+.primary:hover{border-color:var(--brick);filter:brightness(1.07)}
+select{padding:0 10px;font-family:"JetBrains Mono",monospace}
+.wrap{max-width:1320px;margin:0 auto;padding:16px max(4vw,16px) 40px}
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;box-shadow:0 1px 2px rgba(29,45,62,.06)}
+.qhead{padding:22px 24px 18px;border-bottom:1px solid var(--rule)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--mute);margin-bottom:8px}
+.chip{border:1px solid var(--rule);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.chip.lv2{border-color:var(--brick);color:var(--brick);background:var(--brickbg)}
+.solved{color:var(--teal);font-weight:600}
+.qno{font:800 clamp(30px,4vw,44px)/1 "Schibsted Grotesk",sans-serif;letter-spacing:-.02em;margin-right:6px;color:var(--ink)}
+.q{font-size:clamp(18px,2vw,21px);line-height:1.45;margin:0;text-wrap:pretty}
+.note{margin-top:10px;font-size:14px;color:var(--mute)}
+.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.data{padding:20px 24px 24px;border-right:1px solid var(--rule)}
+.edit{padding:20px 24px 24px}
+@media(min-width:901px){.edit-in{position:sticky;top:16px}}
+h2{font-size:14px;font-weight:600;color:var(--mute);margin:0 0 8px}
+.tb{margin-bottom:20px}
+.tb h3{font-size:16px;margin:0 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.tb h3 .mono{font-weight:600}
+.tb h3 span:last-child{color:var(--mute);font-weight:400;font-size:14px}
+.scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--rule);text-align:left;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{background:var(--head);vertical-align:bottom;font-weight:600}
+th .fn{font-family:"JetBrains Mono",monospace;font-size:13px;display:flex;gap:4px;align-items:center}
+th .fl{display:block;font-weight:400;font-size:12px;color:var(--mute)}
+th.k .fn{color:var(--brick)}
+td{font-family:"JetBrains Mono",monospace;font-size:13px}
+td.n,th.n{text-align:right}th.n .fn{justify-content:flex-end}
+.keyico{width:13px;height:13px;flex:none}
+.legend{font-size:13px;color:var(--mute);display:flex;gap:6px;align-items:center;margin:-8px 0 18px}
+.exp h3{color:var(--ink)}
+pre.given{margin:0 0 14px;padding:12px 14px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--gut);border-radius:4px;font-size:13px;line-height:1.5;overflow-x:auto;color:#000}
+.kw{color:var(--kw)}.lit{color:var(--lit)}.cmt{color:var(--cmt);font-style:italic}
+label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.editor{display:grid;grid-template-columns:auto minmax(0,1fr);border:1px solid #8396a8;border-radius:4px;background:#fff;height:220px;resize:vertical;overflow:hidden}
+.editor:focus-within{border-color:var(--brick);box-shadow:0 0 0 2px var(--brickbg)}
+.gutter{background:var(--gut);color:#8c8c8c;border-right:1px solid var(--rule);padding:10px 8px 10px 10px;text-align:right;font:15px/1.6 "JetBrains Mono",ui-monospace,monospace;overflow:hidden;user-select:none;white-space:pre}
+.area{position:relative;overflow:hidden}
+.area pre,.area textarea{position:absolute;inset:0;margin:0;padding:10px 12px;font:15px/1.6 "JetBrains Mono",ui-monospace,monospace;white-space:pre;overflow-wrap:normal;tab-size:2;border:0}
+.area pre{color:#000;pointer-events:none;overflow:hidden}
+.area textarea{width:100%;height:100%;resize:none;background:transparent;color:transparent;caret-color:#000;overflow:auto;outline:none}
+.area textarea::placeholder{color:#9aa5b1}
+.area textarea::selection{background:rgba(10,110,209,.25)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.btns .kbd{font-size:13px;color:var(--mute);margin-left:auto}
+.fb{margin-top:14px;border-radius:8px;padding:14px 16px;border:1px solid transparent;display:none}
+.fb.show{display:block}
+.fb h4{margin:0 0 6px;font-size:17px}
+.fb ul{margin:0;padding-left:20px}.fb li{margin:4px 0}
+.fb.ok{background:var(--tealbg);border-color:var(--teal)}.fb.ok h4{color:var(--teal)}
+.fb.err{background:var(--redbg);border-color:var(--red)}.fb.err h4{color:var(--red)}
+.fb.wr{background:var(--amberbg);border-color:var(--amber)}.fb.wr h4{color:var(--amber)}
+.fb .notes{margin-top:8px;font-size:14px;color:var(--mute)}
+.hint{margin-top:12px;font-size:15px;border-left:3px solid var(--brick);padding:6px 0 6px 12px;display:none}
+.hint.show{display:block}
+.hint b.t{display:block;font-size:13px;color:var(--mute);font-weight:600}
+.ans pre{margin:6px 0 0;padding:10px 12px;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--gut);border-radius:4px;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;color:#000}
+.bottom{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
+.foot{font-size:13px;color:var(--mute);margin-top:12px}
+@media(max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}.data{border-right:0;border-bottom:1px solid var(--rule)}}
+@media(max-width:600px){.qhead,.data,.edit{padding-left:16px;padding-right:16px}.nav{margin-left:0;width:100%}.nav select{flex:1}th,td{padding:6px 7px}.btns .kbd{display:none}}
+@media(prefers-reduced-motion:no-preference){.fb.show{animation:pop .22s ease-out}@keyframes pop{from{transform:translateY(4px);opacity:.4}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="nav">
+    <button id="prev" aria-label="이전 문제">이전</button>
+    <select id="jump" aria-label="문제 선택"></select>
+    <button id="next" aria-label="다음 문제">다음</button>
+  </div>
+</header>
+<main class="wrap">
+  <article class="sheet" id="card"></article>
+  <div class="bottom">
+    <button id="prev2">← 이전 문제</button>
+    <button id="next2" class="primary">다음 문제 →</button>
+  </div>
+</main>
+<script>
+/* Mini classic ABAP Open SQL engine: tokenize -> parse -> execute -> INTO mapping -> grade */
+(function (G) {
+  class SqlErr extends Error { constructor(msg) { super(msg); this.sqlErr = true; } }
+  const err = (m) => { throw new SqlErr(m); };
+  const U = (s) => String(s).toUpperCase();
+  const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+  const AGG = ['COUNT', 'SUM', 'AVG', 'MAX', 'MIN'];
+  const CLAUSE = ['INTO', 'FROM', 'WHERE', 'GROUP', 'HAVING', 'ORDER', 'UP', 'APPENDING'];
+
+  /* ---------- tokenizer ---------- */
+  function stripStrings(src) { return src.replace(/'(?:[^']|'')*'/g, "''"); }
+  function tokenize(src) {
+    const t = []; let i = 0;
+    while (i < src.length) {
+      const c = src[i];
+      if (/\s/.test(c)) { i++; continue; }
+      if (c === '"') { while (i < src.length && src[i] !== '\n') i++; continue; }
+      if (c === "'") {
+        let j = i + 1, s = '';
+        for (;;) {
+          if (j >= src.length) err("작은따옴표(')가 닫히지 않았어요.");
+          if (src[j] === "'") { if (src[j + 1] === "'") { s += "'"; j += 2; continue; } break; }
+          s += src[j]; j++;
+        }
+        t.push({ t: 'str', v: s, raw: src.slice(i, j + 1) }); i = j + 1; continue;
+      }
+      if (/[0-9]/.test(c)) {
+        const m = /^\d+(?:\.\d+)?/.exec(src.slice(i));
+        t.push({ t: 'num', v: parseFloat(m[0]), raw: m[0] }); i += m[0].length; continue;
+      }
+      if (/[A-Za-z_]/.test(c)) {
+        const m = /^[A-Za-z_][A-Za-z0-9_\-\/]*/.exec(src.slice(i));
+        let raw = m[0];
+        while (raw.endsWith('-')) raw = raw.slice(0, -1);
+        t.push({ t: 'id', v: U(raw), raw }); i += raw.length; continue;
+      }
+      const two = src.slice(i, i + 2);
+      if (['<=', '>=', '<>', '=<', '=>', '><'].includes(two)) {
+        const map = { '=<': '<=', '=>': '>=', '><': '<>' };
+        t.push({ t: 'op', v: map[two] || two, raw: two }); i += 2; continue;
+      }
+      if ('=<>(),*~.-'.includes(c)) { t.push({ t: c === '.' ? 'dot' : 'op', v: c, raw: c }); i++; continue; }
+      err(`알 수 없는 문자 '${esc(c)}' 가 있어요.`);
+    }
+    return t;
+  }
+
+  /* ---------- parser ---------- */
+  function parse(src) {
+    if (!src.trim()) err('SQL을 입력해 주세요.');
+    const noStr = stripStrings(src);
+    if (/@/.test(noStr)) err('클래식 문법 문제예요. <code>@</code> 없이 써 주세요. (예: <code>INTO TABLE gt_flight</code>)');
+    if (/\bDATA\s*\(/i.test(noStr)) err('클래식 문법에서는 인라인 선언 <code>DATA( )</code> 를 쓰지 않아요. 문제에 선언된 변수를 INTO 뒤에 쓰세요.');
+    if (/"[^"\n]*"/.test(src)) err('ABAP에서 문자 값은 작은따옴표 <code>\'LH\'</code> 로 감싸요. 큰따옴표 <code>"</code> 는 주석 기호예요.');
+    const T = tokenize(src);
+    let p = 0;
+    const peek = (k = 0) => T[p + k];
+    const isKw = (w, k = 0) => { const x = T[p + k]; return x && x.t === 'id' && x.v === w; };
+    const isOp = (o, k = 0) => { const x = T[p + k]; return x && x.t === 'op' && x.v === o; };
+    const near = () => (peek() ? `<code>${esc(peek().raw)}</code> 근처` : '문장 끝');
+    const expectKw = (w, why) => { if (!isKw(w)) err(`${near()}에서 <code>${w}</code> 가 필요해요.${why ? ' ' + why : ''}`); p++; };
+    const expectOp = (o, why) => { if (!isOp(o)) err(`${near()}에서 <code>${esc(o)}</code> 가 필요해요.${why ? ' ' + why : ''}`); p++; };
+    const ident = (what) => {
+      const x = peek();
+      if (!x || x.t !== 'id') err(`${near()}에서 ${what} 이름이 와야 해요.`);
+      p++; return x;
+    };
+    const ast = { single: false, distinct: false, star: false, items: [], into: null, from: null, where: null, groupBy: null, having: null, orderBy: null, upTo: null, hasDot: false, commaSel: false, aggNoSpace: false };
+
+    function colref() {
+      const a = ident('필드');
+      if (isOp('~')) { p++; const b = ident('필드'); return { q: a.v, name: b.v, raw: a.raw + '~' + b.raw }; }
+      return { q: null, name: a.v, raw: a.raw };
+    }
+    function aggr() {
+      const fn = peek().v; p++;
+      if (!isOp('(')) err(`<code>${fn}</code> 뒤에는 괄호가 필요해요. 예: <code>${fn}( 필드 )</code>`);
+      p++;
+      let distinct = false, arg;
+      if (isKw('DISTINCT')) { distinct = true; p++; }
+      if (isOp('*')) { if (fn !== 'COUNT') err(`<code>${fn}( * )</code> 는 안 돼요. <code>*</code> 는 COUNT에만 써요.`); p++; arg = '*'; }
+      else arg = colref();
+      expectOp(')', '집계함수 괄호를 닫아 주세요.');
+      return { k: 'agg', fn, distinct, arg };
+    }
+    function operand() {
+      const x = peek();
+      if (!x) err('조건이 끝나지 않았어요. 비교할 값이 필요해요.');
+      if (x.t === 'str') { p++; return { k: 'lit', v: x.v, str: true }; }
+      if (x.t === 'num') { p++; return { k: 'lit', v: x.v, str: false }; }
+      if (x.t === 'op' && x.v === '-' && peek(1) && peek(1).t === 'num') { p += 2; return { k: 'lit', v: -peek(-1).v, str: false }; }
+      if (x.t === 'id' && AGG.includes(x.v) && isOp('(', 1)) return aggr();
+      if (x.t === 'id') return { k: 'col', ref: colref() };
+      err(`${near()}: 여기에는 필드나 값이 와야 해요.`);
+    }
+    const CMP = { '=': '=', EQ: '=', '<>': '<>', NE: '<>', '<': '<', LT: '<', '>': '>', GT: '>', '<=': '<=', LE: '<=', '>=': '>=', GE: '>=' };
+    function predicate() {
+      const l = operand();
+      let not = false;
+      if (isKw('NOT') && (isKw('BETWEEN', 1) || isKw('IN', 1) || isKw('LIKE', 1))) { not = true; p++; }
+      const x = peek();
+      if (!x) err('조건이 끝나지 않았어요. 비교 연산자(=, >, ...)가 필요해요.');
+      if (isKw('BETWEEN')) { p++; const lo = operand(); expectKw('AND', 'BETWEEN a AND b 형태예요.'); const hi = operand(); return { op: 'between', not, e: l, lo, hi }; }
+      if (isKw('IN')) {
+        p++; expectOp('(', 'IN 뒤에는 ( 값, 값 ) 목록이 와요.');
+        const list = [operand()];
+        while (isOp(',') || (peek() && (peek().t === 'str' || peek().t === 'num'))) { if (isOp(',')) p++; list.push(operand()); }
+        expectOp(')', 'IN 목록 괄호를 닫아 주세요.');
+        return { op: 'in', not, e: l, list };
+      }
+      if (isKw('LIKE')) { p++; const pat = operand(); if (pat.k !== 'lit' || !pat.str) err("LIKE 뒤에는 <code>'%값%'</code> 같은 문자 패턴이 와요."); return { op: 'like', not, e: l, pat: pat.v }; }
+      if (isKw('IS')) {
+        p++; let n = false; if (isKw('NOT')) { n = true; p++; }
+        if (isKw('NULL')) { p++; return { op: 'null', not: n, e: l }; }
+        if (isKw('INITIAL')) { p++; return { op: 'initial', not: n, e: l }; }
+        err('IS 뒤에는 NULL 또는 INITIAL 이 와요.');
+      }
+      const key = x.t === 'op' ? x.v : x.t === 'id' ? x.v : null;
+      if (!CMP[key]) {
+        if (l.k === 'col' && x.t !== 'op') err(`<code>${esc(l.ref.raw)}</code> 뒤에 비교 연산자(=, >, &lt; ...)가 필요해요. 문자 값이면 작은따옴표로 감싸야 해요.`);
+        err(`${near()}에서 비교 연산자(=, >, &lt; ...)가 필요해요.`);
+      }
+      p++;
+      return { op: 'cmp', cmp: CMP[key], l, r: operand() };
+    }
+    function primary() {
+      if (isOp('(')) { p++; const c = cond(); expectOp(')', '조건 괄호를 닫아 주세요.'); return c; }
+      return predicate();
+    }
+    function notE() { if (isKw('NOT')) { p++; return { op: 'not', e: notE() }; } return primary(); }
+    function andE() { let l = notE(); while (isKw('AND')) { p++; l = { op: 'and', l, r: notE() }; } return l; }
+    function cond() { let l = andE(); while (isKw('OR')) { p++; l = { op: 'or', l, r: andE() }; } return l; }
+    function tableRef() {
+      const x = peek();
+      if (!x || x.t !== 'id' || CLAUSE.includes(x.v) && x.v !== 'UP') err(`${near()}에서 테이블 이름이 와야 해요.`);
+      p++;
+      const tr = { name: x.v, raw: x.raw, alias: null };
+      if (isKw('AS')) { p++; tr.alias = ident('별명').v; }
+      return tr;
+    }
+
+    expectKw('SELECT', 'SQL은 <code>SELECT</code> 로 시작해요.');
+    if (isKw('SINGLE')) { ast.single = true; p++; }
+    if (isKw('DISTINCT')) { ast.distinct = true; p++; }
+    if (isOp('*')) { ast.star = true; p++; }
+    else {
+      for (;;) {
+        const x = peek();
+        if (!x || x.t === 'dot' || (x.t === 'id' && CLAUSE.includes(x.v))) break;
+        if (isOp(',')) { ast.commaSel = true; p++; continue; }
+        let it;
+        if (x.t === 'id' && AGG.includes(x.v) && isOp('(', 1)) it = aggr();
+        else if (x.t === 'id') it = { k: 'col', ref: colref() };
+        else err(`${near()}: SELECT 뒤에는 필드 이름이 와야 해요.`);
+        if (isKw('AS')) { p++; it.alias = ident('별명').v; }
+        ast.items.push(it);
+      }
+      if (!ast.items.length) err('SELECT 뒤에 가져올 필드(또는 <code>*</code>)를 적어 주세요.');
+    }
+    if (ast.commaSel) err('클래식 문법에서는 SELECT 필드를 콤마(,) 없이 <b>띄어쓰기</b>로 구분해요. 예: <code>SELECT carrid connid</code>');
+    if (/\b(SUM|AVG|MAX|MIN|COUNT)\((?!\s|\*\))/i.test(noStr) || /\b(SUM|AVG|MAX|MIN|COUNT)\(\s*\S+?[^\s(]\)/i.test(noStr)) ast.aggNoSpace = true;
+
+    const seen = {};
+    const once = (k) => { if (seen[k]) err(`<code>${k}</code> 절이 두 번 나왔어요.`); seen[k] = 1; };
+    for (;;) {
+      const x = peek();
+      if (!x) break;
+      if (x.t === 'dot') { ast.hasDot = true; p++; if (peek()) err('SELECT문 하나만 입력해 주세요. 마침표(.) 뒤에 다른 내용이 있어요.'); break; }
+      if (isKw('INTO')) {
+        once('INTO'); p++;
+        const into = { corr: false, table: false, target: null };
+        if (isKw('CORRESPONDING')) { p++; expectKw('FIELDS', '<code>CORRESPONDING FIELDS OF</code> 형태예요.'); expectKw('OF', '<code>CORRESPONDING FIELDS OF</code> 형태예요.'); into.corr = true; }
+        if (isKw('TABLE')) { p++; into.table = true; }
+        if (isOp('(')) err('이 연습에서는 <code>INTO ( 변수, 변수 )</code> 대신 문제에 선언된 변수 하나에 담아요.');
+        const tg = ident('INTO 대상 변수');
+        if (tg.v === 'TABLE' || tg.v === 'CORRESPONDING') err('INTO 순서는 <code>INTO CORRESPONDING FIELDS OF TABLE gt_xxx</code> 예요.');
+        into.target = tg.v; into.raw = tg.raw;
+        ast.into = into; continue;
+      }
+      if (isKw('APPENDING')) err('이 연습에서는 <code>INTO TABLE</code> 을 사용해요.');
+      if (isKw('FROM')) {
+        once('FROM'); p++;
+        const from = { base: tableRef(), joins: [] };
+        for (;;) {
+          let type = null;
+          if (isKw('INNER') && isKw('JOIN', 1)) { p += 2; type = 'INNER'; }
+          else if (isKw('JOIN')) { p++; type = 'INNER'; }
+          else if (isKw('LEFT')) { p++; if (isKw('OUTER')) p++; expectKw('JOIN', 'LEFT OUTER JOIN 형태예요.'); type = 'LEFT'; }
+          else if (isKw('RIGHT')) { p++; if (isKw('OUTER')) p++; expectKw('JOIN'); type = 'RIGHT'; }
+          else break;
+          const tr = tableRef();
+          expectKw('ON', 'JOIN 뒤에는 <code>ON a~필드 = b~필드</code> 로 연결 조건을 써야 해요.');
+          from.joins.push({ type, table: tr, on: cond() });
+        }
+        ast.from = from; continue;
+      }
+      if (isKw('WHERE')) { once('WHERE'); p++; ast.where = cond(); continue; }
+      if (isKw('GROUP')) {
+        once('GROUP'); p++; expectKw('BY', '<code>GROUP BY</code> 로 써요.');
+        ast.groupBy = [];
+        for (;;) { if (isOp(',')) { p++; continue; } const y = peek(); if (!y || y.t !== 'id' || CLAUSE.includes(y.v)) break; ast.groupBy.push(colref()); }
+        if (!ast.groupBy.length) err('GROUP BY 뒤에 묶을 기준 필드를 적어 주세요.');
+        continue;
+      }
+      if (isKw('HAVING')) { once('HAVING'); p++; ast.having = cond(); continue; }
+      if (isKw('ORDER')) {
+        once('ORDER'); p++; expectKw('BY', '<code>ORDER BY</code> 로 써요.');
+        ast.orderBy = [];
+        if (isKw('PRIMARY')) { p++; expectKw('KEY'); ast.orderBy.push({ primary: true }); continue; }
+        for (;;) {
+          if (isOp(',')) { p++; continue; }
+          const y = peek(); if (!y || y.t !== 'id' || CLAUSE.includes(y.v)) break;
+          const ref = colref(); let desc = false;
+          if (isKw('DESCENDING') || isKw('DESC')) { desc = true; p++; } else if (isKw('ASCENDING') || isKw('ASC')) p++;
+          ast.orderBy.push({ ref, desc });
+        }
+        if (!ast.orderBy.length) err('ORDER BY 뒤에 정렬 기준 필드를 적어 주세요.');
+        continue;
+      }
+      if (isKw('UP')) {
+        once('UP'); p++; expectKw('TO', '<code>UP TO n ROWS</code> 형태예요.');
+        const n = peek(); if (!n || n.t !== 'num') err('UP TO 뒤에는 숫자가 와요.'); p++;
+        expectKw('ROWS', '<code>UP TO n ROWS</code> 형태예요.'); ast.upTo = n.v; continue;
+      }
+      if (isKw('ENDSELECT')) err('이 연습에서는 <code>SELECT ... ENDSELECT</code> 루프 대신 <code>INTO TABLE</code> 또는 <code>SELECT SINGLE</code> 을 써요.');
+      if (x.t === 'op' && x.v === ',') err(`${near()}: 콤마(,)가 들어갈 자리가 아니에요.`);
+      if (x.t === 'op' && x.v === '-') err('SQL 안에서 테이블과 필드는 <code>-</code> 가 아니라 <code>~</code> 로 연결해요. 예: <code>a~carrid</code>');
+      err(`${near()}에서 문장을 이해하지 못했어요. 절 순서나 철자를 확인해 주세요.`);
+    }
+    if (!ast.from) err('<code>FROM</code> 절이 없어요. 어느 테이블에서 가져올지 적어 주세요.');
+    return ast;
+  }
+
+  /* ---------- execution ---------- */
+  const isNum = (v) => typeof v === 'number' || (typeof v === 'string' && v.trim() !== '' && !isNaN(Number(v)));
+  function cmpVals(a, b) {
+    if (a === null || a === undefined) return b === null || b === undefined ? 0 : -1;
+    if (b === null || b === undefined) return 1;
+    if ((typeof a === 'number' || typeof b === 'number') && isNum(a) && isNum(b)) { const x = Number(a), y = Number(b); return x < y ? -1 : x > y ? 1 : 0; }
+    const x = String(a), y = String(b); return x < y ? -1 : x > y ? 1 : 0;
+  }
+  function allValues(tables) { const s = []; tables.forEach((t) => t.rows.forEach((r) => Object.values(r).forEach((v) => s.push(v)))); return s; }
+
+  function run(ast, tables) {
+    const byName = {}; tables.forEach((t) => (byName[t.name] = t));
+    const sources = [];
+    const addSrc = (tr) => {
+      if (/-/.test(tr.name)) err(`테이블 이름 <code>${esc(tr.raw)}</code> 를 확인해 주세요.`);
+      const tbl = byName[tr.name];
+      if (!tbl) err(`<code>${esc(tr.raw)}</code> 테이블은 이 문제에 없어요. 쓸 수 있는 테이블: ${tables.map((t) => '<code>' + t.name.toLowerCase() + '</code>').join(', ')}`);
+      const s = { name: tr.name, alias: tr.alias || tr.name, tbl };
+      if (sources.some((o) => o.alias === s.alias)) err(`<code>${esc(tr.raw)}</code> 테이블을 두 번 쓰려면 서로 다른 별명(AS)이 필요해요.`);
+      sources.push(s); return s;
+    };
+    addSrc(ast.from.base);
+    ast.from.joins.forEach((j) => addSrc(j.table));
+    const hasJoin = sources.length > 1;
+
+    const resolved = new Map();
+    function resolve(ref) {
+      if (resolved.has(ref)) return resolved.get(ref);
+      if (!ref.q && allValues(tables).some((v) => String(v).toUpperCase() === ref.name)) err(`<code>${esc(ref.raw)}</code> 는 필드가 아니라 값처럼 보여요. 문자 값은 작은따옴표로 감싸요: <code>'${esc(ref.raw)}'</code>`);
+      if (/-/.test(ref.name) || (ref.q && /-/.test(ref.q))) err(`SQL 안에서는 <code>${esc(ref.raw)}</code> 처럼 <code>-</code> 를 쓰지 않아요. 테이블(별명)과 필드는 <code>~</code> 로 연결해요. 예: <code>${esc(ref.raw.replace('-', '~'))}</code>`);
+      let src;
+      if (ref.q) {
+        src = sources.find((s) => s.alias === ref.q) || sources.find((s) => s.name === ref.q);
+        if (!src) err(`<code>${esc(ref.raw)}</code>: <code>${esc(ref.q.toLowerCase())}</code> 라는 테이블/별명이 FROM 절에 없어요.`);
+        if (!src.tbl.cols.some((c) => c.n === ref.name)) unknownField(ref, [src]);
+      } else {
+        const c = sources.filter((s) => s.tbl.cols.some((x) => x.n === ref.name));
+        if (!c.length) unknownField(ref, sources);
+        if (c.length > 1) err(`<code>${esc(ref.raw)}</code> 필드가 ${c.map((s) => s.name).join(', ')} 양쪽에 있어요. 어느 테이블 것인지 <code>a~${esc(ref.raw.toLowerCase())}</code> 처럼 앞에 붙여 주세요.`);
+        src = c[0];
+      }
+      const r = { src, col: ref.name, meta: src.tbl.cols.find((x) => x.n === ref.name) };
+      resolved.set(ref, r); return r;
+    }
+    function unknownField(ref, srcs) {
+      const vals = allValues(tables);
+      if (vals.some((v) => String(v).toUpperCase() === ref.name)) err(`<code>${esc(ref.raw)}</code> 는 필드가 아니라 값처럼 보여요. 문자 값은 작은따옴표로 감싸요: <code>'${esc(ref.raw)}'</code>`);
+      const names = srcs.map((s) => `<code>${s.name.toLowerCase()}</code>: ${s.tbl.cols.map((c) => c.n.toLowerCase()).join(' ')}`).join(' / ');
+      err(`<code>${esc(ref.raw)}</code> 라는 필드가 없어요. 쓸 수 있는 필드 → ${names}`);
+    }
+    function walk(c, fn) { if (!c) return; if (c.op === 'and' || c.op === 'or') { walk(c.l, fn); walk(c.r, fn); } else if (c.op === 'not') walk(c.e, fn); else fn(c); }
+    function opsOf(pred) { return [pred.l, pred.r, pred.e, pred.lo, pred.hi, ...(pred.list || [])].filter(Boolean); }
+    const validateOp = (o, allowAgg, where) => {
+      if (o.k === 'col') resolve(o.ref);
+      if (o.k === 'agg') { if (!allowAgg) err(`${where}에는 집계함수(<code>${o.fn}</code>)를 쓸 수 없어요. 묶은 뒤 조건은 <code>HAVING</code> 에 써요.`); if (o.arg !== '*') resolve(o.arg); }
+    };
+    ast.from.joins.forEach((j) => walk(j.on, (pr) => opsOf(pr).forEach((o) => validateOp(o, false, 'ON 조건'))));
+    walk(ast.where, (pr) => opsOf(pr).forEach((o) => validateOp(o, false, 'WHERE')));
+    walk(ast.having, (pr) => opsOf(pr).forEach((o) => validateOp(o, true, 'HAVING')));
+    ast.items.forEach((it) => validateOp(it, true));
+    (ast.groupBy || []).forEach((r) => resolve(r));
+
+    const val = (ctx, o) => {
+      if (o.k === 'lit') return o.v;
+      if (o.k === 'col') { const r = resolve(o.ref); const row = ctx[r.src.alias]; return row ? row[r.col] : null; }
+      if (o.k === 'agg') { if (!ctx.__group) err('집계함수는 SELECT 목록이나 HAVING에서만 써요.'); return aggVal(o, ctx.__group); }
+    };
+    function aggVal(o, rows) {
+      if (o.arg === '*') return rows.length;
+      let vs = rows.map((c) => val(c, { k: 'col', ref: o.arg })).filter((v) => v !== null && v !== undefined);
+      if (o.distinct) vs = [...new Set(vs.map(String))].map((s) => (isNum(s) ? Number(s) : s));
+      if (o.fn === 'COUNT') return vs.length;
+      if (!vs.length) return null;
+      if (o.fn === 'SUM') return vs.reduce((a, b) => a + Number(b), 0);
+      if (o.fn === 'AVG') return vs.reduce((a, b) => a + Number(b), 0) / vs.length;
+      if (o.fn === 'MAX') return vs.reduce((a, b) => (cmpVals(b, a) > 0 ? b : a));
+      if (o.fn === 'MIN') return vs.reduce((a, b) => (cmpVals(b, a) < 0 ? b : a));
+    }
+    const likeRe = (pat) => new RegExp('^' + pat.replace(/[.+?^${}()|[\]\\*]/g, '\\$&').replace(/%/g, '.*').replace(/_/g, '.') + '$');
+    function test(c, ctx) {
+      switch (c.op) {
+        case 'and': return test(c.l, ctx) && test(c.r, ctx);
+        case 'or': return test(c.l, ctx) || test(c.r, ctx);
+        case 'not': return !test(c.e, ctx);
+        case 'cmp': {
+          const a = val(ctx, c.l), b = val(ctx, c.r);
+          if (a === null || a === undefined || b === null || b === undefined) return false;
+          const k = cmpVals(a, b);
+          return { '=': k === 0, '<>': k !== 0, '<': k < 0, '>': k > 0, '<=': k <= 0, '>=': k >= 0 }[c.cmp];
+        }
+        case 'between': { const v = val(ctx, c.e); if (v === null) return false; const r = cmpVals(v, val(ctx, c.lo)) >= 0 && cmpVals(v, val(ctx, c.hi)) <= 0; return c.not ? !r : r; }
+        case 'in': { const v = val(ctx, c.e); if (v === null) return false; const r = c.list.some((o) => cmpVals(v, val(ctx, o)) === 0); return c.not ? !r : r; }
+        case 'like': { const v = val(ctx, c.e); if (v === null) return false; const r = likeRe(c.pat).test(String(v)); return c.not ? !r : r; }
+        case 'null': { const v = val(ctx, c.e); const r = v === null || v === undefined; return c.not ? !r : r; }
+        case 'initial': { const v = val(ctx, c.e); const r = v === null || v === '' || v === 0; return c.not ? !r : r; }
+      }
+    }
+
+    // FROM + JOIN
+    let ctxs = sources[0].tbl.rows.map((r) => ({ [sources[0].alias]: r }));
+    ast.from.joins.forEach((j, i) => {
+      const s = sources[i + 1];
+      if (j.type === 'RIGHT') err('이 연습에서는 RIGHT JOIN 대신 LEFT OUTER JOIN 을 사용해 주세요.');
+      const out = [];
+      ctxs.forEach((c) => {
+        const m = s.tbl.rows.map((r) => ({ ...c, [s.alias]: r })).filter((x) => test(j.on, x));
+        if (m.length) out.push(...m); else if (j.type === 'LEFT') out.push({ ...c, [s.alias]: null });
+      });
+      ctxs = out;
+    });
+    if (ast.where) ctxs = ctxs.filter((c) => test(ast.where, c));
+
+    const hasAgg = ast.items.some((i) => i.k === 'agg') || !!ast.having;
+    let cols, outRows;
+    const colName = (it) => it.alias || (it.k === 'col' ? it.ref.name : null);
+    if (ast.star) {
+      if (ast.groupBy || hasAgg) err('<code>SELECT *</code> 와 GROUP BY / 집계함수는 같이 쓸 수 없어요.');
+      cols = []; sources.forEach((s) => s.tbl.cols.forEach((c) => cols.push({ name: c.n, meta: c })));
+      outRows = ctxs.map((c) => ({ ctx: c, v: sources.flatMap((s) => s.tbl.cols.map((col) => (c[s.alias] ? c[s.alias][col.n] : null))) }));
+    } else {
+      cols = ast.items.map((it) => ({ name: colName(it), agg: it.k === 'agg' ? it.fn : null, meta: it.k === 'col' ? resolve(it.ref).meta : it.arg !== '*' ? resolve(it.arg).meta : null }));
+      if (ast.groupBy || hasAgg) {
+        const gb = (ast.groupBy || []).map(resolve);
+        ast.items.forEach((it) => {
+          if (it.k !== 'col') return;
+          const r = resolve(it.ref);
+          if (!gb.some((g) => g.src === r.src && g.col === r.col)) err(ast.groupBy ? `SELECT의 <code>${esc(it.ref.raw)}</code> 는 집계함수가 아니라서 <b>GROUP BY 에도</b> 있어야 해요.` : `집계함수와 일반 필드(<code>${esc(it.ref.raw)}</code>)를 같이 SELECT 하려면 <code>GROUP BY ${esc(it.ref.raw)}</code> 가 필요해요.`);
+        });
+        const groups = new Map();
+        if (!ast.groupBy) groups.set('all', ctxs);
+        else ctxs.forEach((c) => { const k = JSON.stringify(gb.map((g) => (c[g.src.alias] ? c[g.src.alias][g.col] : null))); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(c); });
+        outRows = [];
+        groups.forEach((rows) => {
+          const gctx = { ...(rows[0] || {}), __group: rows };
+          if (ast.having && !test(ast.having, gctx)) return;
+          outRows.push({ ctx: gctx, v: ast.items.map((it) => val(gctx, it)) });
+        });
+      } else outRows = ctxs.map((c) => ({ ctx: c, v: ast.items.map((it) => val(c, it)) }));
+    }
+    if (ast.distinct) { const s = new Set(); outRows = outRows.filter((r) => { const k = JSON.stringify(r.v); if (s.has(k)) return false; s.add(k); return true; }); }
+    if (ast.orderBy) {
+      const keys = ast.orderBy.flatMap((o) => {
+        if (o.primary) { if (hasJoin) err('JOIN 결과에는 ORDER BY PRIMARY KEY 를 쓸 수 없어요.'); return sources[0].tbl.cols.filter((c) => c.key).map((c) => ({ f: (r) => r.ctx[sources[0].alias][c.n], desc: false })); }
+        const ix = !o.ref.q ? cols.findIndex((c) => c.name === o.ref.name) : -1;
+        if (ix >= 0) return [{ f: (r) => r.v[ix], desc: o.desc }];
+        const rr = resolve(o.ref);
+        if (ast.groupBy || hasAgg) {
+          const gb = (ast.groupBy || []).map(resolve);
+          if (!gb.some((g) => g.src === rr.src && g.col === rr.col)) err(`GROUP BY 결과는 SELECT 하거나 GROUP BY 한 필드로만 정렬할 수 있어요: <code>${esc(o.ref.raw)}</code>`);
+        }
+        return [{ f: (r) => (r.ctx[rr.src.alias] ? r.ctx[rr.src.alias][rr.col] : null), desc: o.desc }];
+      });
+      outRows = outRows.map((r, i) => ({ ...r, i })).sort((a, b) => { for (const k of keys) { const d = cmpVals(k.f(a), k.f(b)); if (d) return k.desc ? -d : d; } return a.i - b.i; });
+    }
+    if (ast.upTo) outRows = outRows.slice(0, ast.upTo);
+    if (ast.single) outRows = outRows.slice(0, 1);
+    return { cols, rows: outRows.map((r) => r.v), sources };
+  }
+
+  /* ---------- INTO mapping ---------- */
+  function intoTarget(ast, res, target) {
+    const tn = target.name.toUpperCase(), tl = target.name;
+    const into = ast.into;
+    if (!into) err(`<code>INTO</code> 절이 없어요. 결과를 담을 변수 <code>${tl}</code> 를 적어 주세요. 예: <code>${target.kind === 'table' ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
+    if (into.target !== tn) err(`INTO 대상 <code>${esc(into.raw)}</code> 는 선언되지 않았어요. 문제에 선언된 변수는 <code>${tl}</code> 예요.`);
+    const aggOnly = !ast.star && ast.items.every((i) => i.k === 'agg') && !ast.groupBy;
+    if (target.kind === 'table') {
+      if (!into.table) err(`<code>${tl}</code> 는 인터널 테이블이라 여러 줄을 담아요. <code>INTO TABLE ${tl}</code> 로 써 주세요.`);
+      if (ast.single) err(`<code>SELECT SINGLE</code> 은 한 줄만 읽어요. 인터널 테이블에는 SINGLE 없이 <code>INTO TABLE</code> 로 담아요.`);
+    } else {
+      if (into.table) err(`<code>${tl}</code> 는 한 줄짜리 ${target.kind === 'field' ? '변수' : '구조'}예요. <code>INTO TABLE</code> 이 아니라 <code>INTO ${tl}</code> 로 써요.`);
+      if (!ast.single && !aggOnly) err(`한 줄짜리 ${target.kind === 'field' ? '변수' : '구조'}에 담으려면 <code>SELECT SINGLE</code> 로 한 줄만 읽어야 해요.`);
+      if (target.kind === 'field' && into.corr) err('단일 변수에는 CORRESPONDING FIELDS OF 를 쓰지 않아요.');
+    }
+    const comps = target.comps;
+    const missing = [];
+    let map;
+    if (into.corr) {
+      map = comps.map((c) => { const ix = res.cols.findIndex((x) => x.name === c.n); if (ix < 0) missing.push(c.n); return ix; });
+      if (missing.length === comps.length) err(`CORRESPONDING FIELDS OF 는 <b>이름이 같은 필드</b>끼리 담아요. 결과 구조(${comps.map((c) => c.n.toLowerCase()).join(', ')})와 이름이 맞는 필드가 하나도 없어요.`);
+    } else {
+      if (res.cols.length > comps.length) err(`SELECT 한 필드가 ${res.cols.length}개인데 <code>${tl}</code> 구조는 ${comps.length}개(${comps.map((c) => c.n.toLowerCase()).join(', ')})예요. 필요한 필드만 SELECT 해 주세요.`);
+      map = comps.map((c, i) => (i < res.cols.length ? i : -1));
+      comps.forEach((c, i) => { if (i >= res.cols.length) missing.push(c.n); });
+    }
+    const init = (c) => (c.num ? 0 : '');
+    const rows = res.rows.map((r) => comps.map((c, i) => { const v = map[i] < 0 ? null : r[map[i]]; return v === null || v === undefined ? init(c) : v; }));
+    return { rows, missing };
+  }
+
+  /* ---------- compare & grade ---------- */
+  const norm = (v, c) => (c.num ? Math.round(Number(v) * 100) / 100 : String(v));
+  const rowKey = (r, comps) => JSON.stringify(r.map((v, i) => norm(v, comps[i])));
+  function sameMulti(a, b, comps) { if (a.length !== b.length) return false; const x = a.map((r) => rowKey(r, comps)).sort(), y = b.map((r) => rowKey(r, comps)).sort(); return x.every((k, i) => k === y[i]); }
+  function sortedOk(rows, order, comps) {
+    const ks = order.map(([n, d]) => ({ i: comps.findIndex((c) => c.n === n), desc: d === 'desc' }));
+    for (let r = 1; r < rows.length; r++) {
+      for (const k of ks) { const d = cmpVals(rows[r - 1][k.i], rows[r][k.i]); if (d === 0) continue; if ((k.desc ? -d : d) > 0) return false; break; }
+    }
+    return true;
+  }
+  function tableNames(ast) { return [ast.from.base.name, ...ast.from.joins.map((j) => j.table.name)]; }
+  function strLits(ast) { const s = []; const w = (c) => { if (!c) return; if (c.op === 'and' || c.op === 'or') { w(c.l); w(c.r); } else if (c.op === 'not') w(c.e); else [c.l, c.r, c.e, c.lo, c.hi, ...(c.list || [])].forEach((o) => o && o.k === 'lit' && o.str && s.push(o.v)); }; w(ast.where); w(ast.having); return s; }
+
+  function diagnose(u, s, ur, er, prob, tables) {
+    const H = [], comps = prob.target.comps;
+    const ut = tableNames(u), st = tableNames(s);
+    const miss = st.filter((t) => !ut.includes(t)), extra = ut.filter((t) => !st.includes(t));
+    if (miss.length) H.push(`이 문제는 <code>${miss.map((t) => t.toLowerCase()).join(', ')}</code> 테이블도 필요해요. JOIN으로 연결해 보세요.`);
+    if (extra.length) H.push(`<code>${extra.map((t) => t.toLowerCase()).join(', ')}</code> 테이블은 이 문제에 필요 없어요.`);
+    if (s.from.joins.some((j) => j.type === 'LEFT') && !u.from.joins.some((j) => j.type === 'LEFT')) H.push('기준 테이블의 데이터가 <b>짝이 없어도 전부</b> 나와야 해요 → <code>LEFT OUTER JOIN</code>');
+    if (ur.missing.length) H.push(u.into.corr ? `CORRESPONDING 은 이름으로 담아요. <code>${ur.missing.map((m) => m.toLowerCase()).join(', ')}</code> 에 담길 값이 없어요. 필드를 SELECT 했는지, 집계 결과에 <code>AS ${ur.missing[0].toLowerCase()}</code> 별칭을 붙였는지 확인해 보세요.` : `결과 구조는 ${comps.length}개 필드인데 ${comps.length - ur.missing.length}개만 SELECT 했어요. 빠진 것: <code>${ur.missing.map((m) => m.toLowerCase()).join(', ')}</code>`);
+    for (const lit of strLits(u)) {
+      const vals = allValues(tables).map(String);
+      if (!vals.includes(lit) && vals.some((v) => v.toUpperCase() === lit.toUpperCase())) H.push(`<code>'${esc(lit)}'</code> → 문자 값은 대소문자를 구분해요. 데이터에는 <code>'${esc(vals.find((v) => v.toUpperCase() === lit.toUpperCase()))}'</code> 로 들어 있어요.`);
+      else if (!vals.includes(lit) && !/[%_]/.test(lit) && vals.some((v) => v.trim() === lit.trim() || v.replace(/^0+/, '') === lit.replace(/^0+/, ''))) H.push(`<code>'${esc(lit)}'</code> 값의 자릿수(앞의 0)나 공백을 데이터와 똑같이 맞춰 보세요.`);
+    }
+    if (H.length) return H;
+    const onCols = (a) => a.from.joins.map((j) => { const n = []; const w = (c) => { if (!c) return; if (c.op === 'and' || c.op === 'or') { w(c.l); w(c.r); } else if (c.op === 'not') w(c.e); else [c.l, c.r].forEach((o) => o && o.k === 'col' && n.push(o.ref.name)); }; w(j.on); return n.sort().join(','); }).sort().join('|');
+    if (u.from.joins.length && u.from.joins.length === s.from.joins.length && onCols(u) !== onCols(s)) H.push('JOIN 의 <code>ON</code> 조건을 확인해 보세요. 두 테이블에 <b>공통으로 있는 키 필드</b>끼리 연결해야 해요.');
+    if (H.length) return H;
+    const un = ur.rows.length, en = er.length;
+    if (un !== en) {
+      if (s.groupBy && !u.groupBy) H.push('결과 한 줄이 <b>무엇 하나</b>인지 보세요. 같은 기준끼리 묶어야 해요 → <code>GROUP BY</code>');
+      else if (s.groupBy && u.groupBy && JSON.stringify(s.groupBy.map((r) => r.name).sort()) !== JSON.stringify(u.groupBy.map((r) => r.name).sort())) H.push('묶는 기준(GROUP BY 필드)이 결과 표의 한 줄 단위와 달라요.');
+      else if (un > en) H.push(s.having && !u.having ? `결과가 ${un - en}행 많아요. 묶은 <b>뒤</b>에 거르는 조건이 필요해요 → <code>HAVING</code>` : s.where && !u.where ? `결과가 ${un - en}행 많아요. 조건이 빠졌어요 → <code>WHERE</code>` : `결과가 ${un - en}행 많아요(내 결과 ${un}행 / 정답 ${en}행). WHERE·HAVING 조건이나 비교 연산자(>, >=)를 확인해 보세요.`);
+      else H.push(`결과가 ${en - un}행 부족해요(내 결과 ${un}행 / 정답 ${en}행). 조건이 너무 좁거나, 비교 연산자(> 와 >=)나 값 오타를 확인해 보세요.`);
+      return H;
+    }
+    if (!sameMulti(ur.rows, er, comps)) {
+      const colSet = (rows, i) => JSON.stringify(rows.map((r) => norm(r[i], comps[i])).sort());
+      const diff = comps.map((c, i) => i).filter((i) => colSet(ur.rows, i) !== colSet(er, i));
+      if (!u.into.corr && diff.some((i) => comps.some((c, j) => j !== i && colSet(ur.rows, i) === colSet(er, j)))) H.push(`값이 엉뚱한 칸에 들어갔어요. <code>INTO TABLE</code> 은 <b>순서대로</b> 담기 때문에 SELECT 필드 순서를 결과 구조(${comps.map((c) => c.n.toLowerCase()).join(' → ')})와 맞춰야 해요.`);
+      else if (diff.length) {
+        diff.forEach((i) => {
+          const si = s.items[i];
+          if (si && si.k === 'agg') H.push(`<code>${comps[i].n.toLowerCase()}</code> 값이 달라요 → 집계함수 종류(${si.fn === 'COUNT' ? 'COUNT' : 'SUM / AVG / MAX / MIN'})나 대상 필드, GROUP BY 기준을 확인해 보세요.`);
+          else H.push(`<code>${comps[i].n.toLowerCase()}</code> 열의 값이 달라요 → 다른 필드를 SELECT 했거나 WHERE / ON 조건이 달라요.`);
+        });
+      } else H.push('각 열의 값은 맞는데 <b>짝이 안 맞아요</b> → JOIN의 ON 연결 조건(어떤 필드끼리 연결?)을 확인해 보세요.');
+      return H.slice(0, 3);
+    }
+    H.push(u.orderBy ? '데이터는 다 맞는데 <b>순서</b>가 달라요 → 정렬 기준 필드나 <code>ASCENDING / DESCENDING</code> 을 확인해 보세요.' : '데이터는 다 맞는데 <b>순서</b>가 달라요 → <code>ORDER BY</code> 가 필요해요.');
+    return H;
+  }
+
+  function tablesFor(prob, MASTER) {
+    return prob.tables.map((ts) => {
+      const m = MASTER[ts.t];
+      const cols = (ts.cols || m.cols.map((c) => c.n)).map((n) => m.cols.find((c) => c.n === n));
+      const rows = m.rows.map((r) => { const o = {}; m.cols.forEach((c, i) => (o[c.n] = r[i])); return o; }).filter((r, i) => !ts.rows || ts.rows.includes(i));
+      return { name: ts.t, label: m.label, cols, rows: rows.map((r) => { const o = {}; cols.forEach((c) => (o[c.n] = r[c.n])); return o; }) };
+    });
+  }
+  function execInto(sql, prob, tables) {
+    const ast = parse(sql);
+    const res = run(ast, tables);
+    return { ast, res, into: intoTarget(ast, res, prob.target) };
+  }
+  function grade(sql, prob, MASTER) {
+    const tables = tablesFor(prob, MASTER);
+    const sol = execInto(prob.sol, prob, tables);
+    const comps = prob.target.comps;
+    let u;
+    try { u = execInto(sql, prob, tables); } catch (e) { if (e.sqlErr) return { status: 'error', msg: e.message }; throw e; }
+    const notes = [];
+    if (!u.ast.hasDot) notes.push('ABAP 문장은 마침표(<code>.</code>)로 끝나요. 실제 에디터에서는 꼭 붙여 주세요.');
+    if (u.ast.aggNoSpace) notes.push('실제 ABAP(클래식)에서는 집계함수 괄호 안쪽을 띄어 써요. 예: <code>SUM( menge )</code>');
+    const ok = sameMulti(u.into.rows, sol.into.rows, comps) && (!prob.order || sortedOk(u.into.rows, prob.order, comps));
+    if (ok) return { status: 'ok', notes, rows: u.into.rows };
+    return { status: 'wrong', hints: diagnose(u.ast, sol.ast, u.into, sol.into.rows, prob, tables), notes, rows: u.into.rows };
+  }
+  function expected(prob, MASTER) { const tables = tablesFor(prob, MASTER); return { tables, rows: execInto(prob.sol, prob, tables).into.rows }; }
+
+  G.Engine = { parse, run, grade, expected, tablesFor };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(function (G) {
+  const K = (n, l, o = {}) => ({ n, l, key: true, ...o });
+  const C = (n, l, o = {}) => ({ n, l, ...o });
+  const NUM = { num: true };
+  const MASTER = {
+    SCARR: { label: '항공사', cols: [K('CARRID', '항공사 코드'), C('CARRNAME', '항공사 이름'), C('CURRCODE', '통화')], rows: [
+      ['AA', 'American Airlines', 'USD'], ['JL', 'Japan Airlines', 'JPY'], ['LH', 'Lufthansa', 'EUR'], ['SQ', 'Singapore Airlines', 'SGD'], ['UA', 'United Airlines', 'USD']] },
+    SPFLI: { label: '노선', cols: [K('CARRID', '항공사 코드'), K('CONNID', '편명'), C('CITYFROM', '출발 도시'), C('CITYTO', '도착 도시'), C('DISTANCE', '거리(km)', NUM)], rows: [
+      ['AA', '0017', 'NEW YORK', 'SAN FRANCISCO', 4160], ['JL', '0407', 'TOKYO', 'FRANKFURT', 9100], ['LH', '0400', 'FRANKFURT', 'NEW YORK', 6160], ['LH', '0402', 'FRANKFURT', 'NEW YORK', 6160],
+      ['LH', '2402', 'FRANKFURT', 'BERLIN', 550], ['SQ', '0002', 'SINGAPORE', 'SAN FRANCISCO', 13550], ['UA', '0941', 'FRANKFURT', 'SAN FRANCISCO', 9130]] },
+    SFLIGHT: { label: '항공편(날짜별)', cols: [K('CARRID', '항공사 코드'), K('CONNID', '편명'), K('FLDATE', '비행 날짜'), C('PRICE', '가격', { num: true, dec: 2 }), C('CURRENCY', '통화'), C('SEATSMAX', '최대 좌석', NUM), C('SEATSOCC', '예약 좌석', NUM)], rows: [
+      ['AA', '0017', '20261120', 422.94, 'USD', 385, 310], ['LH', '0400', '20261120', 666, 'EUR', 330, 290], ['LH', '0400', '20261127', 666, 'EUR', 330, 315],
+      ['LH', '0402', '20261124', 669, 'EUR', 500, 420], ['SQ', '0002', '20261112', 1099, 'SGD', 500, 480], ['UA', '0941', '20261124', 879.82, 'USD', 189, 150]] },
+    SBOOK: { label: '예약', cols: [K('CARRID', '항공사 코드'), K('CONNID', '편명'), K('FLDATE', '비행 날짜'), K('BOOKID', '예약번호'), C('CUSTOMID', '고객번호'), C('CLASS', '좌석 등급')], rows: [
+      ['LH', '0400', '20261120', '00000101', '00000001', 'Y'], ['LH', '0400', '20261120', '00000102', '00000002', 'C'], ['LH', '0402', '20261124', '00000201', '00000003', 'Y'],
+      ['SQ', '0002', '20261112', '00000401', '00000002', 'Y'], ['UA', '0941', '20261124', '00000301', '00000001', 'F'], ['UA', '0941', '20261124', '00000302', '00000004', 'Y']] },
+    SCUSTOMER: { label: '고객', cols: [K('ID', '고객번호'), C('NAME', '고객 이름'), C('CITY', '도시')], rows: [
+      ['00000001', 'Kim Minsu', 'SEOUL'], ['00000002', 'Anna Schmidt', 'BERLIN'], ['00000003', 'John Smith', 'NEW YORK'], ['00000004', 'Tanaka Yuki', 'TOKYO']] },
+    ZSTUDENT: { label: '학생', cols: [K('STUDID', '학번'), C('NAME', '이름'), C('MAJOR', '학과'), C('GRADE', '학년', NUM)], rows: [
+      ['S001', '김민수', '경영', 3], ['S002', '이서연', '컴퓨터', 2], ['S003', '박지훈', '경영', 4], ['S004', '최유진', '컴퓨터', 3], ['S005', '정하늘', '영문', 1]] },
+    ZSUBJECT: { label: '과목', cols: [K('SUBJID', '과목코드'), C('SUBJNAME', '과목명'), C('CREDIT', '학점', NUM)], rows: [
+      ['B01', 'ABAP기초', 3], ['B02', 'SQL', 3], ['B03', '회계원리', 2]] },
+    ZSCORE: { label: '성적', cols: [K('STUDID', '학번'), K('SUBJID', '과목코드'), C('SCORE', '점수', NUM)], rows: [
+      ['S001', 'B01', 85], ['S001', 'B02', 90], ['S002', 'B01', 95], ['S002', 'B02', 70], ['S003', 'B03', 60], ['S004', 'B01', 75], ['S004', 'B03', 88]] },
+    MARA: { label: '자재 마스터 (MM)', cols: [K('MATNR', '자재번호'), C('MTART', '자재유형'), C('MEINS', '단위')], rows: [
+      ['M-100', 'ROH', 'EA'], ['M-200', 'ROH', 'KG'], ['M-300', 'FERT', 'EA'], ['M-400', 'HALB', 'EA']] },
+    MAKT: { label: '자재 이름 (MM)', cols: [K('MATNR', '자재번호'), C('MAKTX', '자재명')], rows: [
+      ['M-100', '볼트'], ['M-200', '철판'], ['M-300', '자전거'], ['M-400', '바퀴']] },
+    EKPO: { label: '구매오더 품목 (MM)', cols: [K('EBELN', '구매오더번호'), K('EBELP', '품목번호'), C('MATNR', '자재번호'), C('MENGE', '수량', NUM), C('NETWR', '금액(원)', NUM)], rows: [
+      ['4500000001', '00010', 'M-100', 100, 50000], ['4500000001', '00020', 'M-200', 20, 80000], ['4500000002', '00010', 'M-100', 50, 25000],
+      ['4500000002', '00020', 'M-400', 10, 120000], ['4500000003', '00010', 'M-200', 30, 120000]] },
+    BKPF: { label: '회계전표 헤더 (FI)', cols: [K('BUKRS', '회사코드'), K('BELNR', '전표번호'), K('GJAHR', '회계연도'), C('BLART', '전표유형'), C('BLDAT', '증빙일')], rows: [
+      ['1000', '1900000001', '2026', 'KR', '20261102'], ['1000', '1900000002', '2026', 'SA', '20261105'], ['1000', '1900000003', '2026', 'KR', '20261110'], ['1000', '1900000004', '2026', 'DR', '20261115']] },
+  };
+  // comps helper: [name, label, num?, dec?]
+  const cp = (...a) => a.map((x) => (typeof x === 'string' ? { n: x.toUpperCase() } : { n: x[0].toUpperCase(), num: !!x[1], dec: x[2] }));
+  const types = (ty, fields) => `TYPES: BEGIN OF ${ty},\n${fields.map((f) => `         ${f[0].padEnd(10)} TYPE ${f[1]},`).join('\n')}\n       END OF ${ty}.\n`;
+
+  const P = [
+    /* ---------- 항공사 ---------- */
+    { cat: 'air', lv: '기본', q: 'SCARR(항공사) 테이블의 <b>모든 데이터</b>를 gt_scarr 에 담으세요.',
+      tables: [{ t: 'SCARR' }], given: 'DATA gt_scarr TYPE TABLE OF scarr.',
+      target: { name: 'gt_scarr', kind: 'table', comps: cp('carrid', 'carrname', 'currcode') },
+      sol: 'SELECT * FROM scarr INTO TABLE gt_scarr.',
+      hints: ['모든 필드는 <code>*</code> 하나로 가져와요.', '<code>SELECT * FROM ____ INTO TABLE ____.</code>'] },
+    { cat: 'air', lv: '기본', q: 'SCARR 에서 <b>항공사 코드와 항공사 이름</b>만 가져오세요.',
+      tables: [{ t: 'SCARR' }], given: types('ty_carr', [['carrid', 'scarr-carrid'], ['carrname', 'scarr-carrname']]) + 'DATA gt_carr TYPE TABLE OF ty_carr.',
+      target: { name: 'gt_carr', kind: 'table', comps: cp('carrid', 'carrname') },
+      sol: 'SELECT carrid carrname FROM scarr INTO TABLE gt_carr.',
+      hints: ['필요한 필드만 SELECT 뒤에 <b>띄어쓰기</b>로 나열해요.', '<code>SELECT carrid ____ FROM scarr INTO TABLE gt_carr.</code>'] },
+    { cat: 'air', lv: '기본', q: 'SPFLI(노선)에서 <b>출발 도시가 FRANKFURT</b> 인 노선의 항공사 코드, 편명, 도착 도시를 가져오세요.',
+      tables: [{ t: 'SPFLI' }], given: types('ty_route', [['carrid', 'spfli-carrid'], ['connid', 'spfli-connid'], ['cityto', 'spfli-cityto']]) + 'DATA gt_route TYPE TABLE OF ty_route.',
+      target: { name: 'gt_route', kind: 'table', comps: cp('carrid', 'connid', 'cityto') },
+      sol: "SELECT carrid connid cityto FROM spfli INTO TABLE gt_route WHERE cityfrom = 'FRANKFURT'.",
+      hints: ['행을 거르는 건 <code>WHERE</code>. 문자 값은 작은따옴표로 감싸요.', "<code>... WHERE cityfrom = '_____'.</code>"] },
+    { cat: 'air', lv: '기본', q: "항공사 코드가 <b>'SQ'</b> 인 항공사의 <b>이름 하나</b>만 gv_carrname 에 담으세요.",
+      tables: [{ t: 'SCARR' }], given: 'DATA gv_carrname TYPE scarr-carrname.',
+      target: { name: 'gv_carrname', kind: 'field', comps: cp('carrname') },
+      sol: "SELECT SINGLE carrname FROM scarr INTO gv_carrname WHERE carrid = 'SQ'.",
+      hints: ['딱 한 줄만 읽을 땐 <code>SELECT SINGLE</code>, 담는 곳은 변수라서 <code>INTO TABLE</code> 이 아니에요.', "<code>SELECT SINGLE carrname FROM scarr INTO ____ WHERE carrid = 'SQ'.</code>"] },
+    { cat: 'air', lv: '기본', q: 'SFLIGHT(항공편)에서 <b>가격이 700 이상</b>인 항공편을 가져오세요.',
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'PRICE', 'CURRENCY'] }], given: types('ty_flight', [['carrid', 'sflight-carrid'], ['connid', 'sflight-connid'], ['fldate', 'sflight-fldate'], ['price', 'sflight-price']]) + 'DATA gt_flight TYPE TABLE OF ty_flight.',
+      target: { name: 'gt_flight', kind: 'table', comps: cp('carrid', 'connid', 'fldate', ['price', 1, 2]) },
+      sol: 'SELECT carrid connid fldate price FROM sflight INTO TABLE gt_flight WHERE price >= 700.',
+      hints: ['숫자 비교는 따옴표 없이 써요. "이상"은 같은 값도 포함이에요.', '<code>... WHERE price __ 700.</code>'] },
+    { cat: 'air', lv: '기본', q: "항공사가 <b>'LH'</b> 이면서 <b>예약 좌석이 300 이상</b>인 항공편을 가져오세요.",
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'SEATSMAX', 'SEATSOCC'] }], given: types('ty_flight', [['carrid', 'sflight-carrid'], ['connid', 'sflight-connid'], ['fldate', 'sflight-fldate'], ['seatsocc', 'sflight-seatsocc']]) + 'DATA gt_flight TYPE TABLE OF ty_flight.',
+      target: { name: 'gt_flight', kind: 'table', comps: cp('carrid', 'connid', 'fldate', ['seatsocc', 1]) },
+      sol: "SELECT carrid connid fldate seatsocc FROM sflight INTO TABLE gt_flight WHERE carrid = 'LH' AND seatsocc >= 300.",
+      hints: ['조건 두 개를 동시에 만족 → <code>AND</code>', "<code>... WHERE carrid = 'LH' ___ seatsocc >= 300.</code>"] },
+    { cat: 'air', lv: '기본', q: 'SPFLI 의 모든 노선을 <b>거리가 먼 순서</b>로 정렬해서 가져오세요.',
+      tables: [{ t: 'SPFLI' }], given: types('ty_dist', [['carrid', 'spfli-carrid'], ['connid', 'spfli-connid'], ['distance', 'spfli-distance']]) + 'DATA gt_dist TYPE TABLE OF ty_dist.',
+      target: { name: 'gt_dist', kind: 'table', comps: cp('carrid', 'connid', ['distance', 1]) }, order: [['DISTANCE', 'desc']],
+      sol: 'SELECT carrid connid distance FROM spfli INTO TABLE gt_dist ORDER BY distance DESCENDING.',
+      hints: ['정렬은 <code>ORDER BY</code>, 큰 것부터는 <code>DESCENDING</code>', '<code>... ORDER BY distance __________.</code>'] },
+    { cat: 'air', lv: '기본', q: '도착 도시가 <b>BERLIN 또는 SAN FRANCISCO</b> 인 노선을 가져오세요. (<code>IN</code> 을 써 보세요)',
+      tables: [{ t: 'SPFLI', cols: ['CARRID', 'CONNID', 'CITYFROM', 'CITYTO'] }], given: types('ty_route', [['carrid', 'spfli-carrid'], ['connid', 'spfli-connid'], ['cityfrom', 'spfli-cityfrom'], ['cityto', 'spfli-cityto']]) + 'DATA gt_route TYPE TABLE OF ty_route.',
+      target: { name: 'gt_route', kind: 'table', comps: cp('carrid', 'connid', 'cityfrom', 'cityto') },
+      sol: "SELECT carrid connid cityfrom cityto FROM spfli INTO TABLE gt_route WHERE cityto IN ('BERLIN', 'SAN FRANCISCO').",
+      hints: ['여러 값 중 하나면 <code>IN ( 값, 값 )</code>. OR 두 개로 써도 정답이에요.', "<code>... WHERE cityto IN ( 'BERLIN', '_____________' ).</code>"] },
+    { cat: 'air', lv: '기본', q: '비행 날짜가 <b>2026-11-15 ~ 2026-11-25</b> 사이인 항공편을 가져오세요. (날짜는 <code>\'20261115\'</code> 형식)',
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'PRICE'] }], given: types('ty_flight', [['carrid', 'sflight-carrid'], ['connid', 'sflight-connid'], ['fldate', 'sflight-fldate']]) + 'DATA gt_flight TYPE TABLE OF ty_flight.',
+      target: { name: 'gt_flight', kind: 'table', comps: cp('carrid', 'connid', 'fldate') },
+      sol: "SELECT carrid connid fldate FROM sflight INTO TABLE gt_flight WHERE fldate BETWEEN '20261115' AND '20261125'.",
+      hints: ['범위는 <code>BETWEEN a AND b</code> (양 끝 포함)', "<code>... WHERE fldate BETWEEN '20261115' AND '________'.</code>"] },
+    { cat: 'air', lv: '기본', q: "항공사 이름이 <b>'Airlines' 로 끝나는</b> 항공사를 가져오세요.",
+      tables: [{ t: 'SCARR' }], given: types('ty_carr', [['carrid', 'scarr-carrid'], ['carrname', 'scarr-carrname']]) + 'DATA gt_carr TYPE TABLE OF ty_carr.',
+      target: { name: 'gt_carr', kind: 'table', comps: cp('carrid', 'carrname') },
+      sol: "SELECT carrid carrname FROM scarr INTO TABLE gt_carr WHERE carrname LIKE '%Airlines'.",
+      hints: ['패턴 검색은 <code>LIKE</code>, <code>%</code> 는 "아무 글자 여러 개"예요.', "<code>... WHERE carrname LIKE '%________'.</code>"] },
+    { cat: 'air', lv: '응용', q: 'FRANKFURT 에서 출발하는 노선의 <b>항공사 이름</b>, 편명, 도착 도시를 가져오세요. (항공사 이름은 SCARR 에 있어요)',
+      tables: [{ t: 'SCARR', cols: ['CARRID', 'CARRNAME'] }, { t: 'SPFLI', cols: ['CARRID', 'CONNID', 'CITYFROM', 'CITYTO'] }], given: types('ty_route', [['carrname', 'scarr-carrname'], ['connid', 'spfli-connid'], ['cityto', 'spfli-cityto']]) + 'DATA gt_route TYPE TABLE OF ty_route.',
+      target: { name: 'gt_route', kind: 'table', comps: cp('carrname', 'connid', 'cityto') },
+      sol: "SELECT a~carrname b~connid b~cityto FROM scarr AS a INNER JOIN spfli AS b ON a~carrid = b~carrid INTO TABLE gt_route WHERE b~cityfrom = 'FRANKFURT'.",
+      hints: ['두 테이블의 공통 키 <code>CARRID</code> 로 <code>INNER JOIN</code> 해요. 필드 앞에는 <code>a~</code>, <code>b~</code>', '<code>SELECT a~carrname b~connid b~cityto FROM scarr AS a INNER JOIN spfli AS b ON a~carrid = b~_____ INTO TABLE gt_route WHERE ...</code>'] },
+    { cat: 'air', lv: '응용', q: "'LH' 항공편의 <b>개수</b>와 <b>예약 좌석 합계</b>를 gs_total 에 담으세요.",
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'SEATSOCC'] }], given: types('ty_total', [['cnt', 'i'], ['total_occ', 'sflight-seatsocc']]) + 'DATA gs_total TYPE ty_total.',
+      target: { name: 'gs_total', kind: 'struct', comps: cp(['cnt', 1], ['total_occ', 1]) },
+      sol: "SELECT COUNT(*) SUM( seatsocc ) FROM sflight INTO gs_total WHERE carrid = 'LH'.",
+      hints: ['개수는 <code>COUNT(*)</code>, 합계는 <code>SUM( 필드 )</code>. 결과는 한 줄이라 구조 gs_total 에 담아요.', "<code>SELECT COUNT(*) SUM( ________ ) FROM sflight INTO gs_total WHERE carrid = 'LH'.</code>"] },
+    { cat: 'air', lv: '응용', q: '<b>항공사별</b> 항공편 개수를 구하세요.',
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'PRICE'] }], given: types('ty_count', [['carrid', 'sflight-carrid'], ['cnt', 'i']]) + 'DATA gt_count TYPE TABLE OF ty_count.',
+      target: { name: 'gt_count', kind: 'table', comps: cp('carrid', ['cnt', 1]) },
+      sol: 'SELECT carrid COUNT(*) FROM sflight INTO TABLE gt_count GROUP BY carrid.',
+      hints: ['"~별" = 그 필드로 묶기 → <code>GROUP BY</code>. 결과 한 줄 = 항공사 1개', '<code>SELECT carrid COUNT(*) FROM sflight INTO TABLE gt_count GROUP BY ______.</code>'] },
+    { cat: 'air', lv: '응용', q: '항공사별 <b>예약 좌석 합계</b>를 구하되, 합계가 <b>400 이상</b>인 항공사만 가져오세요.',
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'SEATSOCC'] }], given: types('ty_sum', [['carrid', 'sflight-carrid'], ['total_occ', 'sflight-seatsocc']]) + 'DATA gt_sum TYPE TABLE OF ty_sum.',
+      target: { name: 'gt_sum', kind: 'table', comps: cp('carrid', ['total_occ', 1]) },
+      sol: 'SELECT carrid SUM( seatsocc ) FROM sflight INTO TABLE gt_sum GROUP BY carrid HAVING SUM( seatsocc ) >= 400.',
+      hints: ['묶은 <b>뒤</b>의 합계로 거르는 건 WHERE 가 아니라 <code>HAVING</code>', '<code>... GROUP BY carrid HAVING SUM( seatsocc ) __ 400.</code>'] },
+    { cat: 'air', lv: '응용', q: '<b>2026-11-24</b> 비행의 예약번호, <b>고객 이름</b>, <b>항공사 이름</b>을 가져오세요. (테이블 3개 JOIN)',
+      tables: [{ t: 'SBOOK', cols: ['CARRID', 'CONNID', 'FLDATE', 'BOOKID', 'CUSTOMID'] }, { t: 'SCUSTOMER', cols: ['ID', 'NAME'] }, { t: 'SCARR', cols: ['CARRID', 'CARRNAME'] }],
+      given: types('ty_book', [['bookid', 'sbook-bookid'], ['name', 'scustomer-name'], ['carrname', 'scarr-carrname']]) + 'DATA gt_book TYPE TABLE OF ty_book.',
+      target: { name: 'gt_book', kind: 'table', comps: cp('bookid', 'name', 'carrname') },
+      sol: "SELECT a~bookid b~name c~carrname FROM sbook AS a INNER JOIN scustomer AS b ON a~customid = b~id INNER JOIN scarr AS c ON a~carrid = c~carrid INTO TABLE gt_book WHERE a~fldate = '20261124'.",
+      hints: ['SBOOK 이 가운데예요. 고객은 <code>CUSTOMID = ID</code>(이름이 달라요!), 항공사는 <code>CARRID</code> 로 연결', '<code>FROM sbook AS a INNER JOIN scustomer AS b ON a~customid = b~__ INNER JOIN scarr AS c ON a~carrid = c~carrid</code>'] },
+
+    /* ---------- 학생 ---------- */
+    { cat: 'stu', lv: '기본', q: "<b>경영</b> 학과 학생의 학번, 이름, 학년을 가져오세요.",
+      tables: [{ t: 'ZSTUDENT' }], given: types('ty_student', [['studid', 'zstudent-studid'], ['name', 'zstudent-name'], ['grade', 'zstudent-grade']]) + 'DATA gt_student TYPE TABLE OF ty_student.',
+      target: { name: 'gt_student', kind: 'table', comps: cp('studid', 'name', ['grade', 1]) },
+      sol: "SELECT studid name grade FROM zstudent INTO TABLE gt_student WHERE major = '경영'.",
+      hints: ['한글 값도 작은따옴표로 감싸요.', "<code>... WHERE major = '____'.</code>"] },
+    { cat: 'stu', lv: '기본', q: '<b>3학년 이상</b> 학생을 <b>학년이 높은 순</b>으로 가져오세요.',
+      tables: [{ t: 'ZSTUDENT' }], given: types('ty_student', [['studid', 'zstudent-studid'], ['name', 'zstudent-name'], ['grade', 'zstudent-grade']]) + 'DATA gt_student TYPE TABLE OF ty_student.',
+      target: { name: 'gt_student', kind: 'table', comps: cp('studid', 'name', ['grade', 1]) }, order: [['GRADE', 'desc']],
+      sol: 'SELECT studid name grade FROM zstudent INTO TABLE gt_student WHERE grade >= 3 ORDER BY grade DESCENDING.',
+      hints: ['WHERE 로 거르고 ORDER BY 로 정렬. 순서는 WHERE → ORDER BY', '<code>... WHERE grade >= 3 ORDER BY grade __________.</code>'] },
+    { cat: 'stu', lv: '기본', q: "학번 <b>'S004'</b> 학생의 이름을 gv_name 에 담으세요.",
+      tables: [{ t: 'ZSTUDENT' }], given: 'DATA gv_name TYPE zstudent-name.',
+      target: { name: 'gv_name', kind: 'field', comps: cp('name') },
+      sol: "SELECT SINGLE name FROM zstudent INTO gv_name WHERE studid = 'S004'.",
+      hints: ['한 명 → <code>SELECT SINGLE</code>, 변수 → <code>INTO gv_name</code>', "<code>SELECT SINGLE ____ FROM zstudent INTO gv_name WHERE studid = 'S004'.</code>"] },
+    { cat: 'stu', lv: '기본', q: '<b>80점 이상</b>인 성적을 <b>점수 높은 순</b>으로 가져오세요.',
+      tables: [{ t: 'ZSCORE' }], given: types('ty_score', [['studid', 'zscore-studid'], ['subjid', 'zscore-subjid'], ['score', 'zscore-score']]) + 'DATA gt_score TYPE TABLE OF ty_score.',
+      target: { name: 'gt_score', kind: 'table', comps: cp('studid', 'subjid', ['score', 1]) }, order: [['SCORE', 'desc']],
+      sol: 'SELECT studid subjid score FROM zscore INTO TABLE gt_score WHERE score >= 80 ORDER BY score DESCENDING.',
+      hints: ['WHERE + ORDER BY ... DESCENDING', '<code>... WHERE score >= 80 ORDER BY _____ DESCENDING.</code>'] },
+    { cat: 'stu', lv: '응용', q: '<b>과목별</b> 최고 점수와 최저 점수를 구하세요.',
+      tables: [{ t: 'ZSCORE' }], given: types('ty_maxmin', [['subjid', 'zscore-subjid'], ['max_score', 'zscore-score'], ['min_score', 'zscore-score']]) + 'DATA gt_maxmin TYPE TABLE OF ty_maxmin.',
+      target: { name: 'gt_maxmin', kind: 'table', comps: cp('subjid', ['max_score', 1], ['min_score', 1]) },
+      sol: 'SELECT subjid MAX( score ) MIN( score ) FROM zscore INTO TABLE gt_maxmin GROUP BY subjid.',
+      hints: ['과목별 → <code>GROUP BY subjid</code>, 최고/최저 → <code>MAX( )</code> <code>MIN( )</code>', '<code>SELECT subjid MAX( score ) ___( score ) FROM zscore INTO TABLE gt_maxmin GROUP BY subjid.</code>'] },
+    { cat: 'stu', lv: '응용', q: '<b>학생별</b> 평균 점수를 구하세요.',
+      tables: [{ t: 'ZSCORE' }], given: types('ty_avg', [['studid', 'zscore-studid'], ['avg_score', 'p DECIMALS 2']]) + 'DATA gt_avg TYPE TABLE OF ty_avg.',
+      target: { name: 'gt_avg', kind: 'table', comps: cp('studid', ['avg_score', 1, 2]) },
+      sol: 'SELECT studid AVG( score ) FROM zscore INTO TABLE gt_avg GROUP BY studid.',
+      hints: ['평균은 <code>AVG( )</code>. 한 줄 = 학생 1명이 되도록 묶어요.', '<code>SELECT studid AVG( score ) FROM zscore INTO TABLE gt_avg GROUP BY ______.</code>'] },
+    { cat: 'stu', lv: '응용', q: '<b>컴퓨터</b> 학과 학생의 이름, 과목코드, 점수를 가져오세요. (이름은 ZSTUDENT, 점수는 ZSCORE)',
+      tables: [{ t: 'ZSTUDENT' }, { t: 'ZSCORE' }], given: types('ty_result', [['name', 'zstudent-name'], ['subjid', 'zscore-subjid'], ['score', 'zscore-score']]) + 'DATA gt_result TYPE TABLE OF ty_result.',
+      target: { name: 'gt_result', kind: 'table', comps: cp('name', 'subjid', ['score', 1]) },
+      sol: "SELECT a~name b~subjid b~score FROM zstudent AS a INNER JOIN zscore AS b ON a~studid = b~studid INTO TABLE gt_result WHERE a~major = '컴퓨터'.",
+      hints: ['두 테이블의 공통 키 <code>STUDID</code> 로 INNER JOIN', "<code>FROM zstudent AS a INNER JOIN zscore AS b ON a~studid = b~______ INTO TABLE gt_result WHERE a~major = '컴퓨터'.</code>"] },
+    { cat: 'stu', lv: '응용', q: '<b>85점 이상</b> 성적의 학생 이름, <b>과목명</b>, 점수를 가져오세요. (테이블 3개 JOIN)',
+      tables: [{ t: 'ZSTUDENT', cols: ['STUDID', 'NAME'] }, { t: 'ZSCORE' }, { t: 'ZSUBJECT' }], given: types('ty_result', [['name', 'zstudent-name'], ['subjname', 'zsubject-subjname'], ['score', 'zscore-score']]) + 'DATA gt_result TYPE TABLE OF ty_result.',
+      target: { name: 'gt_result', kind: 'table', comps: cp('name', 'subjname', ['score', 1]) },
+      sol: 'SELECT a~name c~subjname b~score FROM zstudent AS a INNER JOIN zscore AS b ON a~studid = b~studid INNER JOIN zsubject AS c ON b~subjid = c~subjid INTO TABLE gt_result WHERE b~score >= 85.',
+      hints: ['ZSCORE 가 가운데: 학생과는 STUDID, 과목과는 SUBJID 로 연결', '<code>... INNER JOIN zsubject AS c ON b~subjid = c~______ INTO TABLE gt_result WHERE b~score >= 85.</code>'] },
+    { cat: 'stu', lv: '응용', q: '<b>학과별</b> 평균 점수를 구하세요. (학과는 ZSTUDENT, 점수는 ZSCORE → 데이터 레벨!)',
+      tables: [{ t: 'ZSTUDENT', cols: ['STUDID', 'NAME', 'MAJOR'] }, { t: 'ZSCORE' }], given: types('ty_avg', [['major', 'zstudent-major'], ['avg_score', 'p DECIMALS 2']]) + 'DATA gt_avg TYPE TABLE OF ty_avg.',
+      target: { name: 'gt_avg', kind: 'table', comps: cp('major', ['avg_score', 1, 2]) },
+      sol: 'SELECT a~major AVG( b~score ) FROM zstudent AS a INNER JOIN zscore AS b ON a~studid = b~studid INTO TABLE gt_avg GROUP BY a~major.',
+      hints: ['먼저 JOIN 으로 성적 한 줄마다 학과를 붙이고, 그다음 학과로 묶어요.', '<code>SELECT a~major AVG( b~score ) FROM zstudent AS a INNER JOIN zscore AS b ON ... INTO TABLE gt_avg GROUP BY _______.</code>'] },
+    { cat: 'stu', lv: '응용', q: '<b>모든 학생</b>의 수강 과목 수를 구하세요. 성적이 하나도 없는 학생은 <b>0</b> 으로 나와야 해요.',
+      tables: [{ t: 'ZSTUDENT', cols: ['STUDID', 'NAME'] }, { t: 'ZSCORE' }], given: types('ty_count', [['studid', 'zstudent-studid'], ['name', 'zstudent-name'], ['cnt', 'i']]) + 'DATA gt_count TYPE TABLE OF ty_count.',
+      target: { name: 'gt_count', kind: 'table', comps: cp('studid', 'name', ['cnt', 1]) },
+      sol: 'SELECT a~studid a~name COUNT( b~subjid ) FROM zstudent AS a LEFT OUTER JOIN zscore AS b ON a~studid = b~studid INTO TABLE gt_count GROUP BY a~studid a~name.',
+      hints: ['짝이 없는 학생도 남기려면 <code>LEFT OUTER JOIN</code>. <code>COUNT( b~subjid )</code> 는 빈 값을 세지 않아요.', '<code>... FROM zstudent AS a LEFT OUTER JOIN zscore AS b ON a~studid = b~studid INTO TABLE gt_count GROUP BY a~studid a~____.</code>'] },
+
+    /* ---------- 모듈 (MM / FI) ---------- */
+    { cat: 'mod', lv: '기본', note: 'MM 자재 마스터: 자재유형 <code>ROH</code> = 원자재, <code>HALB</code> = 반제품, <code>FERT</code> = 완제품', q: '자재유형이 <b>원자재(ROH)</b> 인 자재의 자재번호와 단위를 가져오세요.',
+      tables: [{ t: 'MARA' }], given: types('ty_material', [['matnr', 'mara-matnr'], ['meins', 'mara-meins']]) + 'DATA gt_material TYPE TABLE OF ty_material.',
+      target: { name: 'gt_material', kind: 'table', comps: cp('matnr', 'meins') },
+      sol: "SELECT matnr meins FROM mara INTO TABLE gt_material WHERE mtart = 'ROH'.",
+      hints: ['자재유형 필드는 <code>MTART</code>', "<code>... WHERE mtart = '___'.</code>"] },
+    { cat: 'mod', lv: '기본', note: 'MM 구매오더(PO) 품목: 구매오더 하나에 품목(10, 20 ...)이 여러 개 달려요.', q: "구매오더 <b>'4500000002'</b> 의 품목을 <b>금액이 큰 순</b>으로 가져오세요.",
+      tables: [{ t: 'EKPO' }], given: types('ty_item', [['ebelp', 'ekpo-ebelp'], ['matnr', 'ekpo-matnr'], ['netwr', 'ekpo-netwr']]) + 'DATA gt_item TYPE TABLE OF ty_item.',
+      target: { name: 'gt_item', kind: 'table', comps: cp('ebelp', 'matnr', ['netwr', 1]) }, order: [['NETWR', 'desc']],
+      sol: "SELECT ebelp matnr netwr FROM ekpo INTO TABLE gt_item WHERE ebeln = '4500000002' ORDER BY netwr DESCENDING.",
+      hints: ['구매오더번호는 <code>EBELN</code>, 금액은 <code>NETWR</code>', "<code>... WHERE ebeln = '4500000002' ORDER BY _____ DESCENDING.</code>"] },
+    { cat: 'mod', lv: '기본', note: 'FI 회계전표: 전표유형 <code>KR</code> = 공급업체 송장, <code>SA</code> = 일반 전표, <code>DR</code> = 고객 송장', q: '전표유형이 <b>공급업체 송장(KR)</b> 인 전표의 전표번호와 증빙일을 가져오세요.',
+      tables: [{ t: 'BKPF' }], given: types('ty_doc', [['belnr', 'bkpf-belnr'], ['bldat', 'bkpf-bldat']]) + 'DATA gt_doc TYPE TABLE OF ty_doc.',
+      target: { name: 'gt_doc', kind: 'table', comps: cp('belnr', 'bldat') },
+      sol: "SELECT belnr bldat FROM bkpf INTO TABLE gt_doc WHERE blart = 'KR'.",
+      hints: ['전표유형 필드는 <code>BLART</code>', "<code>SELECT belnr bldat FROM bkpf INTO TABLE gt_doc WHERE _____ = 'KR'.</code>"] },
+    { cat: 'mod', lv: '응용', note: 'EKPO 에는 자재번호만 있고, 자재 이름은 MAKT 에 있어요. (실무에서 아주 자주 하는 JOIN)', q: "구매오더 <b>'4500000001'</b> 품목의 품목번호, <b>자재명</b>, 수량을 가져오세요.",
+      tables: [{ t: 'EKPO', cols: ['EBELN', 'EBELP', 'MATNR', 'MENGE'] }, { t: 'MAKT' }], given: types('ty_item', [['ebelp', 'ekpo-ebelp'], ['maktx', 'makt-maktx'], ['menge', 'ekpo-menge']]) + 'DATA gt_item TYPE TABLE OF ty_item.',
+      target: { name: 'gt_item', kind: 'table', comps: cp('ebelp', 'maktx', ['menge', 1]) },
+      sol: "SELECT a~ebelp b~maktx a~menge FROM ekpo AS a INNER JOIN makt AS b ON a~matnr = b~matnr INTO TABLE gt_item WHERE a~ebeln = '4500000001'.",
+      hints: ['공통 키 <code>MATNR</code>(자재번호)로 JOIN', "<code>FROM ekpo AS a INNER JOIN makt AS b ON a~matnr = b~_____ INTO TABLE gt_item WHERE a~ebeln = '4500000001'.</code>"] },
+    { cat: 'mod', lv: '응용', note: '여러 구매오더에 같은 자재가 나눠서 들어 있어요. 자재 기준으로 모아 보면?', q: '<b>자재별</b> 총 구매 수량을 구하세요.',
+      tables: [{ t: 'EKPO', cols: ['EBELN', 'EBELP', 'MATNR', 'MENGE'] }], given: types('ty_sum', [['matnr', 'ekpo-matnr'], ['total_qty', 'ekpo-menge']]) + 'DATA gt_sum TYPE TABLE OF ty_sum.',
+      target: { name: 'gt_sum', kind: 'table', comps: cp('matnr', ['total_qty', 1]) },
+      sol: 'SELECT matnr SUM( menge ) FROM ekpo INTO TABLE gt_sum GROUP BY matnr.',
+      hints: ['자재별 → <code>GROUP BY matnr</code>, 총 수량 → <code>SUM( menge )</code>', '<code>SELECT matnr SUM( _____ ) FROM ekpo INTO TABLE gt_sum GROUP BY matnr.</code>'] },
+  ];
+  P.forEach((p, i) => (p.no = i + 1));
+  G.MASTER = MASTER; G.PROBLEMS = P;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+{
+const E = window.Engine, P = window.PROBLEMS, M = window.MASTER;
+const CAT = { air: '항공사', stu: '학생', mod: '모듈 · MM/FI' };
+const KEY = '<svg class="keyico" viewBox="0 0 16 16" aria-label="키 필드"><circle cx="5" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h7M12.5 8v3M15 8v2.2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>';
+let st = { cur: 0, ans: {}, solved: {} };
+try { const s = JSON.parse(localStorage.getItem('abap-sql-30') || 'null'); if (s && typeof s === 'object') st = { ...st, ...s }; } catch (e) {}
+const save = () => { try { localStorage.setItem('abap-sql-30', JSON.stringify(st)); } catch (e) {} };
+const h = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmt = (v, c) => (c && c.num && c.dec ? Number(v).toFixed(c.dec) : v === null || v === undefined ? '' : String(v));
+const KWS = new Set('SELECT SINGLE DISTINCT FROM INTO TABLE CORRESPONDING FIELDS OF WHERE AND OR NOT IN BETWEEN LIKE IS NULL INITIAL GROUP BY HAVING ORDER ASCENDING DESCENDING ASC DESC UP TO ROWS INNER LEFT OUTER JOIN ON AS COUNT SUM AVG MAX MIN TYPES DATA BEGIN END TYPE DECIMALS EQ NE LT GT LE GE PRIMARY KEY ENDSELECT APPENDING'.split(' '));
+const hl = (code) => String(code).replace(/('(?:[^'\n]|'')*'?)|("[^\n]*)|(^\*[^\n]*)|([A-Za-z_][A-Za-z0-9_\-\/]*)|([\s\S])/gm, (m, s, c1, c2, w) => s ? `<span class="lit">${h(s)}</span>` : (c1 || c2) ? `<span class="cmt">${h(m)}</span>` : w ? (KWS.has(w.toUpperCase()) ? `<span class="kw">${h(w)}</span>` : h(w)) : h(m));
+
+function tableHtml(cols, rows) {
+  const th = cols.map((c) => `<th class="${c.key ? 'k ' : ''}${c.num ? 'n' : ''}"><span class="fn">${c.key ? KEY : ''}${h(c.n)}</span>${c.l ? `<span class="fl">${h(c.l)}</span>` : ''}</th>`).join('');
+  const tr = rows.map((r) => `<tr>${cols.map((c, i) => `<td class="${c.num ? 'n' : ''}">${h(fmt(Array.isArray(r) ? r[i] : r[c.n], c))}</td>`).join('')}</tr>`).join('');
+  return `<div class="scroll"><table><thead><tr>${th}</tr></thead><tbody>${tr}</tbody></table></div>`;
+}
+function compsMeta(p, tables) {
+  return p.target.comps.map((c) => {
+    let src = null;
+    for (const t of tables) { const f = t.cols.find((x) => x.n === c.n); if (f) { src = f; break; } }
+    const base = src ? { l: src.l, num: src.num, dec: src.dec } : {};
+    const extra = { CNT: '개수', TOTAL_OCC: '예약 좌석 합계', MAX_SCORE: '최고 점수', MIN_SCORE: '최저 점수', AVG_SCORE: '평균 점수', TOTAL_QTY: '총 수량' }[c.n];
+    return { n: c.n, l: extra || base.l || '', num: c.num, dec: c.dec ?? base.dec };
+  });
+}
+function render() {
+  const p = P[st.cur];
+  const ex = E.expected(p, M);
+  const comps = compsMeta(p, ex.tables);
+  const tablesHtml = ex.tables.map((t) => `<section class="tb"><h3><span class="mono">${t.name}</span><span>${h(t.label)}</span></h3>${tableHtml(t.cols, t.rows)}</section>`).join('');
+  const expLabel = p.target.kind === 'table' ? `인터널 테이블 ${p.target.name}` : p.target.kind === 'struct' ? `구조 ${p.target.name} (한 줄)` : `변수 ${p.target.name} (값 하나)`;
+  document.getElementById('card').innerHTML = `
+    <div class="qhead">
+      <div class="meta"><span class="qno">${String(p.no).padStart(2, '0')}</span><span class="chip">${CAT[p.cat]}</span><span class="chip ${p.lv === '응용' ? 'lv2' : ''}">${p.lv}</span>${st.solved[p.no] ? '<span class="solved">✓ 푼 문제</span>' : ''}</div>
+      <p class="q">${p.q}</p>
+      ${p.note ? `<p class="note">${p.note}</p>` : ''}
+    </div>
+    <div class="grid">
+      <div class="data">
+        <h2>사용할 테이블</h2>
+        ${tablesHtml}
+        <section class="tb exp"><h3><span>기대 결과</span><span class="mono">${h(expLabel)}</span></h3>${tableHtml(comps, ex.rows)}</section>
+      </div>
+      <div class="edit"><div class="edit-in">
+        <h2>주어진 선언</h2>
+        <pre class="given">${hl(p.given)}</pre>
+        <label class="lb" for="sql">SELECT문을 작성하세요</label>
+        <div class="editor"><div class="gutter" id="gut">1</div><div class="area"><pre id="hlpre" aria-hidden="true"></pre><textarea id="sql" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" placeholder="SELECT ...&#10;  FROM ...&#10;  INTO ...&#10;  WHERE ... ."></textarea></div></div>
+        <div class="btns">
+          <button class="primary" id="run">채점</button>
+          <button id="hintb">힌트</button>
+          <button id="ansb">정답 보기</button>
+          <span class="kbd">Ctrl + Enter 로 채점</span>
+        </div>
+        <div class="fb" id="fb" role="status" aria-live="polite"></div>
+        <div class="hint" id="h1"><b class="t">힌트 1</b>${p.hints[0]}</div>
+        <div class="hint" id="h2"><b class="t">힌트 2</b>${p.hints[1]}</div>
+        <div class="hint ans" id="ans"><b class="t">정답 예시</b><pre>${hl(p.sol)}</pre></div>
+      </div></div>
+    </div>`;
+  const ta = document.getElementById('sql');
+  const pre = document.getElementById('hlpre'), gut = document.getElementById('gut');
+  const paint = () => { pre.innerHTML = hl(ta.value) + '\n'; gut.textContent = ta.value.split('\n').map((_, i) => i + 1).join('\n'); sync(); };
+  const sync = () => { pre.scrollTop = ta.scrollTop; pre.scrollLeft = ta.scrollLeft; gut.scrollTop = ta.scrollTop; };
+  ta.value = st.ans[p.no] || '';
+  paint();
+  ta.addEventListener('scroll', sync);
+  ta.addEventListener('input', () => { st.ans[p.no] = ta.value; save(); paint(); });
+  ta.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); check(); } });
+  document.getElementById('run').onclick = check;
+  let hs = 0;
+  document.getElementById('hintb').onclick = () => { hs = Math.min(hs + 1, 2); document.getElementById('h' + hs).classList.add('show'); if (hs === 2) document.getElementById('hintb').disabled = true; };
+  document.getElementById('ansb').onclick = () => document.getElementById('ans').classList.toggle('show');
+  const sel = document.getElementById('jump'); sel.value = st.cur;
+  ['prev', 'prev2'].forEach((id) => (document.getElementById(id).disabled = st.cur === 0));
+  ['next', 'next2'].forEach((id) => (document.getElementById(id).disabled = st.cur === P.length - 1));
+}
+function check() {
+  const p = P[st.cur], fb = document.getElementById('fb');
+  const sql = document.getElementById('sql').value;
+  let g;
+  try { g = E.grade(sql, p, M); } catch (e) { g = { status: 'error', msg: '채점 중 문제가 생겼어요. 문장을 다시 확인해 주세요.' }; }
+  const notes = g.notes && g.notes.length ? `<div class="notes">참고: ${g.notes.join(' ')}</div>` : '';
+  if (g.status === 'ok') {
+    fb.className = 'fb show ok'; fb.innerHTML = `<h4>정답이에요!</h4><div>결과 ${g.rows.length}행이 기대 결과와 같아요.</div>${notes}`;
+    st.solved[p.no] = true; save(); fillJump();
+  } else if (g.status === 'error') {
+    fb.className = 'fb show err'; fb.innerHTML = `<h4>오류 · 문법이나 이름을 확인하세요</h4><div>${g.msg}</div>`;
+  } else {
+    fb.className = 'fb show wr'; fb.innerHTML = `<h4>실행은 됐지만 결과가 달라요</h4><ul>${g.hints.map((x) => `<li>${x}</li>`).join('')}</ul>${notes}`;
+  }
+}
+function fillJump() {
+  const sel = document.getElementById('jump');
+  sel.innerHTML = P.map((p, i) => `<option value="${i}">${String(p.no).padStart(2, '0')} · ${CAT[p.cat].split(' ')[0]}${st.solved[p.no] ? ' ✓' : ''}</option>`).join('');
+  sel.value = st.cur;
+}
+const go = (i) => { st.cur = Math.max(0, Math.min(P.length - 1, i)); save(); render(); window.scrollTo({ top: 0 }); };
+document.getElementById('prev').onclick = document.getElementById('prev2').onclick = () => go(st.cur - 1);
+document.getElementById('next').onclick = document.getElementById('next2').onclick = () => go(st.cur + 1);
+document.getElementById('jump').onchange = (e) => go(Number(e.target.value));
+if (!(st.cur >= 0 && st.cur < P.length)) st.cur = 0;
+fillJump(); render();
+}
+</script>
+</body>
+</html>
