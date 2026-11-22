@@ -36,6 +36,16 @@ SAP ECC 환경에서 작성한 ABAP 코드와 SAPUI5 앱 모음입니다. 실무
 - **계산 구조** — 평균별점 · 대표리뷰를 앱 시작 시 일괄 계산, 리뷰 저장 시 해당 가게만 재계산
 - **Fragment 재사용** — 메인의 리뷰 팝업을 랜덤 화면에서 보기 전용으로 재사용
 
+### [🧩 ABAP SQL 30제 — 멘토링용 문제 카드](mentoring/abap-sql-quiz)
+
+[![Quiz Card](mentoring/abap-sql-quiz/images/01_quiz_card.png)](mentoring/abap-sql-quiz)
+
+SAP CODE 아카데미 멘토링(1:2)에서 비전공 멘티의 테이블 구조 파악 · SQL 연습용으로 만든 웹페이지입니다.
+
+- **30문제** — 항공사(SCARR · SPFLI · SFLIGHT · SBOOK) 15 · 학생 10 · MM/FI 5, 기본 조회 → JOIN · GROUP BY · HAVING 순
+- **실행 기반 채점** — 입력한 클래식 Open SQL을 문제 테이블에 실행해 결과로 정답 판정, 형식이 달라도 결과가 같으면 정답
+- **오답 진단** — 문법 오류와 결과 차이(행 수 · 조건 · ON · 정렬 · 필드 순서)를 구분해서 안내
+
 ## 🛠 Tech Stack
 | 영역 | 내용 |
 |---|---|
