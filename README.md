@@ -1,88 +1,35 @@
 # SAP ABAP Portfolio
 
-![SAP](https://img.shields.io/badge/SAP-ECC-0FAAFF?style=flat-square&logo=sap&logoColor=white)
-![ABAP](https://img.shields.io/badge/ABAP-Classic%20%2B%20OO-1565C0?style=flat-square)
-![Module](https://img.shields.io/badge/Module-MM-2E7D32?style=flat-square)
-![SAPUI5](https://img.shields.io/badge/SAPUI5-1.154-6A1B9A?style=flat-square)
+SAP ECC에서 개발한 ABAP 프로그램과 SAPUI5 앱을 모아 둔 저장소입니다.
 
-SAP ECC 환경에서 작성한 ABAP 코드와 SAPUI5 앱 모음입니다. 실무형 MM 프로젝트, UI5 조별 프로젝트, SAP 공식 교육과정(TAW10 · BC405 · BC414 · TAW12) 실습 코드로 구성되어 있습니다.
+## Projects
 
-## 👤 About
-- **이정민** — SAP ABAP Developer (신입)
-- 광운대학교 경영학부 (2027.02 졸업 예정)
-- SAP Certified — ABAP
+### [MM] Purchasing Processing Info · [보기](projects/mm-purchasing-processing-info)
 
-## 🚀 Projects
+[![MM](projects/mm-purchasing-processing-info/images/02_main_alv.jpg)](projects/mm-purchasing-processing-info)
 
-### [📦 [MM] Purchasing Processing Info](projects/mm-purchasing-processing-info)
+구매오더 기준으로 구매 · 입고 · 송장 데이터를 한 화면에서 조회하고, 입고 처리와 취소까지 하는 ABAP 리포트입니다. (개인 개발)
 
-[![Main ALV](projects/mm-purchasing-processing-info/images/02_main_alv.jpg)](projects/mm-purchasing-processing-info)
+- ALV 3개(PO 상세 + 거래처 · 자재 요약)를 Splitter로 배치
+- `BAPI_GOODSMVT_CREATE` / `CANCEL`로 입고 처리 · 취소
+- Tabstrip 팝업에서 GR / IR 이력 조회 (1건은 상세 화면, 여러 건은 ALV)
 
-구매오더(PO) 기반 구매 · 입고 · 송장 데이터를 한 화면에서 조회하고, BAPI로 입고 처리 / 취소까지 수행하는 MM 통합 리포트입니다.
+### 먹고리즘 · [보기](projects/ui5-mukgorithm)
 
-- **Split ALV** — Container 2개 · ALV 3개 (PO 상세 + Vendor / Material 요약)
-- **BAPI** — `BAPI_GOODSMVT_CREATE` (101) / `BAPI_GOODSMVT_CANCEL` + COMMIT / ROLLBACK
-- **Doc Flow 팝업** — Tabstrip + 동적 Subscreen (단건 상세 / 다건 ALV 자동 전환)
-- **ALV 이벤트** — Local Class로 Toolbar · User Command · Hotspot · Double Click 처리
+[![Mukgorithm](projects/ui5-mukgorithm/images/02_random_screens.png)](projects/ui5-mukgorithm)
 
-### [🍽️ 먹고리즘 — SAPUI5 맛집 추천 앱](projects/ui5-mukgorithm)
+회사 근처 맛집 기록으로 점심 메뉴를 골라주는 SAPUI5 모바일 웹앱입니다. (5인 팀 · 랜덤 추천 화면과 데이터 설계 담당)
 
-[![Random Screens](projects/ui5-mukgorithm/images/02_random_screens.png)](projects/ui5-mukgorithm)
+### ABAP SQL 35제 · [보기](mentoring/abap-sql-quiz)
 
-회사 근처 맛집 방문 기록으로 점심 메뉴를 골라주는 SAPUI5 모바일 웹앱입니다. (5인 조별 프로젝트 · **랜덤 추천 화면 · 데이터 설계 담당**)
+[![Quiz](mentoring/abap-sql-quiz/images/01_quiz_card.png)](mentoring/abap-sql-quiz)
 
-- **랜덤 추천 화면 단독 개발** — 완전랜덤 / 날씨추천, 슬롯 연출(`setInterval` · `setTimeout`), `bindElement` 결과 카드
-- **데이터 정제 · 설계** — 엑셀 620행 → 가게 80곳 × 리뷰 3건 JSON
-- **계산 구조** — 평균별점 · 대표리뷰를 앱 시작 시 일괄 계산, 리뷰 저장 시 해당 가게만 재계산
-- **Fragment 재사용** — 메인의 리뷰 팝업을 랜덤 화면에서 보기 전용으로 재사용
+SAP CODE 멘토링에서 멘티 연습용으로 만든 Open SQL 문제 웹페이지입니다. 입력한 SELECT문을 실제로 실행해 결과로 채점합니다.
 
-### [🧩 ABAP SQL 30제 — 멘토링용 문제 카드](mentoring/abap-sql-quiz)
+## 그 밖의 자료
 
-[![Quiz Card](mentoring/abap-sql-quiz/images/01_quiz_card.png)](mentoring/abap-sql-quiz)
+[practice/ui5](practice/ui5) — UI5 수업 실습 4개 (기초 컨트롤, 라우팅, 생산 오더 관리 시험, OData 연동)
 
-SAP CODE 아카데미 멘토링(1:2)에서 비전공 멘티의 테이블 구조 파악 · SQL 연습용으로 만든 웹페이지입니다.
+## 환경
 
-- **35문제** — 클래식: 항공사(SCARR · SPFLI · SFLIGHT · SBOOK) 15 · 학생 10 · MM/FI 5 / 뉴 ABAP(`@` · 인라인 선언) 5
-- **실행 기반 채점** — 입력한 클래식 Open SQL을 문제 테이블에 실행해 결과로 정답 판정, 형식이 달라도 결과가 같으면 정답
-- **오답 진단** — 문법 오류와 결과 차이(행 수 · 조건 · ON · 정렬 · 필드 순서)를 구분해서 안내
-
-## 🛠 Tech Stack
-| 영역 | 내용 |
-|---|---|
-| Language | ABAP (Classic / OO ABAP) |
-| Environment | SAP ECC · SAP GUI (SE38 / SE51 / SE41 / SE80) |
-| Module | MM (Materials Management) |
-| Topics | ALV Grid · Split Container · Dialog Programming · Tabstrip · BAPI · LUW |
-| Frontend | SAPUI5 (XML View · JSON / OData V2 Model · Fragment · Routing) · SAP BAS |
-
-## 📁 Repository Structure
-```
-sap-abap-portfolio/
-├── projects/
-│   ├── mm-purchasing-processing-info/   # [MM] 구매 · 입고 · 문서흐름 리포트
-│   │   ├── src/                         # Include별 ABAP 소스
-│   │   ├── screens/                     # Screen Flow Logic
-│   │   └── images/                      # 설계서 · 실행 화면
-│   └── ui5-mukgorithm/                  # [UI5] 먹고리즘 — 맛집 랜덤 추천 앱
-│       ├── webapp/                      # View · Controller · Fragment · Model
-│       └── images/                      # 와이어프레임 · 구현 화면
-├── mentoring/
-│   └── abap-sql-quiz/                   # 멘토링용 Open SQL 문제 카드 (클래식 30 + 뉴 5)
-├── practice/
-│   ├── taw10/                           # ABAP 기초 (Part 1·2)
-│   ├── bc405/                           # Report 프로그래밍 · ALV
-│   ├── bc414/                           # DB Update · LUW · Lock
-│   ├── taw12/                           # 고급 ABAP · OO
-│   └── ui5/                             # SAPUI5 실습 4종 (기초 · 라우팅 · 시험 · OData)
-└── docs/
-```
-
-## 📌 File Naming
-abapGit 규칙을 따릅니다.
-
-| 확장자 | 오브젝트 | 트랜잭션 |
-|---|---|---|
-| `.prog.abap` | Report / Include | SE38 |
-| `.clas.abap` | Global Class | SE24 |
-| `.fugr.abap` | Function Group / Module | SE37 |
-| `screen_XXXX.abap` | Screen Flow Logic | SE51 |
+SAP ECC · SAP GUI (SE38 / SE51 / SE41 / SE80) · SAP BAS · SAPUI5 1.154
