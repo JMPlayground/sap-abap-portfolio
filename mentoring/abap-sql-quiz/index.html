@@ -609,8 +609,8 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
     const comps = prob.target.comps;
     let u;
     try { u = execInto(sql, prob, tables); } catch (e) { if (e.sqlErr) return { status: 'error', msg: e.message }; throw e; }
+    if (!u.ast.hasDot) return { status: 'error', msg: 'ABAP 문장은 마침표(<code>.</code>)로 끝나야 해요. 문장 맨 끝에 <code>.</code> 을 붙여 주세요.' };
     const notes = [];
-    if (!u.ast.hasDot) notes.push('ABAP 문장은 마침표(<code>.</code>)로 끝나요. 실제 에디터에서는 꼭 붙여 주세요.');
     if (u.ast.aggNoSpace) notes.push('실제 ABAP(클래식)에서는 집계함수 괄호 안쪽을 띄어 써요. 예: <code>SUM( menge )</code>');
     const ok = sameMulti(u.into.rows, sol.into.rows, comps) && (!prob.order || sortedOk(u.into.rows, prob.order, comps));
     if (ok) return { status: 'ok', notes, rows: u.into.rows };
