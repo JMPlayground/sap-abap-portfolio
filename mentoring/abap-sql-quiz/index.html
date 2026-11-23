@@ -152,18 +152,19 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
         const map = { '=<': '<=', '=>': '>=', '><': '<>' };
         t.push({ t: 'op', v: map[two] || two, raw: two }); i += 2; continue;
       }
-      if ('=<>(),*~.-'.includes(c)) { t.push({ t: c === '.' ? 'dot' : 'op', v: c, raw: c }); i++; continue; }
+      if ('=<>(),*~.-@'.includes(c)) { t.push({ t: c === '.' ? 'dot' : 'op', v: c, raw: c }); i++; continue; }
       err(`알 수 없는 문자 '${esc(c)}' 가 있어요.`);
     }
     return t;
   }
 
   /* ---------- parser ---------- */
-  function parse(src) {
+  function parse(src, mode) {
+    const NEW = mode === 'new';
     if (!src.trim()) err('SQL을 입력해 주세요.');
     const noStr = stripStrings(src);
-    if (/@/.test(noStr)) err('클래식 문법 문제예요. <code>@</code> 없이 써 주세요. (예: <code>INTO TABLE gt_flight</code>)');
-    if (/\bDATA\s*\(/i.test(noStr)) err('클래식 문법에서는 인라인 선언 <code>DATA( )</code> 를 쓰지 않아요. 문제에 선언된 변수를 INTO 뒤에 쓰세요.');
+    if (!NEW && /@/.test(noStr)) err('클래식 문법 문제예요. <code>@</code> 없이 써 주세요. (예: <code>INTO TABLE gt_flight</code>)');
+    if (!NEW && /\bDATA\s*\(/i.test(noStr)) err('클래식 문법에서는 인라인 선언 <code>DATA( )</code> 를 쓰지 않아요. 문제에 선언된 변수를 INTO 뒤에 쓰세요.');
     if (/"[^"\n]*"/.test(src)) err('ABAP에서 문자 값은 작은따옴표 <code>\'LH\'</code> 로 감싸요. 큰따옴표 <code>"</code> 는 주석 기호예요.');
     const T = tokenize(src);
     let p = 0;
@@ -178,7 +179,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
       if (!x || x.t !== 'id') err(`${near()}에서 ${what} 이름이 와야 해요.`);
       p++; return x;
     };
-    const ast = { single: false, distinct: false, star: false, items: [], into: null, from: null, where: null, groupBy: null, having: null, orderBy: null, upTo: null, hasDot: false, commaSel: false, aggNoSpace: false };
+    const ast = { single: false, distinct: false, star: false, items: [], into: null, from: null, where: null, groupBy: null, having: null, orderBy: null, upTo: null, hasDot: false, commaSel: false, missComma: false, aggNoSpace: false };
 
     function colref() {
       const a = ident('필드');
@@ -203,6 +204,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
       if (x.t === 'num') { p++; return { k: 'lit', v: x.v, str: false }; }
       if (x.t === 'op' && x.v === '-' && peek(1) && peek(1).t === 'num') { p += 2; return { k: 'lit', v: -peek(-1).v, str: false }; }
       if (x.t === 'id' && AGG.includes(x.v) && isOp('(', 1)) return aggr();
+      if (x.t === 'op' && x.v === '@') { p++; const v = ident('변수'); return { k: 'host', name: v.v, raw: v.raw }; }
       if (x.t === 'id') return { k: 'col', ref: colref() };
       err(`${near()}: 여기에는 필드나 값이 와야 해요.`);
     }
@@ -257,10 +259,13 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
     if (isKw('DISTINCT')) { ast.distinct = true; p++; }
     if (isOp('*')) { ast.star = true; p++; }
     else {
+      let prevItem = false;
       for (;;) {
         const x = peek();
         if (!x || x.t === 'dot' || (x.t === 'id' && CLAUSE.includes(x.v))) break;
-        if (isOp(',')) { ast.commaSel = true; p++; continue; }
+        if (isOp(',')) { ast.commaSel = true; prevItem = false; p++; continue; }
+        if (prevItem) ast.missComma = true;
+        prevItem = true;
         let it;
         if (x.t === 'id' && AGG.includes(x.v) && isOp('(', 1)) it = aggr();
         else if (x.t === 'id') it = { k: 'col', ref: colref() };
@@ -270,7 +275,8 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
       }
       if (!ast.items.length) err('SELECT 뒤에 가져올 필드(또는 <code>*</code>)를 적어 주세요.');
     }
-    if (ast.commaSel) err('클래식 문법에서는 SELECT 필드를 콤마(,) 없이 <b>띄어쓰기</b>로 구분해요. 예: <code>SELECT carrid connid</code>');
+    if (NEW && ast.missComma) err('뉴 문법에서는 SELECT 필드를 <b>콤마(,)</b>로 구분해요. 예: <code>SELECT carrid, connid</code>');
+    if (!NEW && ast.commaSel) err('클래식 문법에서는 SELECT 필드를 콤마(,) 없이 <b>띄어쓰기</b>로 구분해요. 예: <code>SELECT carrid connid</code>');
     if (/\b(SUM|AVG|MAX|MIN|COUNT)\((?!\s|\*\))/i.test(noStr) || /\b(SUM|AVG|MAX|MIN|COUNT)\(\s*\S+?[^\s(]\)/i.test(noStr)) ast.aggNoSpace = true;
 
     const seen = {};
@@ -285,6 +291,12 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
         if (isKw('CORRESPONDING')) { p++; expectKw('FIELDS', '<code>CORRESPONDING FIELDS OF</code> 형태예요.'); expectKw('OF', '<code>CORRESPONDING FIELDS OF</code> 형태예요.'); into.corr = true; }
         if (isKw('TABLE')) { p++; into.table = true; }
         if (isOp('(')) err('이 연습에서는 <code>INTO ( 변수, 변수 )</code> 대신 문제에 선언된 변수 하나에 담아요.');
+        if (isOp('@')) { p++; into.at = true; }
+        if (isKw('DATA') && isOp('(', 1)) {
+          if (!into.at) err('인라인 선언은 <code>@DATA( 이름 )</code> 형태예요. 앞에 <code>@</code> 를 붙여 주세요.');
+          p += 2; const nm = ident('새 변수'); expectOp(')', '<code>@DATA( 이름 )</code> 괄호를 닫아 주세요.');
+          into.inline = true; into.target = nm.v; into.raw = nm.raw; ast.into = into; continue;
+        }
         const tg = ident('INTO 대상 변수');
         if (tg.v === 'TABLE' || tg.v === 'CORRESPONDING') err('INTO 순서는 <code>INTO CORRESPONDING FIELDS OF TABLE gt_xxx</code> 예요.');
         into.target = tg.v; into.raw = tg.raw;
@@ -354,7 +366,8 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
   }
   function allValues(tables) { const s = []; tables.forEach((t) => t.rows.forEach((r) => Object.values(r).forEach((v) => s.push(v)))); return s; }
 
-  function run(ast, tables) {
+  function run(ast, tables, vars) {
+    vars = vars || {};
     const byName = {}; tables.forEach((t) => (byName[t.name] = t));
     const sources = [];
     const addSrc = (tr) => {
@@ -372,6 +385,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
     const resolved = new Map();
     function resolve(ref) {
       if (resolved.has(ref)) return resolved.get(ref);
+      if (!ref.q && vars[ref.name] !== undefined) err(`<code>${esc(ref.raw)}</code> 는 ABAP 변수예요. 뉴 문법에서는 SQL 안의 ABAP 변수 앞에 <code>@</code> 를 붙여요: <code>@${esc(ref.raw)}</code>`);
       if (!ref.q && allValues(tables).some((v) => String(v).toUpperCase() === ref.name)) err(`<code>${esc(ref.raw)}</code> 는 필드가 아니라 값처럼 보여요. 문자 값은 작은따옴표로 감싸요: <code>'${esc(ref.raw)}'</code>`);
       if (/-/.test(ref.name) || (ref.q && /-/.test(ref.q))) err(`SQL 안에서는 <code>${esc(ref.raw)}</code> 처럼 <code>-</code> 를 쓰지 않아요. 테이블(별명)과 필드는 <code>~</code> 로 연결해요. 예: <code>${esc(ref.raw.replace('-', '~'))}</code>`);
       let src;
@@ -398,6 +412,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
     function opsOf(pred) { return [pred.l, pred.r, pred.e, pred.lo, pred.hi, ...(pred.list || [])].filter(Boolean); }
     const validateOp = (o, allowAgg, where) => {
       if (o.k === 'col') resolve(o.ref);
+      if (o.k === 'host' && vars[o.name] === undefined) err(`<code>@${esc(o.raw)}</code> 변수는 선언되지 않았어요. 주어진 선언의 변수 이름을 확인해 주세요.`);
       if (o.k === 'agg') { if (!allowAgg) err(`${where}에는 집계함수(<code>${o.fn}</code>)를 쓸 수 없어요. 묶은 뒤 조건은 <code>HAVING</code> 에 써요.`); if (o.arg !== '*') resolve(o.arg); }
     };
     ast.from.joins.forEach((j) => walk(j.on, (pr) => opsOf(pr).forEach((o) => validateOp(o, false, 'ON 조건'))));
@@ -408,6 +423,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
 
     const val = (ctx, o) => {
       if (o.k === 'lit') return o.v;
+      if (o.k === 'host') { if (vars[o.name] === undefined) err(`<code>@${esc(o.raw)}</code> 변수는 선언되지 않았어요. 주어진 선언의 변수 이름을 확인해 주세요.`); return vars[o.name]; }
       if (o.k === 'col') { const r = resolve(o.ref); const row = ctx[r.src.alias]; return row ? row[r.col] : null; }
       if (o.k === 'agg') { if (!ctx.__group) err('집계함수는 SELECT 목록이나 HAVING에서만 써요.'); return aggVal(o, ctx.__group); }
     };
@@ -504,17 +520,27 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
   }
 
   /* ---------- INTO mapping ---------- */
-  function intoTarget(ast, res, target) {
-    const tn = target.name.toUpperCase(), tl = target.name;
+  function intoTarget(ast, res, target, mode) {
+    const NEW = mode === 'new', AT = NEW ? '@' : '';
+    const tn = target.name.toUpperCase(), tl = AT + (target.inline ? `DATA(${target.name})` : target.name);
     const into = ast.into;
-    if (!into) err(`<code>INTO</code> 절이 없어요. 결과를 담을 변수 <code>${tl}</code> 를 적어 주세요. 예: <code>${target.kind === 'table' ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
-    if (into.target !== tn) err(`INTO 대상 <code>${esc(into.raw)}</code> 는 선언되지 않았어요. 문제에 선언된 변수는 <code>${tl}</code> 예요.`);
+    if (!into) err(`<code>INTO</code> 절이 없어요. 결과를 담을 곳을 적어 주세요. 예: <code>${target.kind === 'table' ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
+    if (NEW && !into.at) err(`뉴 문법에서는 INTO 대상 앞에 <code>@</code> 를 붙여요. 예: <code>${into.table ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
+    if (target.inline) {
+      if (!into.inline) err(`이 문제에는 미리 선언된 변수가 없어요. INTO 자리에서 바로 선언해요: <code>${target.kind === 'table' ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
+      if (into.corr) err('인라인 선언(<code>@DATA( )</code>)에는 CORRESPONDING FIELDS OF 를 쓰지 않아요.');
+      const noAlias = ast.items.find((i) => i.k === 'agg' && !i.alias);
+      if (noAlias) err(`인라인 선언으로 만들 때는 집계 결과에 이름이 필요해요 → <code>${noAlias.fn}( ... ) AS 이름</code>`);
+    } else {
+      if (into.inline) err(`이 문제는 미리 선언된 <code>${target.name}</code> 에 담아요. <code>${target.kind === 'table' ? 'INTO TABLE ' : 'INTO '}${tl}</code>`);
+      if (into.target !== tn) err(`INTO 대상 <code>${esc(into.raw)}</code> 는 선언되지 않았어요. 문제에 선언된 변수는 <code>${target.name}</code> 예요.`);
+    }
     const aggOnly = !ast.star && ast.items.every((i) => i.k === 'agg') && !ast.groupBy;
     if (target.kind === 'table') {
-      if (!into.table) err(`<code>${tl}</code> 는 인터널 테이블이라 여러 줄을 담아요. <code>INTO TABLE ${tl}</code> 로 써 주세요.`);
+      if (!into.table) err(`결과가 여러 줄이라 인터널 테이블에 담아요. <code>INTO TABLE ${tl}</code> 로 써 주세요.`);
       if (ast.single) err(`<code>SELECT SINGLE</code> 은 한 줄만 읽어요. 인터널 테이블에는 SINGLE 없이 <code>INTO TABLE</code> 로 담아요.`);
     } else {
-      if (into.table) err(`<code>${tl}</code> 는 한 줄짜리 ${target.kind === 'field' ? '변수' : '구조'}예요. <code>INTO TABLE</code> 이 아니라 <code>INTO ${tl}</code> 로 써요.`);
+      if (into.table) err(`결과가 한 줄짜리 ${target.kind === 'field' ? '값이에요' : '구조예요'}. <code>INTO TABLE</code> 이 아니라 <code>INTO ${tl}</code> 로 써요.`);
       if (!ast.single && !aggOnly) err(`한 줄짜리 ${target.kind === 'field' ? '변수' : '구조'}에 담으려면 <code>SELECT SINGLE</code> 로 한 줄만 읽어야 해요.`);
       if (target.kind === 'field' && into.corr) err('단일 변수에는 CORRESPONDING FIELDS OF 를 쓰지 않아요.');
     }
@@ -525,7 +551,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
       map = comps.map((c) => { const ix = res.cols.findIndex((x) => x.name === c.n); if (ix < 0) missing.push(c.n); return ix; });
       if (missing.length === comps.length) err(`CORRESPONDING FIELDS OF 는 <b>이름이 같은 필드</b>끼리 담아요. 결과 구조(${comps.map((c) => c.n.toLowerCase()).join(', ')})와 이름이 맞는 필드가 하나도 없어요.`);
     } else {
-      if (res.cols.length > comps.length) err(`SELECT 한 필드가 ${res.cols.length}개인데 <code>${tl}</code> 구조는 ${comps.length}개(${comps.map((c) => c.n.toLowerCase()).join(', ')})예요. 필요한 필드만 SELECT 해 주세요.`);
+      if (res.cols.length > comps.length) err(`SELECT 한 필드가 ${res.cols.length}개인데 결과 구조는 ${comps.length}개(${comps.map((c) => c.n.toLowerCase()).join(', ')})예요. 필요한 필드만 SELECT 해 주세요.`);
       map = comps.map((c, i) => (i < res.cols.length ? i : -1));
       comps.forEach((c, i) => { if (i >= res.cols.length) missing.push(c.n); });
     }
@@ -599,9 +625,9 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
     });
   }
   function execInto(sql, prob, tables) {
-    const ast = parse(sql);
-    const res = run(ast, tables);
-    return { ast, res, into: intoTarget(ast, res, prob.target) };
+    const ast = parse(sql, prob.mode);
+    const res = run(ast, tables, prob.vars);
+    return { ast, res, into: intoTarget(ast, res, prob.target, prob.mode) };
   }
   function grade(sql, prob, MASTER) {
     const tables = tablesFor(prob, MASTER);
@@ -818,6 +844,33 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
       target: { name: 'gt_sum', kind: 'table', comps: cp('matnr', ['total_qty', 1]) },
       sol: 'SELECT matnr SUM( menge ) FROM ekpo INTO TABLE gt_sum GROUP BY matnr.',
       hints: ['자재별 → <code>GROUP BY matnr</code>, 총 수량 → <code>SUM( menge )</code>', '<code>SELECT matnr SUM( _____ ) FROM ekpo INTO TABLE gt_sum GROUP BY matnr.</code>'] },
+
+    /* ---------- 뉴 ABAP (7.40 SP08~) ---------- */
+    { cat: 'new', lv: '뉴 문법', mode: 'new', note: '뉴 문법 규칙: SELECT 필드는 <b>콤마(,)</b>로 구분, SQL 안의 ABAP 변수 앞에는 <code>@</code>. INTO 는 WHERE 뒤 맨 끝에 써도 돼요.', q: "<b>뉴 문법</b>으로 'LH' 항공편의 항공사 코드, 편명, 비행 날짜를 gt_flight 에 담으세요.",
+      tables: [{ t: 'SFLIGHT', cols: ['CARRID', 'CONNID', 'FLDATE', 'PRICE'] }], given: types('ty_flight', [['carrid', 'sflight-carrid'], ['connid', 'sflight-connid'], ['fldate', 'sflight-fldate']]) + 'DATA gt_flight TYPE TABLE OF ty_flight.',
+      target: { name: 'gt_flight', kind: 'table', comps: cp('carrid', 'connid', 'fldate') },
+      sol: "SELECT carrid, connid, fldate FROM sflight WHERE carrid = 'LH' INTO TABLE @gt_flight.",
+      hints: ['클래식과 다른 점은 두 가지: 필드 사이 <code>,</code> 와 INTO 대상 앞 <code>@</code>', "<code>SELECT carrid, connid, fldate FROM sflight WHERE carrid = 'LH' INTO TABLE @_________.</code>"] },
+    { cat: 'new', lv: '뉴 문법', mode: 'new', note: '인라인 선언: <code>INTO TABLE @DATA(lt_carr)</code> 처럼 쓰면 SELECT 결과 모양대로 인터널 테이블이 그 자리에서 만들어져요.', q: "통화가 <b>'USD'</b> 인 항공사의 코드와 이름을 <b>인라인 선언</b>한 lt_carr 에 담으세요.",
+      tables: [{ t: 'SCARR' }], given: '" 미리 선언한 변수 없음 → INTO 자리에서 @DATA( ) 로 선언',
+      target: { name: 'lt_carr', kind: 'table', inline: true, comps: cp('carrid', 'carrname') },
+      sol: "SELECT carrid, carrname FROM scarr WHERE currcode = 'USD' INTO TABLE @DATA(lt_carr).",
+      hints: ['<code>INTO TABLE @DATA( 이름 )</code> 으로 선언과 동시에 담아요.', "<code>SELECT carrid, carrname FROM scarr WHERE currcode = 'USD' INTO TABLE @DATA(_______).</code>"] },
+    { cat: 'new', lv: '뉴 문법', mode: 'new', vars: { LV_CITY: 'FRANKFURT' }, note: 'SQL 안에서 ABAP 변수를 쓸 때도 <code>@</code> 를 붙여요. (클래식에서는 그냥 <code>lv_city</code>)', q: '변수 <b>lv_city</b> 에 들어 있는 도시에서 출발하는 노선의 항공사 코드, 편명, 도착 도시를 lt_route 로 가져오세요.',
+      tables: [{ t: 'SPFLI', cols: ['CARRID', 'CONNID', 'CITYFROM', 'CITYTO'] }], given: "DATA(lv_city) = 'FRANKFURT'.",
+      target: { name: 'lt_route', kind: 'table', inline: true, comps: cp('carrid', 'connid', 'cityto') },
+      sol: 'SELECT carrid, connid, cityto FROM spfli WHERE cityfrom = @lv_city INTO TABLE @DATA(lt_route).',
+      hints: ["값을 직접 쓰지 말고 변수 <code>@lv_city</code> 로 비교해요.", '<code>SELECT carrid, connid, cityto FROM spfli WHERE cityfrom = @_______ INTO TABLE @DATA(lt_route).</code>'] },
+    { cat: 'new', lv: '뉴 문법', mode: 'new', note: '한 줄짜리도 인라인 선언이 돼요: <code>INTO @DATA(lv_name)</code>', q: "학번 <b>'S002'</b> 학생의 이름을 인라인 선언한 <b>lv_name</b> 에 담으세요.",
+      tables: [{ t: 'ZSTUDENT' }], given: '" 미리 선언한 변수 없음 → INTO 자리에서 @DATA( ) 로 선언',
+      target: { name: 'lv_name', kind: 'field', inline: true, comps: cp('name') },
+      sol: "SELECT SINGLE name FROM zstudent WHERE studid = 'S002' INTO @DATA(lv_name).",
+      hints: ['한 줄 → <code>SELECT SINGLE</code>, 담는 곳 → <code>INTO @DATA(lv_name)</code> (TABLE 없음)', "<code>SELECT SINGLE name FROM zstudent WHERE studid = 'S002' INTO @DATA(_______).</code>"] },
+    { cat: 'new', lv: '뉴 문법', mode: 'new', note: '인라인 선언 결과의 필드 이름은 SELECT 목록에서 정해져요. 그래서 집계 결과에는 <code>AS 이름</code> 이 꼭 필요해요.', q: '<b>자재명별</b> 총 구매 금액을 구해서 lt_sum 에 담으세요. (EKPO + MAKT JOIN, 금액 합계 이름은 total_amt)',
+      tables: [{ t: 'EKPO', cols: ['EBELN', 'EBELP', 'MATNR', 'NETWR'] }, { t: 'MAKT' }], given: '" 미리 선언한 변수 없음 → INTO 자리에서 @DATA( ) 로 선언',
+      target: { name: 'lt_sum', kind: 'table', inline: true, comps: cp('maktx', ['total_amt', 1]) },
+      sol: 'SELECT b~maktx, SUM( a~netwr ) AS total_amt FROM ekpo AS a INNER JOIN makt AS b ON a~matnr = b~matnr GROUP BY b~maktx INTO TABLE @DATA(lt_sum).',
+      hints: ['JOIN 으로 자재명을 붙이고 <code>GROUP BY b~maktx</code>, 합계에는 <code>AS total_amt</code>', '<code>SELECT b~maktx, SUM( a~netwr ) AS total_amt FROM ekpo AS a INNER JOIN makt AS b ON a~matnr = b~matnr GROUP BY _______ INTO TABLE @DATA(lt_sum).</code>'] },
   ];
   P.forEach((p, i) => (p.no = i + 1));
   G.MASTER = MASTER; G.PROBLEMS = P;
@@ -827,7 +880,7 @@ label.lb{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
 <script>
 {
 const E = window.Engine, P = window.PROBLEMS, M = window.MASTER;
-const CAT = { air: '항공사', stu: '학생', mod: '모듈 · MM/FI' };
+const CAT = { air: '항공사', stu: '학생', mod: '모듈 · MM/FI', new: '뉴 ABAP' };
 const KEY = '<svg class="keyico" viewBox="0 0 16 16" aria-label="키 필드"><circle cx="5" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h7M12.5 8v3M15 8v2.2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>';
 let st = { cur: 0, ans: {}, solved: {} };
 try { const s = JSON.parse(localStorage.getItem('abap-sql-30') || 'null'); if (s && typeof s === 'object') st = { ...st, ...s }; } catch (e) {}
@@ -847,7 +900,7 @@ function compsMeta(p, tables) {
     let src = null;
     for (const t of tables) { const f = t.cols.find((x) => x.n === c.n); if (f) { src = f; break; } }
     const base = src ? { l: src.l, num: src.num, dec: src.dec } : {};
-    const extra = { CNT: '개수', TOTAL_OCC: '예약 좌석 합계', MAX_SCORE: '최고 점수', MIN_SCORE: '최저 점수', AVG_SCORE: '평균 점수', TOTAL_QTY: '총 수량' }[c.n];
+    const extra = { CNT: '개수', TOTAL_OCC: '예약 좌석 합계', MAX_SCORE: '최고 점수', MIN_SCORE: '최저 점수', AVG_SCORE: '평균 점수', TOTAL_QTY: '총 수량', TOTAL_AMT: '금액 합계' }[c.n];
     return { n: c.n, l: extra || base.l || '', num: c.num, dec: c.dec ?? base.dec };
   });
 }
@@ -856,10 +909,10 @@ function render() {
   const ex = E.expected(p, M);
   const comps = compsMeta(p, ex.tables);
   const tablesHtml = ex.tables.map((t) => `<section class="tb"><h3><span class="mono">${t.name}</span><span>${h(t.label)}</span></h3>${tableHtml(t.cols, t.rows)}</section>`).join('');
-  const expLabel = p.target.kind === 'table' ? `인터널 테이블 ${p.target.name}` : p.target.kind === 'struct' ? `구조 ${p.target.name} (한 줄)` : `변수 ${p.target.name} (값 하나)`;
+  const expLabel = p.target.inline ? `@DATA(${p.target.name})${p.target.kind === 'table' ? '' : ' (한 줄)'}` : p.target.kind === 'table' ? `인터널 테이블 ${p.target.name}` : p.target.kind === 'struct' ? `구조 ${p.target.name} (한 줄)` : `변수 ${p.target.name} (값 하나)`;
   document.getElementById('card').innerHTML = `
     <div class="qhead">
-      <div class="meta"><span class="qno">${String(p.no).padStart(2, '0')}</span><span class="chip">${CAT[p.cat]}</span><span class="chip ${p.lv === '응용' ? 'lv2' : ''}">${p.lv}</span>${st.solved[p.no] ? '<span class="solved">✓ 푼 문제</span>' : ''}</div>
+      <div class="meta"><span class="qno">${String(p.no).padStart(2, '0')}</span><span class="chip">${CAT[p.cat]}</span><span class="chip ${p.lv !== '기본' ? 'lv2' : ''}">${p.lv}</span>${st.solved[p.no] ? '<span class="solved">✓ 푼 문제</span>' : ''}</div>
       <p class="q">${p.q}</p>
       ${p.note ? `<p class="note">${p.note}</p>` : ''}
     </div>
@@ -873,7 +926,7 @@ function render() {
         <h2>주어진 선언</h2>
         <pre class="given">${hl(p.given)}</pre>
         <label class="lb" for="sql">SELECT문을 작성하세요</label>
-        <div class="editor"><div class="gutter" id="gut">1</div><div class="area"><pre id="hlpre" aria-hidden="true"></pre><textarea id="sql" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" placeholder="SELECT ...&#10;  FROM ...&#10;  INTO ...&#10;  WHERE ... ."></textarea></div></div>
+        <div class="editor"><div class="gutter" id="gut">1</div><div class="area"><pre id="hlpre" aria-hidden="true"></pre><textarea id="sql" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" placeholder="${p.mode === 'new' ? 'SELECT ..., ...&#10;  FROM ...&#10;  WHERE ...&#10;  INTO TABLE @... .' : 'SELECT ...&#10;  FROM ...&#10;  INTO ...&#10;  WHERE ... .'}"></textarea></div></div>
         <div class="btns">
           <button class="primary" id="run">채점</button>
           <button id="hintb">힌트</button>
@@ -920,7 +973,7 @@ function check() {
 }
 function fillJump() {
   const sel = document.getElementById('jump');
-  sel.innerHTML = P.map((p, i) => `<option value="${i}">${String(p.no).padStart(2, '0')} · ${CAT[p.cat].split(' ')[0]}${st.solved[p.no] ? ' ✓' : ''}</option>`).join('');
+  sel.innerHTML = P.map((p, i) => `<option value="${i}">${String(p.no).padStart(2, '0')} · ${{ air: '항공사', stu: '학생', mod: '모듈', new: '뉴 ABAP' }[p.cat]}${st.solved[p.no] ? ' ✓' : ''}</option>`).join('');
   sel.value = st.cur;
 }
 const go = (i) => { st.cur = Math.max(0, Math.min(P.length - 1, i)); save(); render(); window.scrollTo({ top: 0 }); };

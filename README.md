@@ -42,7 +42,7 @@ SAP ECC 환경에서 작성한 ABAP 코드와 SAPUI5 앱 모음입니다. 실무
 
 SAP CODE 아카데미 멘토링(1:2)에서 비전공 멘티의 테이블 구조 파악 · SQL 연습용으로 만든 웹페이지입니다.
 
-- **30문제** — 항공사(SCARR · SPFLI · SFLIGHT · SBOOK) 15 · 학생 10 · MM/FI 5, 기본 조회 → JOIN · GROUP BY · HAVING 순
+- **35문제** — 클래식: 항공사(SCARR · SPFLI · SFLIGHT · SBOOK) 15 · 학생 10 · MM/FI 5 / 뉴 ABAP(`@` · 인라인 선언) 5
 - **실행 기반 채점** — 입력한 클래식 Open SQL을 문제 테이블에 실행해 결과로 정답 판정, 형식이 달라도 결과가 같으면 정답
 - **오답 진단** — 문법 오류와 결과 차이(행 수 · 조건 · ON · 정렬 · 필드 순서)를 구분해서 안내
 
@@ -67,7 +67,7 @@ sap-abap-portfolio/
 │       ├── webapp/                      # View · Controller · Fragment · Model
 │       └── images/                      # 와이어프레임 · 구현 화면
 ├── mentoring/
-│   └── abap-sql-quiz/                   # 멘토링용 클래식 Open SQL 문제 카드 30제
+│   └── abap-sql-quiz/                   # 멘토링용 Open SQL 문제 카드 (클래식 30 + 뉴 5)
 ├── practice/
 │   ├── taw10/                           # ABAP 기초 (Part 1·2)
 │   ├── bc405/                           # Report 프로그래밍 · ALV
